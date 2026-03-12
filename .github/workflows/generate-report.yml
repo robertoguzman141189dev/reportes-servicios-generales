@@ -1,0 +1,91 @@
+name: 📊 Generar Reporte Ejecutivo
+
+on:
+  # Trigger manual
+  workflow_dispatch:
+    inputs:
+      file_id:
+        description: 'Google Drive File ID del Excel'
+        required: false
+        default: ''
+  
+  # Trigger via webhook (desde Google Apps Script)
+  repository_dispatch:
+    types: [generate-report]
+  
+  # También puede correr en schedule como backup
+  schedule:
+    - cron: '0 6 * * *'  # Diario a las 6 AM UTC
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+      pages: write
+    
+    steps:
+      - name: 📥 Checkout repositorio
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+      
+      - name: 📦 Instalar dependencias
+        run: |
+          pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+      
+      - name: 🔑 Configurar credenciales de Google
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        run: |
+          echo "$GOOGLE_CREDENTIALS" > /tmp/credentials.json
+      
+      - name: 📊 Descargar Excel de Google Drive
+        env:
+          GOOGLE_CREDENTIALS: /tmp/credentials.json
+          DRIVE_FOLDER_ID: ${{ secrets.DRIVE_FOLDER_ID }}
+          FILE_ID: ${{ github.event.client_payload.file_id || github.event.inputs.file_id }}
+        run: |
+          python scripts/download_from_drive.py
+      
+      - name: 🔄 Procesar Excel y generar reporte
+        run: |
+          python scripts/process_excel.py
+      
+      - name: 📝 Verificar que el reporte se generó
+        run: |
+          if [ -f "docs/index.html" ]; then
+            echo "✅ Reporte generado exitosamente"
+            echo "📄 Tamaño: $(du -h docs/index.html | cut -f1)"
+          else
+            echo "❌ Error: No se generó el reporte"
+            exit 1
+          fi
+      
+      - name: 🚀 Commit y push del reporte
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add docs/
+          git diff --staged --quiet || git commit -m "📊 Actualizar reporte - $(date +'%Y-%m-%d %H:%M:%S')"
+          git push
+      
+      - name: 📢 Notificar resultado
+        if: always()
+        run: |
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "🎉 Reporte publicado en: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+          else
+            echo "❌ Error al generar el reporte. Revisa los logs."
+          fi
