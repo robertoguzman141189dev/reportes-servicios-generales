@@ -1,0 +1,258 @@
+{
+  "coordinaciones": [
+    {
+      "id": "COORDINACION DE MATTO TECNICO Y",
+      "name": "Mantenimiento",
+      "icon": "🔧",
+      "color": "#3b82f6",
+      "total": 79,
+      "completadas": 65,
+      "enProceso": 2,
+      "noIniciadas": 10,
+      "enRevision": 0,
+      "cumplimiento": 82.3,
+      "prioridades": {
+        "alta": 59,
+        "media": 17,
+        "baja": 2
+      },
+      "areas": [
+        {
+          "name": "LIMPIEZA E HIGIENE",
+          "value": 36
+        },
+        {
+          "name": "FONTANERIA Y SER. GRAL",
+          "value": 13
+        },
+        {
+          "name": "UNIDADES AUTOMOTORAS",
+          "value": 9
+        },
+        {
+          "name": "AIRE ACONDICIONADO",
+          "value": 7
+        },
+        {
+          "name": "JARDINERIA",
+          "value": 4
+        },
+        {
+          "name": "PINTURA",
+          "value": 2
+        }
+      ],
+      "responsables": [
+        {
+          "name": "JORGE FEDERICO AGUILAR CASTRO",
+          "value": 61
+        },
+        {
+          "name": "EDUARDO CABRERA COUTIÑO",
+          "value": 17
+        }
+      ],
+      "solicitantes": [
+        {
+          "name": "Servicios Generales",
+          "value": 52
+        },
+        {
+          "name": "Odontología",
+          "value": 7
+        },
+        {
+          "name": "Supervisor de Servicios Social LMC",
+          "value": 3
+        },
+        {
+          "name": "Medicina",
+          "value": 2
+        },
+        {
+          "name": "Director LMC",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "COORDINACION DE SEGURIDAD Y PC",
+      "name": "Seguridad y PC",
+      "icon": "🛡️",
+      "color": "#ef4444",
+      "total": 134,
+      "completadas": 99,
+      "enProceso": 27,
+      "noIniciadas": 0,
+      "enRevision": 4,
+      "cumplimiento": 73.9,
+      "prioridades": {
+        "alta": 70,
+        "media": 59,
+        "baja": 1
+      },
+      "areas": [
+        {
+          "name": "proteccion civil ",
+          "value": 80
+        },
+        {
+          "name": "camaras de vigilancia ",
+          "value": 13
+        },
+        {
+          "name": "proteccion ciivl ",
+          "value": 7
+        },
+        {
+          "name": "consultrio medico/basica ",
+          "value": 4
+        },
+        {
+          "name": "proteccion civl ",
+          "value": 4
+        },
+        {
+          "name": "consultorio medico/universidad",
+          "value": 3
+        }
+      ],
+      "responsables": [
+        {
+          "name": " ISIDRO ZAVALA DE LA CRUZ",
+          "value": 39
+        },
+        {
+          "name": "MOYSES MORALES SANTIZO",
+          "value": 16
+        },
+        {
+          "name": "GIBRAN JALIL CORZO OVANDO",
+          "value": 15
+        },
+        {
+          "name": "ALFONSO CASTRO PEREZ",
+          "value": 10
+        },
+        {
+          "name": "FATIMA JOCELYN DIAZ RAMOS",
+          "value": 10
+        }
+      ],
+      "solicitantes": [
+        {
+          "name": "proteccion civil ",
+          "value": 26
+        },
+        {
+          "name": "direccion de basica ",
+          "value": 19
+        },
+        {
+          "name": "generales upgch",
+          "value": 13
+        },
+        {
+          "name": "fernando arreola ",
+          "value": 7
+        },
+        {
+          "name": "servicios generales ",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "id": "COORDINACION DE GESTION DE ESPA",
+      "name": "Gestión Espacios",
+      "icon": "🏛️",
+      "color": "#10b981",
+      "total": 91,
+      "completadas": 69,
+      "enProceso": 22,
+      "noIniciadas": 0,
+      "enRevision": 0,
+      "cumplimiento": 75.8,
+      "prioridades": {
+        "alta": 8,
+        "media": 33,
+        "baja": 50
+      },
+      "areas": [],
+      "responsables": [],
+      "solicitantes": [
+        {
+          "name": "Coordinación de gestión de espacios",
+          "value": 55
+        },
+        {
+          "name": "Departamento de compras",
+          "value": 5
+        },
+        {
+          "name": "Dirección de la licenciatura en médico cirujano",
+          "value": 3
+        },
+        {
+          "name": "Recursos Humanos",
+          "value": 3
+        },
+        {
+          "name": "Dirección de VInculación",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "INFRAESTRUCTURA",
+      "name": "Infraestructura",
+      "icon": "🏗️",
+      "color": "#f59e0b",
+      "total": 7,
+      "completadas": 3,
+      "enProceso": 3,
+      "noIniciadas": 1,
+      "enRevision": 0,
+      "cumplimiento": 42.9,
+      "prioridades": {
+        "alta": 5,
+        "media": 2,
+        "baja": 0
+      },
+      "areas": [
+        {
+          "name": "CONSTRUCCION",
+          "value": 7
+        }
+      ],
+      "responsables": [],
+      "solicitantes": [
+        {
+          "name": "MANTENIMIENTO GENERAL",
+          "value": 5
+        },
+        {
+          "name": "ODONTOLOGIA",
+          "value": 1
+        },
+        {
+          "name": "QUIMICOS FARMACOBIOLOGOS",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "totales": {
+    "actividades": 311,
+    "completadas": 236,
+    "enProceso": 54,
+    "pendientes": 15,
+    "tasaCumplimiento": 75.9
+  },
+  "prioridades": {
+    "ALTA": 142,
+    "MEDIA": 111,
+    "BAJA": 53
+  },
+  "generado": "2026-03-12 18:57:42"
+}

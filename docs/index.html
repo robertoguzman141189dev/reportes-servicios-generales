@@ -3,73 +3,560 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reporte Ejecutivo - En espera</title>
+    <title>Reporte Ejecutivo - Servicios Generales 2026</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
     <style>
+        :root {
+            --blue: #3b82f6; --green: #10b981; --amber: #f59e0b; --red: #ef4444;
+            --purple: #8b5cf6; --pink: #ec4899; --cyan: #06b6d4; --gray: #6b7280;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #f8fafc, #e2e8f0); min-height: 100vh; padding: 24px; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        
+        .header {
             background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #db2777 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
+            border-radius: 20px; padding: 35px 40px; color: white; margin-bottom: 30px;
+            box-shadow: 0 15px 50px rgba(30, 64, 175, 0.3);
         }
-        .container {
-            max-width: 600px;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 30px;
-        }
-        .loader {
-            width: 60px;
-            height: 60px;
-            border: 5px solid rgba(255,255,255,0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 30px;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        .status {
-            background: rgba(255,255,255,0.15);
-            padding: 20px 30px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-        .status h3 {
-            margin-bottom: 10px;
-        }
-        code {
-            background: rgba(0,0,0,0.2);
-            padding: 3px 8px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-        }
+        .header h1 { font-size: 2.5rem; font-weight: 800; }
+        .header p { opacity: 0.9; margin-top: 8px; }
+        .header-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin-top: 30px; }
+        .header-stat { background: rgba(255,255,255,0.15); padding: 18px 22px; border-radius: 14px; backdrop-filter: blur(10px); }
+        .header-stat .value { font-size: 2rem; font-weight: 800; }
+        .header-stat .label { font-size: 0.9rem; opacity: 0.85; margin-top: 5px; }
+
+        .tabs { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
+        .tab { padding: 14px 28px; border-radius: 12px; border: none; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; background: white; color: #64748b; }
+        .tab:hover { background: #f1f5f9; }
+        .tab.active { background: linear-gradient(135deg, var(--blue), var(--purple)); color: white; box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4); }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin-bottom: 30px; }
+        .kpi-card { background: white; border-radius: 18px; padding: 26px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 4px solid; transition: transform 0.3s; }
+        .kpi-card:hover { transform: translateY(-5px); }
+        .kpi-card .icon { width: 55px; height: 55px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 18px; }
+        .kpi-card .value { font-size: 2.8rem; font-weight: 800; line-height: 1; }
+        .kpi-card .label { color: #64748b; font-size: 0.95rem; margin-top: 8px; }
+        .kpi-card .trend { display: inline-flex; align-items: center; gap: 5px; margin-top: 12px; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .trend.up { background: #d1fae5; color: #047857; }
+
+        .charts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin-bottom: 30px; }
+        @media (max-width: 1100px) { .charts-grid { grid-template-columns: 1fr; } }
+        .chart-card { background: white; border-radius: 18px; padding: 26px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .chart-card.full { grid-column: 1 / -1; }
+        .chart-card h3 { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .chart-card h3 .icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+        .chart-container { height: 320px; }
+        .chart-container.tall { height: 400px; }
+
+        .coord-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+        @media (max-width: 1100px) { .coord-grid { grid-template-columns: 1fr; } }
+        .coord-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .coord-header { padding: 28px; color: white; }
+        .coord-header h3 { font-size: 1.4rem; font-weight: 700; }
+        .coord-header p { opacity: 0.9; margin-top: 5px; }
+        .coord-header .percentage { font-size: 3rem; font-weight: 800; margin-top: 15px; }
+        .coord-body { padding: 25px; }
+        .coord-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; }
+        .coord-stat { text-align: center; padding: 15px; border-radius: 12px; }
+        .coord-stat .value { font-size: 1.6rem; font-weight: 800; }
+        .coord-stat .label { font-size: 0.8rem; margin-top: 4px; }
+
+        .progress-item { margin-bottom: 12px; }
+        .progress-header { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem; }
+        .progress-bar { height: 10px; background: #e2e8f0; border-radius: 10px; overflow: hidden; }
+        .progress-fill { height: 100%; border-radius: 10px; transition: width 0.8s ease; }
+
+        .summary { background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 20px; padding: 40px; color: white; margin-top: 30px; }
+        .summary h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 30px; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; }
+        .summary-item { text-align: center; padding: 25px 15px; background: rgba(255,255,255,0.08); border-radius: 16px; }
+        .summary-item .value { font-size: 2.5rem; font-weight: 800; }
+        .summary-item .label { font-size: 0.85rem; opacity: 0.8; margin-top: 8px; }
+
+        .footer { text-align: center; padding: 35px; color: #64748b; }
+        .footer .brand { font-size: 1.1rem; font-weight: 600; color: #1e293b; }
+
+        .auto-update { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 25px; font-size: 0.85rem; margin-top: 15px; }
+        .pulse { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="loader"></div>
-        <h1>📊 Reporte en Preparación</h1>
-        <p>El sistema de reportes automáticos está configurado y listo.</p>
-        <div class="status">
-            <h3>⏳ Esperando primer archivo</h3>
-            <p>Sube un archivo Excel a la carpeta de Google Drive configurada para generar el primer reporte.</p>
-            <p style="margin-top: 15px; font-size: 0.9rem;">
-                Carpeta: <code>Reportes-Servicios-Generales</code>
-            </p>
+        <div class="header">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                <div>
+                    <h1>📊 Reporte Ejecutivo Automático</h1>
+                    <p>Servicios Generales UPGCH 2026</p>
+                    <div class="auto-update">
+                        <span class="pulse"></span>
+                        Actualizado: 2026-03-12 18:57:42
+                    </div>
+                </div>
+                <div style="text-align: right;">
+                    <div style="font-size: 3rem; font-weight: 800;">75.9%</div>
+                    <div style="opacity: 0.9;">Cumplimiento Global</div>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="header-stat">
+                    <div class="value">311</div>
+                    <div class="label">Total Actividades</div>
+                </div>
+                <div class="header-stat">
+                    <div class="value">236</div>
+                    <div class="label">Completadas</div>
+                </div>
+                <div class="header-stat">
+                    <div class="value">54</div>
+                    <div class="label">En Proceso</div>
+                </div>
+                <div class="header-stat">
+                    <div class="value">15</div>
+                    <div class="label">Pendientes</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('dashboard')">📊 Dashboard</button>
+            <button class="tab" onclick="showTab('coordinaciones')">🏢 Coordinaciones</button>
+            <button class="tab" onclick="showTab('analisis')">🎯 Análisis</button>
+        </div>
+
+        <div id="dashboard" class="tab-content active">
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3><span class="icon" style="background: #dbeafe; color: var(--blue);">🥧</span> Estado Global</h3>
+                    <div class="chart-container"><canvas id="estadoChart"></canvas></div>
+                </div>
+                <div class="chart-card">
+                    <h3><span class="icon" style="background: #d1fae5; color: var(--green);">📊</span> Por Coordinación</h3>
+                    <div class="chart-container"><canvas id="coordChart"></canvas></div>
+                </div>
+                <div class="chart-card">
+                    <h3><span class="icon" style="background: #fee2e2; color: var(--red);">🎯</span> Prioridades</h3>
+                    <div class="chart-container"><canvas id="prioridadChart"></canvas></div>
+                </div>
+                <div class="chart-card">
+                    <h3><span class="icon" style="background: #e9d5ff; color: var(--purple);">📈</span> Cumplimiento</h3>
+                    <div class="chart-container"><canvas id="cumplimientoChart"></canvas></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="coordinaciones" class="tab-content">
+            <div class="coord-grid" id="coordCards"></div>
+        </div>
+
+        <div id="analisis" class="tab-content">
+            <div class="chart-card">
+                <h3><span class="icon" style="background: #cffafe; color: var(--cyan);">🎯</span> Radar de Rendimiento</h3>
+                <div class="chart-container tall"><canvas id="radarChart"></canvas></div>
+            </div>
+            <div class="summary">
+                <h3>🏆 Resumen Ejecutivo</h3>
+                <div class="summary-grid" id="summaryGrid"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="brand">📊 Sistema de Reportes Automatizados</p>
+            <p>Servicios Generales UPGCH 2026 • Actualización en tiempo real</p>
         </div>
     </div>
+
+    <script>
+        const DATA = {
+  "coordinaciones": [
+    {
+      "id": "COORDINACION DE MATTO TECNICO Y",
+      "name": "Mantenimiento",
+      "icon": "🔧",
+      "color": "#3b82f6",
+      "total": 79,
+      "completadas": 65,
+      "enProceso": 2,
+      "noIniciadas": 10,
+      "enRevision": 0,
+      "cumplimiento": 82.3,
+      "prioridades": {
+        "alta": 59,
+        "media": 17,
+        "baja": 2
+      },
+      "areas": [
+        {
+          "name": "LIMPIEZA E HIGIENE",
+          "value": 36
+        },
+        {
+          "name": "FONTANERIA Y SER. GRAL",
+          "value": 13
+        },
+        {
+          "name": "UNIDADES AUTOMOTORAS",
+          "value": 9
+        },
+        {
+          "name": "AIRE ACONDICIONADO",
+          "value": 7
+        },
+        {
+          "name": "JARDINERIA",
+          "value": 4
+        },
+        {
+          "name": "PINTURA",
+          "value": 2
+        }
+      ],
+      "responsables": [
+        {
+          "name": "JORGE FEDERICO AGUILAR CASTRO",
+          "value": 61
+        },
+        {
+          "name": "EDUARDO CABRERA COUTIÑO",
+          "value": 17
+        }
+      ],
+      "solicitantes": [
+        {
+          "name": "Servicios Generales",
+          "value": 52
+        },
+        {
+          "name": "Odontología",
+          "value": 7
+        },
+        {
+          "name": "Supervisor de Servicios Social LMC",
+          "value": 3
+        },
+        {
+          "name": "Medicina",
+          "value": 2
+        },
+        {
+          "name": "Director LMC",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "COORDINACION DE SEGURIDAD Y PC",
+      "name": "Seguridad y PC",
+      "icon": "🛡️",
+      "color": "#ef4444",
+      "total": 134,
+      "completadas": 99,
+      "enProceso": 27,
+      "noIniciadas": 0,
+      "enRevision": 4,
+      "cumplimiento": 73.9,
+      "prioridades": {
+        "alta": 70,
+        "media": 59,
+        "baja": 1
+      },
+      "areas": [
+        {
+          "name": "proteccion civil ",
+          "value": 80
+        },
+        {
+          "name": "camaras de vigilancia ",
+          "value": 13
+        },
+        {
+          "name": "proteccion ciivl ",
+          "value": 7
+        },
+        {
+          "name": "consultrio medico/basica ",
+          "value": 4
+        },
+        {
+          "name": "proteccion civl ",
+          "value": 4
+        },
+        {
+          "name": "consultorio medico/universidad",
+          "value": 3
+        }
+      ],
+      "responsables": [
+        {
+          "name": " ISIDRO ZAVALA DE LA CRUZ",
+          "value": 39
+        },
+        {
+          "name": "MOYSES MORALES SANTIZO",
+          "value": 16
+        },
+        {
+          "name": "GIBRAN JALIL CORZO OVANDO",
+          "value": 15
+        },
+        {
+          "name": "ALFONSO CASTRO PEREZ",
+          "value": 10
+        },
+        {
+          "name": "FATIMA JOCELYN DIAZ RAMOS",
+          "value": 10
+        }
+      ],
+      "solicitantes": [
+        {
+          "name": "proteccion civil ",
+          "value": 26
+        },
+        {
+          "name": "direccion de basica ",
+          "value": 19
+        },
+        {
+          "name": "generales upgch",
+          "value": 13
+        },
+        {
+          "name": "fernando arreola ",
+          "value": 7
+        },
+        {
+          "name": "servicios generales ",
+          "value": 7
+        }
+      ]
+    },
+    {
+      "id": "COORDINACION DE GESTION DE ESPA",
+      "name": "Gestión Espacios",
+      "icon": "🏛️",
+      "color": "#10b981",
+      "total": 91,
+      "completadas": 69,
+      "enProceso": 22,
+      "noIniciadas": 0,
+      "enRevision": 0,
+      "cumplimiento": 75.8,
+      "prioridades": {
+        "alta": 8,
+        "media": 33,
+        "baja": 50
+      },
+      "areas": [],
+      "responsables": [],
+      "solicitantes": [
+        {
+          "name": "Coordinación de gestión de espacios",
+          "value": 55
+        },
+        {
+          "name": "Departamento de compras",
+          "value": 5
+        },
+        {
+          "name": "Dirección de la licenciatura en médico cirujano",
+          "value": 3
+        },
+        {
+          "name": "Recursos Humanos",
+          "value": 3
+        },
+        {
+          "name": "Dirección de VInculación",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "INFRAESTRUCTURA",
+      "name": "Infraestructura",
+      "icon": "🏗️",
+      "color": "#f59e0b",
+      "total": 7,
+      "completadas": 3,
+      "enProceso": 3,
+      "noIniciadas": 1,
+      "enRevision": 0,
+      "cumplimiento": 42.9,
+      "prioridades": {
+        "alta": 5,
+        "media": 2,
+        "baja": 0
+      },
+      "areas": [
+        {
+          "name": "CONSTRUCCION",
+          "value": 7
+        }
+      ],
+      "responsables": [],
+      "solicitantes": [
+        {
+          "name": "MANTENIMIENTO GENERAL",
+          "value": 5
+        },
+        {
+          "name": "ODONTOLOGIA",
+          "value": 1
+        },
+        {
+          "name": "QUIMICOS FARMACOBIOLOGOS",
+          "value": 1
+        }
+      ]
+    }
+  ],
+  "totales": {
+    "actividades": 311,
+    "completadas": 236,
+    "enProceso": 54,
+    "pendientes": 15,
+    "tasaCumplimiento": 75.9
+  },
+  "prioridades": {
+    "ALTA": 142,
+    "MEDIA": 111,
+    "BAJA": 53
+  },
+  "generado": "2026-03-12 18:57:42"
+};
+
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        Chart.defaults.font.family = "'Segoe UI', system-ui, sans-serif";
+        Chart.defaults.responsive = true;
+        Chart.defaults.maintainAspectRatio = false;
+
+        // Estado Global
+        new Chart(document.getElementById('estadoChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Completadas', 'En Proceso', 'Pendientes'],
+                datasets: [{
+                    data: [DATA.totales.completadas, DATA.totales.enProceso, DATA.totales.pendientes],
+                    backgroundColor: ['#10b981', '#f59e0b', '#6b7280'],
+                    borderWidth: 0, cutout: '70%'
+                }]
+            },
+            options: { plugins: { legend: { position: 'right' } } }
+        });
+
+        // Por Coordinación
+        new Chart(document.getElementById('coordChart'), {
+            type: 'bar',
+            data: {
+                labels: DATA.coordinaciones.map(c => c.name),
+                datasets: [
+                    { label: 'Completadas', data: DATA.coordinaciones.map(c => c.completadas), backgroundColor: '#10b981' },
+                    { label: 'En Proceso', data: DATA.coordinaciones.map(c => c.enProceso), backgroundColor: '#f59e0b' },
+                    { label: 'Pendientes', data: DATA.coordinaciones.map(c => c.noIniciadas + c.enRevision), backgroundColor: '#6b7280' }
+                ]
+            },
+            options: { scales: { x: { stacked: true }, y: { stacked: true } }, plugins: { legend: { position: 'bottom' } } }
+        });
+
+        // Prioridades
+        new Chart(document.getElementById('prioridadChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Alta', 'Media', 'Baja'],
+                datasets: [{
+                    data: [DATA.prioridades.ALTA, DATA.prioridades.MEDIA, DATA.prioridades.BAJA],
+                    backgroundColor: ['#ef4444', '#f59e0b', '#10b981'], borderWidth: 0
+                }]
+            },
+            options: { plugins: { legend: { position: 'right' } } }
+        });
+
+        // Cumplimiento
+        new Chart(document.getElementById('cumplimientoChart'), {
+            type: 'bar',
+            data: {
+                labels: DATA.coordinaciones.map(c => c.name),
+                datasets: [{ label: '%', data: DATA.coordinaciones.map(c => c.cumplimiento), backgroundColor: DATA.coordinaciones.map(c => c.color), borderRadius: 8 }]
+            },
+            options: { indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { max: 100 } } }
+        });
+
+        // Radar
+        new Chart(document.getElementById('radarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Eficiencia', 'Volumen', 'Urgencia', 'Velocidad', 'Calidad'],
+                datasets: DATA.coordinaciones.map(c => ({
+                    label: c.name,
+                    data: [c.cumplimiento, (c.total / DATA.totales.actividades * 100).toFixed(0), (c.prioridades.alta / c.total * 100).toFixed(0), 80, 85],
+                    borderColor: c.color, backgroundColor: c.color + '30', borderWidth: 2
+                }))
+            },
+            options: { plugins: { legend: { position: 'bottom' } }, scales: { r: { beginAtZero: true, max: 100 } } }
+        });
+
+        // Generar cards de coordinaciones
+        const coordCardsHTML = DATA.coordinaciones.map(c => `
+            <div class="coord-card">
+                <div class="coord-header" style="background: linear-gradient(135deg, ${c.color}, ${c.color}dd);">
+                    <div style="font-size: 2.5rem;">${c.icon}</div>
+                    <h3>${c.name}</h3>
+                    <p>${c.total} actividades</p>
+                    <div class="percentage">${c.cumplimiento}%</div>
+                </div>
+                <div class="coord-body">
+                    <div class="coord-stats">
+                        <div class="coord-stat" style="background: #d1fae5;">
+                            <div class="value" style="color: #10b981;">${c.completadas}</div>
+                            <div class="label" style="color: #047857;">Completadas</div>
+                        </div>
+                        <div class="coord-stat" style="background: #fef3c7;">
+                            <div class="value" style="color: #f59e0b;">${c.enProceso}</div>
+                            <div class="label" style="color: #b45309;">En Proceso</div>
+                        </div>
+                        <div class="coord-stat" style="background: #f3f4f6;">
+                            <div class="value" style="color: #6b7280;">${c.noIniciadas + c.enRevision}</div>
+                            <div class="label" style="color: #4b5563;">Pendientes</div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header"><span style="color: #ef4444;">ALTA</span><span>${c.prioridades.alta}</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: ${c.prioridades.alta / c.total * 100}%; background: #ef4444;"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header"><span style="color: #f59e0b;">MEDIA</span><span>${c.prioridades.media}</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: ${c.prioridades.media / c.total * 100}%; background: #f59e0b;"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header"><span style="color: #10b981;">BAJA</span><span>${c.prioridades.baja}</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: ${c.prioridades.baja / c.total * 100}%; background: #10b981;"></div></div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+        document.getElementById('coordCards').innerHTML = coordCardsHTML;
+
+        // Summary grid
+        document.getElementById('summaryGrid').innerHTML = `
+            <div class="summary-item"><div class="value" style="color: #60a5fa;">${DATA.totales.actividades}</div><div class="label">Total</div></div>
+            <div class="summary-item"><div class="value" style="color: #34d399;">${DATA.totales.completadas}</div><div class="label">Completadas</div></div>
+            <div class="summary-item"><div class="value" style="color: #34d399;">${DATA.totales.tasaCumplimiento}%</div><div class="label">Cumplimiento</div></div>
+            <div class="summary-item"><div class="value" style="color: #fbbf24;">${DATA.totales.enProceso}</div><div class="label">En Proceso</div></div>
+            <div class="summary-item"><div class="value" style="color: #f87171;">${DATA.prioridades.ALTA}</div><div class="label">Alta Prioridad</div></div>
+            <div class="summary-item"><div class="value" style="color: #a78bfa;">${DATA.coordinaciones.length}</div><div class="label">Coordinaciones</div></div>
+        `;
+    </script>
 </body>
 </html>
