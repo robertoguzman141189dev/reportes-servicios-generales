@@ -2571,7 +2571,7 @@
           "responsable": ""
         },
         {
-          "nombre": "Recepción de una parte de material de pedido semestral del laboratorio de microbiología",
+          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
           "estado": "COMPLETADO",
           "prioridad": "BAJA",
           "responsable": ""
@@ -2591,5 +2591,5 @@
     "MEDIA": 123,
     "BAJA": 78
   },
-  "generado": "2026-03-13 21:44:12"
+  "generado": "2026-03-13 21:48:14"
 }
