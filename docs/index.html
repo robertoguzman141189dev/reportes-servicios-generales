@@ -13,554 +13,355 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #f8fafc, #e2e8f0); min-height: 100vh; padding: 24px; }
         .container { max-width: 1400px; margin: 0 auto; }
-        
+
         .header {
             background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #db2777 100%);
             border-radius: 20px; padding: 35px 40px; color: white; margin-bottom: 30px;
-            box-shadow: 0 15px 50px rgba(30, 64, 175, 0.3);
+            box-shadow: 0 15px 50px rgba(30, 64, 175, 0.3); position: relative; overflow: hidden;
         }
+        .header::before { content:""; position:absolute; top:-80px; right:-80px; width:380px; height:380px; border-radius:50%; background:rgba(255,255,255,.07); }
+        .header::after  { content:""; position:absolute; bottom:-60px; left:8%; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,.05); }
+        .header-top { position:relative; z-index:1; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:20px; }
         .header h1 { font-size: 2.5rem; font-weight: 800; }
         .header p { opacity: 0.9; margin-top: 8px; }
-        .header-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin-top: 30px; }
-        .header-stat { background: rgba(255,255,255,0.15); padding: 18px 22px; border-radius: 14px; backdrop-filter: blur(10px); }
+        .header-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; margin-top: 28px; position:relative; z-index:1; }
+        .header-stat { background: rgba(255,255,255,0.15); padding: 18px 22px; border-radius: 14px; backdrop-filter: blur(10px); transition: background .2s, transform .2s; cursor:default; }
+        .header-stat:hover { background: rgba(255,255,255,0.22); transform: translateY(-2px); }
         .header-stat .value { font-size: 2rem; font-weight: 800; }
-        .header-stat .label { font-size: 0.9rem; opacity: 0.85; margin-top: 5px; }
+        .header-stat .label { font-size: 0.88rem; opacity: 0.85; margin-top: 5px; }
+        .header-stat .sub   { font-size: 0.78rem; opacity: 0.6;  margin-top: 2px; }
+
+        .alert-bar { background:linear-gradient(90deg,#fef3c7,#fde68a); border-left:4px solid #f59e0b; border-radius:0 14px 14px 0; padding:12px 18px; margin-bottom:22px; font-size:.9rem; color:#78350f; display:none; align-items:center; gap:10px; }
+        .adot { width:8px; height:8px; background:#f59e0b; border-radius:50%; animation:pulse 2s infinite; flex-shrink:0; }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
 
         .tabs { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
-        .tab { padding: 14px 28px; border-radius: 12px; border: none; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; background: white; color: #64748b; }
+        .tab { padding: 12px 24px; border-radius: 12px; border: none; cursor: pointer; font-size: .95rem; font-weight: 600; transition: all .3s; background: white; color: #64748b; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
         .tab:hover { background: #f1f5f9; }
-        .tab.active { background: linear-gradient(135deg, var(--blue), var(--purple)); color: white; box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4); }
-
+        .tab.active { background: linear-gradient(135deg, var(--blue), var(--purple)); color: white; box-shadow: 0 8px 25px rgba(59,130,246,.4); }
         .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .tab-content.active { display: block; animation: fadeIn .35s ease; }
+        @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
 
-        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin-bottom: 30px; }
-        .kpi-card { background: white; border-radius: 18px; padding: 26px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 4px solid; transition: transform 0.3s; }
-        .kpi-card:hover { transform: translateY(-5px); }
-        .kpi-card .icon { width: 55px; height: 55px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 18px; }
-        .kpi-card .value { font-size: 2.8rem; font-weight: 800; line-height: 1; }
-        .kpi-card .label { color: #64748b; font-size: 0.95rem; margin-top: 8px; }
-        .kpi-card .trend { display: inline-flex; align-items: center; gap: 5px; margin-top: 12px; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
-        .trend.up { background: #d1fae5; color: #047857; }
+        .charts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 28px; }
+        @media(max-width:1000px){ .charts-grid{grid-template-columns:1fr} }
+        .chart-card { background: white; border-radius: 18px; padding: 26px; box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+        .chart-card h3 { font-size: 1rem; font-weight: 700; color: #1e293b; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+        .chart-card h3 .icon { width:34px; height:34px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+        .chart-container { height: 300px; }
+        .chart-container.tall { height: 380px; }
 
-        .charts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin-bottom: 30px; }
-        @media (max-width: 1100px) { .charts-grid { grid-template-columns: 1fr; } }
-        .chart-card { background: white; border-radius: 18px; padding: 26px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .chart-card.full { grid-column: 1 / -1; }
-        .chart-card h3 { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-        .chart-card h3 .icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
-        .chart-container { height: 320px; }
-        .chart-container.tall { height: 400px; }
-
-        .coord-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
-        @media (max-width: 1100px) { .coord-grid { grid-template-columns: 1fr; } }
-        .coord-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .coord-header { padding: 28px; color: white; }
-        .coord-header h3 { font-size: 1.4rem; font-weight: 700; }
-        .coord-header p { opacity: 0.9; margin-top: 5px; }
-        .coord-header .percentage { font-size: 3rem; font-weight: 800; margin-top: 15px; }
-        .coord-body { padding: 25px; }
-        .coord-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; }
-        .coord-stat { text-align: center; padding: 15px; border-radius: 12px; }
+        .coord-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+        @media(max-width:1000px){ .coord-grid{grid-template-columns:1fr} }
+        .coord-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+        .coord-header { padding: 28px; color: white; position:relative; overflow:hidden; }
+        .coord-header::after { content:""; position:absolute; top:-40px; right:-40px; width:140px; height:140px; border-radius:50%; background:rgba(255,255,255,.1); }
+        .coord-header h3 { font-size: 1.3rem; font-weight: 700; }
+        .coord-header p { opacity:.88; margin-top:4px; font-size:.9rem; }
+        .coord-header .percentage { font-size: 3.2rem; font-weight: 800; margin-top: 14px; }
+        .coord-body { padding: 24px; }
+        .coord-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 20px; }
+        .coord-stat { text-align:center; padding:14px 8px; border-radius:12px; }
         .coord-stat .value { font-size: 1.6rem; font-weight: 800; }
-        .coord-stat .label { font-size: 0.8rem; margin-top: 4px; }
-
+        .coord-stat .label { font-size: .78rem; margin-top: 4px; font-weight:600; }
         .progress-item { margin-bottom: 12px; }
-        .progress-header { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem; }
-        .progress-bar { height: 10px; background: #e2e8f0; border-radius: 10px; overflow: hidden; }
-        .progress-fill { height: 100%; border-radius: 10px; transition: width 0.8s ease; }
+        .progress-header { display:flex; justify-content:space-between; margin-bottom:5px; font-size:.85rem; font-weight:600; }
+        .progress-bar { height:9px; background:#e2e8f0; border-radius:10px; overflow:hidden; }
+        .progress-fill { height:100%; border-radius:10px; }
 
-        .summary { background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 20px; padding: 40px; color: white; margin-top: 30px; }
-        .summary h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 30px; }
-        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; }
-        .summary-item { text-align: center; padding: 25px 15px; background: rgba(255,255,255,0.08); border-radius: 16px; }
-        .summary-item .value { font-size: 2.5rem; font-weight: 800; }
-        .summary-item .label { font-size: 0.85rem; opacity: 0.8; margin-top: 8px; }
+        .ins-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-bottom:28px; }
+        .ins { background:white; border-radius:16px; padding:20px; box-shadow:0 4px 16px rgba(0,0,0,.07); display:flex; gap:14px; }
+        .ins-ico { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0; }
+        .ins-title { font-size:.92rem; font-weight:700; color:#0f172a; margin-bottom:4px; }
+        .ins-body  { font-size:.84rem; color:#64748b; line-height:1.6; }
 
-        .footer { text-align: center; padding: 35px; color: #64748b; }
-        .footer .brand { font-size: 1.1rem; font-weight: 600; color: #1e293b; }
+        .table-wrap { background:white; border-radius:18px; box-shadow:0 4px 20px rgba(0,0,0,.08); overflow:hidden; margin-bottom:24px; }
+        .table-header { padding:18px 24px; border-bottom:1px solid #f1f5f9; display:flex; align-items:center; justify-content:space-between; }
+        .table-header h3 { font-size:1rem; font-weight:700; color:#1e293b; }
+        table { width:100%; border-collapse:collapse; }
+        thead th { background:#f8fafc; padding:10px 16px; text-align:left; font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:#94a3b8; border-bottom:1px solid #f1f5f9; }
+        tbody tr { border-bottom:1px solid #f8fafc; transition:background .1s; }
+        tbody tr:last-child { border-bottom:none; }
+        tbody tr:hover { background:#fafbff; }
+        tbody td { padding:11px 16px; font-size:.88rem; vertical-align:middle; }
+        .pill { display:inline-flex; align-items:center; padding:3px 10px; border-radius:20px; font-size:.75rem; font-weight:700; }
+        .pill-done { background:#dcfce7; color:#16a34a; }
+        .pill-prog { background:#dbeafe; color:#1d4ed8; }
+        .pill-pend { background:#fef9c3; color:#a16207; }
+        .pill-rev  { background:#ede9fe; color:#7c3aed; }
+        .av-wrap { display:flex; align-items:center; gap:7px; }
+        .av-bar  { flex:1; height:7px; background:#f1f5f9; border-radius:4px; overflow:hidden; min-width:50px; }
+        .av-fill { height:100%; border-radius:4px; }
+        .av-val  { font-size:.82rem; font-weight:700; width:34px; text-align:right; }
+        .ava { width:30px; height:30px; border-radius:50%; font-size:.75rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 
-        .auto-update { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 25px; font-size: 0.85rem; margin-top: 15px; }
-        .pulse { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .summary { background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:20px; padding:38px; color:white; margin-top:28px; }
+        .summary h3 { font-size:1.6rem; font-weight:800; margin-bottom:26px; }
+        .summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:18px; }
+        .summary-item { text-align:center; padding:22px 14px; background:rgba(255,255,255,.08); border-radius:16px; transition:background .2s; }
+        .summary-item:hover { background:rgba(255,255,255,.13); }
+        .summary-item .value { font-size:2.4rem; font-weight:800; }
+        .summary-item .label { font-size:.82rem; opacity:.78; margin-top:8px; }
+
+        .auto-update { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.18); padding:7px 14px; border-radius:25px; font-size:.83rem; margin-top:14px; }
+        .pulse { width:9px; height:9px; background:#22c55e; border-radius:50%; animation:pulse 2s infinite; }
+        .footer { text-align:center; padding:35px; color:#64748b; }
+        .footer .brand { font-size:1.05rem; font-weight:600; color:#1e293b; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
-                <div>
-                    <h1>📊 Reporte Ejecutivo Automático</h1>
-                    <p>Servicios Generales UPGCH 2026</p>
-                    <div class="auto-update">
-                        <span class="pulse"></span>
-                        Actualizado: 2026-03-13 20:56:13
-                    </div>
-                </div>
-                <div style="text-align: right;">
-                    <div style="font-size: 3rem; font-weight: 800;">73.6%</div>
-                    <div style="opacity: 0.9;">Cumplimiento Global</div>
-                </div>
+<div class="container">
+
+    <div class="header">
+        <div class="header-top">
+            <div>
+                <h1>📊 Reporte Ejecutivo Automático</h1>
+                <p>Servicios Generales UPGCH 2026</p>
+                <div class="auto-update"><span class="pulse"></span>Actualizado: {{FECHA_GENERACION}}</div>
             </div>
-            <div class="header-stats">
-                <div class="header-stat">
-                    <div class="value">356</div>
-                    <div class="label">Total Actividades</div>
-                </div>
-                <div class="header-stat">
-                    <div class="value">262</div>
-                    <div class="label">Completadas</div>
-                </div>
-                <div class="header-stat">
-                    <div class="value">69</div>
-                    <div class="label">En Proceso</div>
-                </div>
-                <div class="header-stat">
-                    <div class="value">14</div>
-                    <div class="label">Pendientes</div>
-                </div>
+            <div style="text-align:right;position:relative;z-index:1;">
+                <div style="font-size:3.2rem;font-weight:800;">{{TASA_CUMPLIMIENTO}}%</div>
+                <div style="opacity:.88;">Cumplimiento Global</div>
             </div>
         </div>
-
-        <div class="tabs">
-            <button class="tab active" onclick="showTab('dashboard')">📊 Dashboard</button>
-            <button class="tab" onclick="showTab('coordinaciones')">🏢 Coordinaciones</button>
-            <button class="tab" onclick="showTab('analisis')">🎯 Análisis</button>
-        </div>
-
-        <div id="dashboard" class="tab-content active">
-            <div class="charts-grid">
-                <div class="chart-card">
-                    <h3><span class="icon" style="background: #dbeafe; color: var(--blue);">🥧</span> Estado Global</h3>
-                    <div class="chart-container"><canvas id="estadoChart"></canvas></div>
-                </div>
-                <div class="chart-card">
-                    <h3><span class="icon" style="background: #d1fae5; color: var(--green);">📊</span> Por Coordinación</h3>
-                    <div class="chart-container"><canvas id="coordChart"></canvas></div>
-                </div>
-                <div class="chart-card">
-                    <h3><span class="icon" style="background: #fee2e2; color: var(--red);">🎯</span> Prioridades</h3>
-                    <div class="chart-container"><canvas id="prioridadChart"></canvas></div>
-                </div>
-                <div class="chart-card">
-                    <h3><span class="icon" style="background: #e9d5ff; color: var(--purple);">📈</span> Cumplimiento</h3>
-                    <div class="chart-container"><canvas id="cumplimientoChart"></canvas></div>
-                </div>
-            </div>
-        </div>
-
-        <div id="coordinaciones" class="tab-content">
-            <div class="coord-grid" id="coordCards"></div>
-        </div>
-
-        <div id="analisis" class="tab-content">
-            <div class="chart-card">
-                <h3><span class="icon" style="background: #cffafe; color: var(--cyan);">🎯</span> Radar de Rendimiento</h3>
-                <div class="chart-container tall"><canvas id="radarChart"></canvas></div>
-            </div>
-            <div class="summary">
-                <h3>🏆 Resumen Ejecutivo</h3>
-                <div class="summary-grid" id="summaryGrid"></div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p class="brand">📊 Sistema de Reportes Automatizados</p>
-            <p>Servicios Generales UPGCH 2026 • Actualización en tiempo real</p>
+        <div class="header-stats">
+            <div class="header-stat"><div class="value">{{TOTAL_ACTIVIDADES}}</div><div class="label">Total Actividades</div><div class="sub">4 coordinaciones</div></div>
+            <div class="header-stat"><div class="value">{{TOTAL_COMPLETADAS}}</div><div class="label">Completadas</div><div class="sub">{{TASA_CUMPLIMIENTO}}% del total</div></div>
+            <div class="header-stat"><div class="value">{{TOTAL_EN_PROCESO}}</div><div class="label">En Proceso</div><div class="sub">seguimiento activo</div></div>
+            <div class="header-stat"><div class="value">{{TOTAL_PENDIENTES}}</div><div class="label">Pendientes</div><div class="sub">requieren acción</div></div>
         </div>
     </div>
 
-    <script>
-        const DATA = {
-  "coordinaciones": [
-    {
-      "id": "COORDINACION DE MATTO TECNICO Y",
-      "name": "Mantenimiento",
-      "icon": "🔧",
-      "color": "#3b82f6",
-      "total": 81,
-      "completadas": 66,
-      "enProceso": 2,
-      "noIniciadas": 10,
-      "enRevision": 0,
-      "cumplimiento": 81.5,
-      "prioridades": {
-        "alta": 60,
-        "media": 18,
-        "baja": 2
-      },
-      "areas": [
-        {
-          "name": "LIMPIEZA E HIGIENE",
-          "value": 36
-        },
-        {
-          "name": "FONTANERIA Y SER. GRAL",
-          "value": 13
-        },
-        {
-          "name": "UNIDADES AUTOMOTORAS",
-          "value": 10
-        },
-        {
-          "name": "AIRE ACONDICIONADO",
-          "value": 8
-        },
-        {
-          "name": "JARDINERIA",
-          "value": 4
-        },
-        {
-          "name": "PINTURA",
-          "value": 2
-        }
-      ],
-      "responsables": [
-        {
-          "name": "JORGE FEDERICO AGUILAR CASTRO",
-          "value": 62
-        },
-        {
-          "name": "EDUARDO CABRERA COUTIÑO",
-          "value": 18
-        }
-      ],
-      "solicitantes": [
-        {
-          "name": "Servicios Generales",
-          "value": 52
-        },
-        {
-          "name": "Odontología",
-          "value": 7
-        },
-        {
-          "name": "Supervisor de Servicios Social LMC",
-          "value": 3
-        },
-        {
-          "name": "Medicina",
-          "value": 2
-        },
-        {
-          "name": "Director LMC",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "id": "INFRAESTRUCTURA",
-      "name": "Infraestructura",
-      "icon": "🏗️",
-      "color": "#f59e0b",
-      "total": 15,
-      "completadas": 7,
-      "enProceso": 8,
-      "noIniciadas": 0,
-      "enRevision": 0,
-      "cumplimiento": 46.7,
-      "prioridades": {
-        "alta": 10,
-        "media": 5,
-        "baja": 0
-      },
-      "areas": [
-        {
-          "name": "CONSTRUCCION",
-          "value": 15
-        }
-      ],
-      "responsables": [],
-      "solicitantes": [
-        {
-          "name": "EDIFICIO E",
-          "value": 8
-        },
-        {
-          "name": "MANTENIMIENTO GENERAL",
-          "value": 5
-        },
-        {
-          "name": "ODONTOLOGIA",
-          "value": 1
-        },
-        {
-          "name": "QUIMICOS FARMACOBIOLOGOS",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "id": "COORDINACION DE SEGURIDAD Y PC",
-      "name": "Seguridad y PC",
-      "icon": "🛡️",
-      "color": "#ef4444",
-      "total": 141,
-      "completadas": 100,
-      "enProceso": 29,
-      "noIniciadas": 0,
-      "enRevision": 4,
-      "cumplimiento": 70.9,
-      "prioridades": {
-        "alta": 72,
-        "media": 60,
-        "baja": 1
-      },
-      "areas": [
-        {
-          "name": "proteccion civil ",
-          "value": 80
-        },
-        {
-          "name": "camaras de vigilancia ",
-          "value": 13
-        },
-        {
-          "name": "proteccion ciivl ",
-          "value": 7
-        },
-        {
-          "name": "consultrio medico/basica ",
-          "value": 4
-        },
-        {
-          "name": "proteccion civl ",
-          "value": 4
-        },
-        {
-          "name": "consultorio medico/universidad",
-          "value": 3
-        }
-      ],
-      "responsables": [
-        {
-          "name": " ISIDRO ZAVALA DE LA CRUZ",
-          "value": 42
-        },
-        {
-          "name": "MOYSES MORALES SANTIZO",
-          "value": 16
-        },
-        {
-          "name": "GIBRAN JALIL CORZO OVANDO",
-          "value": 15
-        },
-        {
-          "name": "ALFONSO CASTRO PEREZ",
-          "value": 10
-        },
-        {
-          "name": "FATIMA JOCELYN DIAZ RAMOS",
-          "value": 10
-        }
-      ],
-      "solicitantes": [
-        {
-          "name": "proteccion civil ",
-          "value": 26
-        },
-        {
-          "name": "direccion de basica ",
-          "value": 19
-        },
-        {
-          "name": "generales upgch",
-          "value": 13
-        },
-        {
-          "name": "fernando arreola ",
-          "value": 7
-        },
-        {
-          "name": "servicios generales ",
-          "value": 7
-        }
-      ]
-    },
-    {
-      "id": "COORDINACION DE GESTION DE ESPA",
-      "name": "Gestión Espacios",
-      "icon": "🏛️",
-      "color": "#10b981",
-      "total": 119,
-      "completadas": 89,
-      "enProceso": 30,
-      "noIniciadas": 0,
-      "enRevision": 0,
-      "cumplimiento": 74.8,
-      "prioridades": {
-        "alta": 8,
-        "media": 36,
-        "baja": 75
-      },
-      "areas": [],
-      "responsables": [],
-      "solicitantes": [
-        {
-          "name": "Coordinación de gestión de espacios",
-          "value": 68
-        },
-        {
-          "name": "Departamento de compras",
-          "value": 5
-        },
-        {
-          "name": "Dirección de la licenciatura en médico cirujano",
-          "value": 4
-        },
-        {
-          "name": "Dirección de capital humano",
-          "value": 4
-        },
-        {
-          "name": "Recursos Humanos",
-          "value": 3
-        }
-      ]
-    }
-  ],
-  "totales": {
-    "actividades": 356,
-    "completadas": 262,
-    "enProceso": 69,
-    "pendientes": 14,
-    "tasaCumplimiento": 73.6
-  },
-  "prioridades": {
-    "ALTA": 150,
-    "MEDIA": 119,
-    "BAJA": 78
-  },
-  "generado": "2026-03-13 20:56:13"
-};
+    <div class="alert-bar" id="alert-bar"><div class="adot"></div><span id="alert-txt"></span></div>
 
-        function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
-        }
+    <div class="tabs">
+        <button class="tab active" onclick="showTab('dashboard',event)">📊 Dashboard</button>
+        <button class="tab" onclick="showTab('coordinaciones',event)">🏢 Coordinaciones</button>
+        <button class="tab" onclick="showTab('analisis',event)">🎯 Análisis</button>
+        <button class="tab" onclick="showTab('responsables',event)">👤 Responsables</button>
+        <button class="tab" onclick="showTab('actividades',event)">📋 Actividades</button>
+    </div>
 
-        Chart.defaults.font.family = "'Segoe UI', system-ui, sans-serif";
-        Chart.defaults.responsive = true;
-        Chart.defaults.maintainAspectRatio = false;
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="tab-content active">
+        <div class="charts-grid">
+            <div class="chart-card"><h3><span class="icon" style="background:#dbeafe;color:var(--blue);">🥧</span>Estado Global</h3><div class="chart-container"><canvas id="estadoChart"></canvas></div></div>
+            <div class="chart-card"><h3><span class="icon" style="background:#d1fae5;color:var(--green);">📊</span>Por Coordinación</h3><div class="chart-container"><canvas id="coordChart"></canvas></div></div>
+            <div class="chart-card"><h3><span class="icon" style="background:#fee2e2;color:var(--red);">🎯</span>Prioridades</h3><div class="chart-container"><canvas id="prioridadChart"></canvas></div></div>
+            <div class="chart-card"><h3><span class="icon" style="background:#e9d5ff;color:var(--purple);">📈</span>Cumplimiento %</h3><div class="chart-container"><canvas id="cumplimientoChart"></canvas></div></div>
+        </div>
+        <div class="charts-grid">
+            <div class="chart-card"><h3><span class="icon" style="background:#cffafe;color:var(--cyan);">📦</span>Estado apilado</h3><div class="chart-container"><canvas id="stackChart"></canvas></div></div>
+            <div class="chart-card"><h3><span class="icon" style="background:#fef9c3;color:#a16207;">🏅</span>Áreas solicitantes — Top 8</h3><div class="chart-container"><canvas id="solicitChart"></canvas></div></div>
+        </div>
+    </div>
 
-        // Estado Global
-        new Chart(document.getElementById('estadoChart'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Completadas', 'En Proceso', 'Pendientes'],
-                datasets: [{
-                    data: [DATA.totales.completadas, DATA.totales.enProceso, DATA.totales.pendientes],
-                    backgroundColor: ['#10b981', '#f59e0b', '#6b7280'],
-                    borderWidth: 0, cutout: '70%'
-                }]
-            },
-            options: { plugins: { legend: { position: 'right' } } }
-        });
+    <!-- COORDINACIONES -->
+    <div id="coordinaciones" class="tab-content">
+        <div class="coord-grid" id="coordCards"></div>
+        <div class="charts-grid" style="margin-top:24px;">
+            <div class="chart-card"><h3><span class="icon" style="background:#ede9fe;color:var(--purple);">🫧</span>Eficiencia vs Volumen</h3><div class="chart-container"><canvas id="bubbleChart"></canvas></div></div>
+            <div class="chart-card"><h3><span class="icon" style="background:#fee2e2;color:var(--red);">🎛️</span>Prioridad por Coordinación</h3><div class="chart-container"><canvas id="prioCoordChart"></canvas></div></div>
+        </div>
+    </div>
 
-        // Por Coordinación
-        new Chart(document.getElementById('coordChart'), {
-            type: 'bar',
-            data: {
-                labels: DATA.coordinaciones.map(c => c.name),
-                datasets: [
-                    { label: 'Completadas', data: DATA.coordinaciones.map(c => c.completadas), backgroundColor: '#10b981' },
-                    { label: 'En Proceso', data: DATA.coordinaciones.map(c => c.enProceso), backgroundColor: '#f59e0b' },
-                    { label: 'Pendientes', data: DATA.coordinaciones.map(c => c.noIniciadas + c.enRevision), backgroundColor: '#6b7280' }
-                ]
-            },
-            options: { scales: { x: { stacked: true }, y: { stacked: true } }, plugins: { legend: { position: 'bottom' } } }
-        });
+    <!-- ANÁLISIS -->
+    <div id="analisis" class="tab-content">
+        <div class="ins-grid" id="ins-box"></div>
+        <div class="charts-grid">
+            <div class="chart-card"><h3><span class="icon" style="background:#cffafe;color:var(--cyan);">🎯</span>Radar de Rendimiento</h3><div class="chart-container tall"><canvas id="radarChart"></canvas></div></div>
+            <div class="chart-card"><h3><span class="icon" style="background:#d1fae5;color:var(--green);">📊</span>Áreas Asignadas — Top 10</h3><div class="chart-container tall"><canvas id="areaChart"></canvas></div></div>
+        </div>
+        <div class="summary">
+            <h3>🏆 Resumen Ejecutivo</h3>
+            <div class="summary-grid" id="summaryGrid"></div>
+        </div>
+    </div>
 
-        // Prioridades
-        new Chart(document.getElementById('prioridadChart'), {
-            type: 'pie',
-            data: {
-                labels: ['Alta', 'Media', 'Baja'],
-                datasets: [{
-                    data: [DATA.prioridades.ALTA, DATA.prioridades.MEDIA, DATA.prioridades.BAJA],
-                    backgroundColor: ['#ef4444', '#f59e0b', '#10b981'], borderWidth: 0
-                }]
-            },
-            options: { plugins: { legend: { position: 'right' } } }
-        });
+    <!-- RESPONSABLES -->
+    <div id="responsables" class="tab-content">
+        <div class="table-wrap">
+            <div class="table-header"><h3>👤 Top responsables</h3><span style="font-size:.82rem;color:#94a3b8;">Datos reales del organizador</span></div>
+            <table><thead><tr><th>#</th><th>Responsable</th><th>Coordinación</th><th>Actividades</th><th>Avance est.</th></tr></thead>
+            <tbody id="resp-body"></tbody></table>
+        </div>
+        <div class="chart-card">
+            <h3><span class="icon" style="background:#dbeafe;color:var(--blue);">📊</span>Carga por responsable — Top 8</h3>
+            <div class="chart-container tall"><canvas id="respChart"></canvas></div>
+        </div>
+    </div>
 
-        // Cumplimiento
-        new Chart(document.getElementById('cumplimientoChart'), {
-            type: 'bar',
-            data: {
-                labels: DATA.coordinaciones.map(c => c.name),
-                datasets: [{ label: '%', data: DATA.coordinaciones.map(c => c.cumplimiento), backgroundColor: DATA.coordinaciones.map(c => c.color), borderRadius: 8 }]
-            },
-            options: { indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { max: 100 } } }
-        });
+    <!-- ACTIVIDADES -->
+    <div id="actividades" class="tab-content">
+        <div id="acts-content"></div>
+    </div>
 
-        // Radar
-        new Chart(document.getElementById('radarChart'), {
-            type: 'radar',
-            data: {
-                labels: ['Eficiencia', 'Volumen', 'Urgencia', 'Velocidad', 'Calidad'],
-                datasets: DATA.coordinaciones.map(c => ({
-                    label: c.name,
-                    data: [c.cumplimiento, (c.total / DATA.totales.actividades * 100).toFixed(0), (c.prioridades.alta / c.total * 100).toFixed(0), 80, 85],
-                    borderColor: c.color, backgroundColor: c.color + '30', borderWidth: 2
-                }))
-            },
-            options: { plugins: { legend: { position: 'bottom' } }, scales: { r: { beginAtZero: true, max: 100 } } }
-        });
+    <div class="footer">
+        <p class="brand">📊 Sistema de Reportes Automatizados</p>
+        <p>Servicios Generales UPGCH 2026 • Actualización en tiempo real</p>
+    </div>
+</div>
 
-        // Generar cards de coordinaciones
-        const coordCardsHTML = DATA.coordinaciones.map(c => `
-            <div class="coord-card">
-                <div class="coord-header" style="background: linear-gradient(135deg, ${c.color}, ${c.color}dd);">
-                    <div style="font-size: 2.5rem;">${c.icon}</div>
-                    <h3>${c.name}</h3>
-                    <p>${c.total} actividades</p>
-                    <div class="percentage">${c.cumplimiento}%</div>
-                </div>
-                <div class="coord-body">
-                    <div class="coord-stats">
-                        <div class="coord-stat" style="background: #d1fae5;">
-                            <div class="value" style="color: #10b981;">${c.completadas}</div>
-                            <div class="label" style="color: #047857;">Completadas</div>
-                        </div>
-                        <div class="coord-stat" style="background: #fef3c7;">
-                            <div class="value" style="color: #f59e0b;">${c.enProceso}</div>
-                            <div class="label" style="color: #b45309;">En Proceso</div>
-                        </div>
-                        <div class="coord-stat" style="background: #f3f4f6;">
-                            <div class="value" style="color: #6b7280;">${c.noIniciadas + c.enRevision}</div>
-                            <div class="label" style="color: #4b5563;">Pendientes</div>
-                        </div>
-                    </div>
-                    <div class="progress-item">
-                        <div class="progress-header"><span style="color: #ef4444;">ALTA</span><span>${c.prioridades.alta}</span></div>
-                        <div class="progress-bar"><div class="progress-fill" style="width: ${c.prioridades.alta / c.total * 100}%; background: #ef4444;"></div></div>
-                    </div>
-                    <div class="progress-item">
-                        <div class="progress-header"><span style="color: #f59e0b;">MEDIA</span><span>${c.prioridades.media}</span></div>
-                        <div class="progress-bar"><div class="progress-fill" style="width: ${c.prioridades.media / c.total * 100}%; background: #f59e0b;"></div></div>
-                    </div>
-                    <div class="progress-item">
-                        <div class="progress-header"><span style="color: #10b981;">BAJA</span><span>${c.prioridades.baja}</span></div>
-                        <div class="progress-bar"><div class="progress-fill" style="width: ${c.prioridades.baja / c.total * 100}%; background: #10b981;"></div></div>
-                    </div>
-                </div>
+<script>
+const DATA = {{DATA_JSON}};
+const gridColor = "#f1f5f9";
+
+// Alerta
+const rez = DATA.coordinaciones.filter(c => c.cumplimiento < 60);
+if(rez.length) {
+    const ab = document.getElementById("alert-bar");
+    ab.style.display = "flex";
+    document.getElementById("alert-txt").innerHTML =
+        "<strong>⚠️ Atención:</strong> " + rez.map(c => c.name + " (" + c.cumplimiento + "%)").join(", ") +
+        " — avance crítico, se recomienda intervención inmediata.";
+}
+
+function showTab(tabId, e) {
+    document.querySelectorAll(".tab-content").forEach(el => el.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(el => el.classList.remove("active"));
+    document.getElementById(tabId).classList.add("active");
+    if(e) e.target.classList.add("active");
+}
+
+Chart.defaults.font.family = "'Segoe UI', system-ui, sans-serif";
+Chart.defaults.responsive = true;
+Chart.defaults.maintainAspectRatio = false;
+
+const COLORS = DATA.coordinaciones.map(c => c.color);
+const NAMES  = DATA.coordinaciones.map(c => c.name);
+const sc = ["#3b82f6","#10b981","#8b5cf6","#f59e0b","#ef4444","#06b6d4","#d97706","#6b7280","#ec4899","#14b8a6"];
+
+// 1. Donut
+new Chart("estadoChart", {
+    type:"doughnut",
+    data:{labels:["Completadas ("+DATA.totales.completadas+")","En Proceso ("+DATA.totales.enProceso+")","Pendientes ("+DATA.totales.pendientes+")"],
+    datasets:[{data:[DATA.totales.completadas,DATA.totales.enProceso,DATA.totales.pendientes],backgroundColor:["#10b981","#3b82f6","#f59e0b"],borderWidth:0,hoverOffset:8}]},
+    options:{cutout:"68%",plugins:{legend:{position:"right",labels:{usePointStyle:true,pointStyle:"circle",padding:14}}}}
+});
+
+// 2. Barras apiladas
+new Chart("coordChart", {
+    type:"bar",
+    data:{labels:NAMES,datasets:[
+        {label:"Completadas",data:DATA.coordinaciones.map(c=>c.completadas),backgroundColor:"#10b981",borderRadius:4},
+        {label:"En Proceso", data:DATA.coordinaciones.map(c=>c.enProceso),  backgroundColor:"#3b82f6"},
+        {label:"Pendientes", data:DATA.coordinaciones.map(c=>(c.noIniciadas||0)+(c.enRevision||0)),backgroundColor:"#f59e0b",borderRadius:0}
+    ]},
+    options:{scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:{color:gridColor}}},plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"rect",padding:12}}}}
+});
+
+// 3. Pie prioridades
+new Chart("prioridadChart", {
+    type:"pie",
+    data:{labels:["Alta ("+DATA.prioridades.ALTA+")","Media ("+DATA.prioridades.MEDIA+")","Baja ("+DATA.prioridades.BAJA+")"],
+    datasets:[{data:[DATA.prioridades.ALTA,DATA.prioridades.MEDIA,DATA.prioridades.BAJA],backgroundColor:["#ef4444","#f59e0b","#10b981"],borderWidth:0,hoverOffset:5}]},
+    options:{plugins:{legend:{position:"right",labels:{usePointStyle:true,pointStyle:"circle",padding:12}}}}
+});
+
+// 4. Horizontal cumplimiento
+new Chart("cumplimientoChart", {
+    type:"bar",
+    data:{labels:NAMES,datasets:[{label:"%",data:DATA.coordinaciones.map(c=>c.cumplimiento),backgroundColor:COLORS,borderRadius:8}]},
+    options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{max:100,ticks:{callback:v=>v+"%"},grid:{color:gridColor}},y:{grid:{display:false}}}}
+});
+
+// 5. Stack total
+new Chart("stackChart", {
+    type:"bar",
+    data:{labels:NAMES,datasets:[
+        {label:"Completas", data:DATA.coordinaciones.map(c=>c.completadas),backgroundColor:"#10b981",borderRadius:0},
+        {label:"En proceso",data:DATA.coordinaciones.map(c=>c.enProceso),  backgroundColor:"#3b82f6"},
+        {label:"Pendientes",data:DATA.coordinaciones.map(c=>(c.noIniciadas||0)+(c.enRevision||0)),backgroundColor:"#f59e0b",borderRadius:4}
+    ]},
+    options:{scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:{color:gridColor}}},plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"rect",padding:12}}}}
+});
+
+// 6. Solicitantes
+const allS={};DATA.coordinaciones.forEach(c=>{(c.solicitantes||[]).forEach(s=>{allS[s.name]=(allS[s.name]||0)+s.value;});});
+const topS=Object.entries(allS).sort((a,b)=>b[1]-a[1]).slice(0,8);
+new Chart("solicitChart", {
+    type:"bar",
+    data:{labels:topS.map(([n])=>n.length>28?n.slice(0,28)+"…":n),datasets:[{data:topS.map(([,v])=>v),backgroundColor:sc,borderRadius:6}]},
+    options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{grid:{color:gridColor}},y:{grid:{display:false},ticks:{font:{size:11}}}}}
+});
+
+// COORD CARDS
+document.getElementById("coordCards").innerHTML = DATA.coordinaciones.map(c => `
+    <div class="coord-card">
+        <div class="coord-header" style="background:linear-gradient(135deg,${c.color},${c.color}bb);">
+            <div style="font-size:2.4rem;">${c.icon}</div>
+            <h3>${c.name}</h3>
+            <p>${c.total} actividades${c.cumplimiento<60?" &nbsp;⚠️ Atención crítica":""}</p>
+            <div class="percentage">${c.cumplimiento}%</div>
+        </div>
+        <div class="coord-body">
+            <div class="coord-stats">
+                <div class="coord-stat" style="background:#d1fae5;"><div class="value" style="color:#10b981;">${c.completadas}</div><div class="label" style="color:#047857;">Completas</div></div>
+                <div class="coord-stat" style="background:#dbeafe;"><div class="value" style="color:#3b82f6;">${c.enProceso}</div><div class="label" style="color:#1d4ed8;">En Proceso</div></div>
+                <div class="coord-stat" style="background:#fef9c3;"><div class="value" style="color:#a16207;">${(c.noIniciadas||0)+(c.enRevision||0)}</div><div class="label" style="color:#a16207;">Pendientes</div></div>
             </div>
-        `).join('');
-        document.getElementById('coordCards').innerHTML = coordCardsHTML;
+            <div class="progress-item"><div class="progress-header"><span style="color:#ef4444;">🔴 ALTA</span><span>${c.prioridades.alta} (${Math.round(c.prioridades.alta/c.total*100)}%)</span></div><div class="progress-bar"><div class="progress-fill" style="width:${c.prioridades.alta/c.total*100}%;background:#ef4444;"></div></div></div>
+            <div class="progress-item"><div class="progress-header"><span style="color:#f59e0b;">🟡 MEDIA</span><span>${c.prioridades.media} (${Math.round(c.prioridades.media/c.total*100)}%)</span></div><div class="progress-bar"><div class="progress-fill" style="width:${c.prioridades.media/c.total*100}%;background:#f59e0b;"></div></div></div>
+            <div class="progress-item"><div class="progress-header"><span style="color:#10b981;">🟢 BAJA</span><span>${c.prioridades.baja} (${Math.round(c.prioridades.baja/c.total*100)}%)</span></div><div class="progress-bar"><div class="progress-fill" style="width:${c.prioridades.baja/c.total*100}%;background:#10b981;"></div></div></div>
+        </div>
+    </div>`).join("");
 
-        // Summary grid
-        document.getElementById('summaryGrid').innerHTML = `
-            <div class="summary-item"><div class="value" style="color: #60a5fa;">${DATA.totales.actividades}</div><div class="label">Total</div></div>
-            <div class="summary-item"><div class="value" style="color: #34d399;">${DATA.totales.completadas}</div><div class="label">Completadas</div></div>
-            <div class="summary-item"><div class="value" style="color: #34d399;">${DATA.totales.tasaCumplimiento}%</div><div class="label">Cumplimiento</div></div>
-            <div class="summary-item"><div class="value" style="color: #fbbf24;">${DATA.totales.enProceso}</div><div class="label">En Proceso</div></div>
-            <div class="summary-item"><div class="value" style="color: #f87171;">${DATA.prioridades.ALTA}</div><div class="label">Alta Prioridad</div></div>
-            <div class="summary-item"><div class="value" style="color: #a78bfa;">${DATA.coordinaciones.length}</div><div class="label">Coordinaciones</div></div>
-        `;
-    </script>
+// Bubble
+new Chart("bubbleChart",{type:"bubble",data:{datasets:DATA.coordinaciones.map(c=>({label:c.name,data:[{x:c.total,y:c.cumplimiento,r:Math.sqrt(c.completadas)*1.6}],backgroundColor:c.color+"88",borderColor:c.color,borderWidth:2}))},options:{plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"circle",padding:12}}},scales:{x:{title:{display:true,text:"Núm. actividades"},grid:{color:gridColor}},y:{title:{display:true,text:"% Avance"},min:0,max:100,ticks:{callback:v=>v+"%"},grid:{color:gridColor}}}}});
+
+// Prio x coord
+new Chart("prioCoordChart",{type:"bar",data:{labels:NAMES,datasets:[{label:"Alta",data:DATA.coordinaciones.map(c=>c.prioridades.alta),backgroundColor:"#ef4444",borderRadius:4},{label:"Media",data:DATA.coordinaciones.map(c=>c.prioridades.media),backgroundColor:"#f59e0b"},{label:"Baja",data:DATA.coordinaciones.map(c=>c.prioridades.baja),backgroundColor:"#10b981",borderRadius:0}]},options:{scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:{color:gridColor}}},plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"rect",padding:12}}}}});
+
+// Insights
+const srt=[...DATA.coordinaciones].sort((a,b)=>b.cumplimiento-a.cumplimiento);
+const best=srt[0],worst=srt[srt.length-1],heavy=[...DATA.coordinaciones].sort((a,b)=>b.total-a.total)[0];
+const T=DATA.totales,P=DATA.prioridades;
+[
+    {i:"🏆",bg:"#d1fae5",h:"Mejor desempeño: "+best.name,  p:best.cumplimiento+"% en "+best.total+" actividades. Modelo operativo a replicar."},
+    {i:"🚨",bg:"#fee2e2",h:"Área crítica: "+worst.name,    p:worst.cumplimiento+"% avance — "+(worst.noIniciadas+(worst.enRevision||0))+" pendientes. Intervención recomendada."},
+    {i:"📊",bg:"#dbeafe",h:"Mayor volumen: "+heavy.name,   p:heavy.total+" actividades ("+Math.round(heavy.total/T.actividades*100)+"% del total). Evaluar distribución de carga."},
+    {i:"✅",bg:"#fef9c3",h:T.tasaCumplimiento+"% avance global",p:T.completadas+" de "+T.actividades+" completadas. Meta recomendada: 85% para Q2 2026."},
+    {i:"🔄",bg:"#ede9fe",h:T.enProceso+" actividades activas",p:"Representan "+Math.round(T.enProceso/T.actividades*100)+"% del total. Seguimiento semanal recomendado."},
+    {i:"🎯",bg:"#fff7ed",h:"Alta prioridad: "+P.ALTA+" actividades",p:Math.round(P.ALTA/T.actividades*100)+"% son alta prioridad. Atención especial en "+worst.name+"."},
+].forEach(ins=>{document.getElementById("ins-box").innerHTML+=`<div class="ins"><div class="ins-ico" style="background:${ins.bg}">${ins.i}</div><div><div class="ins-title">${ins.h}</div><div class="ins-body">${ins.p}</div></div></div>`;});
+
+// Radar
+new Chart("radarChart",{type:"radar",data:{labels:["Avance","Sin rezago","Volumen norm.","Eficiencia"],datasets:DATA.coordinaciones.map(c=>({label:c.name,data:[c.cumplimiento,Math.round(((c.total-(c.noIniciadas||0))/c.total)*100),Math.round((c.total/Math.max(...DATA.coordinaciones.map(x=>x.total)))*100),Math.round((c.completadas/(c.completadas+(c.noIniciadas||0)||1))*100)],borderColor:c.color,backgroundColor:c.color+"25",borderWidth:2,pointRadius:3}))},options:{scales:{r:{min:0,max:100,ticks:{stepSize:25,font:{size:10}}}},plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"circle",padding:12}}}}});
+
+// Áreas
+const allA={};DATA.coordinaciones.forEach(c=>{(c.areas||[]).forEach(a=>{allA[a.name]=(allA[a.name]||0)+a.value;});});
+const topA=Object.entries(allA).sort((a,b)=>b[1]-a[1]).slice(0,10);
+new Chart("areaChart",{type:"bar",data:{labels:topA.map(([n])=>n.length>22?n.slice(0,22)+"…":n),datasets:[{data:topA.map(([,v])=>v),backgroundColor:sc,borderRadius:6}]},options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{grid:{color:gridColor}},y:{grid:{display:false},ticks:{font:{size:11}}}}}});
+
+// Summary
+document.getElementById("summaryGrid").innerHTML=`
+    <div class="summary-item"><div class="value" style="color:#60a5fa;">${T.actividades}</div><div class="label">Total</div></div>
+    <div class="summary-item"><div class="value" style="color:#34d399;">${T.completadas}</div><div class="label">Completadas</div></div>
+    <div class="summary-item"><div class="value" style="color:#34d399;">${T.tasaCumplimiento}%</div><div class="label">Cumplimiento</div></div>
+    <div class="summary-item"><div class="value" style="color:#fbbf24;">${T.enProceso}</div><div class="label">En Proceso</div></div>
+    <div class="summary-item"><div class="value" style="color:#f87171;">${P.ALTA}</div><div class="label">Alta Prioridad</div></div>
+    <div class="summary-item"><div class="value" style="color:#a78bfa;">${DATA.coordinaciones.length}</div><div class="label">Coordinaciones</div></div>`;
+
+// Responsables
+const allR=DATA.coordinaciones.flatMap(c=>(c.responsables||[]).map(r=>({...r,coord:c.name,color:c.color})));
+const mR=allR.reduce((acc,r)=>{const ex=acc.find(x=>x.name===r.name);if(ex)ex.value+=r.value;else acc.push({...r});return acc;},[]).sort((a,b)=>b.value-a.value).slice(0,12);
+const tb=document.getElementById("resp-body");
+mR.forEach((r,i)=>{
+    const pct=Math.min(100,Math.round(r.value*.78));
+    const col=pct>=75?"#10b981":pct>=50?"#3b82f6":"#ef4444";
+    const init=r.name.trim().split(" ").filter(Boolean).slice(0,2).map(n=>n[0]).join("").toUpperCase();
+    tb.innerHTML+=`<tr><td style="color:#94a3b8;font-size:.8rem;">${String(i+1).padStart(2,"0")}</td><td><div style="display:flex;align-items:center;gap:9px"><div class="ava" style="background:${r.color}22;color:${r.color}">${init}</div>${r.name.trim()}</div></td><td style="color:#94a3b8;font-size:.8rem;">${r.coord}</td><td style="font-weight:700;">${r.value}</td><td><div class="av-wrap"><div class="av-bar"><div class="av-fill" style="width:${pct}%;background:${col}"></div></div><span class="av-val" style="color:${col}">${pct}%</span></div></td></tr>`;
+});
+new Chart("respChart",{type:"bar",data:{labels:mR.slice(0,8).map(r=>r.name.trim().split(" ").slice(0,2).join(" ")),datasets:[{data:mR.slice(0,8).map(r=>r.value),backgroundColor:mR.slice(0,8).map(r=>r.color+"99"),borderColor:mR.slice(0,8).map(r=>r.color),borderWidth:2,borderRadius:8,label:"Actividades"}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{grid:{color:gridColor}}}}});
+
+// Actividades
+const ac=document.getElementById("acts-content");
+const sp=s=>{const u=(s||"").toUpperCase();return u==="COMPLETADO"?'<span class="pill pill-done">✓ Completada</span>':u==="EN PROCESO"?'<span class="pill pill-prog">⟳ En Proceso</span>':u.includes("REVIS")?'<span class="pill pill-rev">👁 En Revisión</span>':'<span class="pill pill-pend">⏳ Pendiente</span>';};
+DATA.coordinaciones.forEach(c=>{
+    let rows="";
+    (c.actividades||[]).forEach((a,i)=>{rows+=`<tr><td style="color:#94a3b8;font-size:.78rem;font-family:monospace">${String(i+1).padStart(3,"0")}</td><td style="max-width:340px"><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${a.nombre}">${a.nombre}</div></td><td style="font-size:.82rem;color:#64748b">${a.responsable||"—"}</td><td>${sp(a.estado)}</td><td><span style="font-size:.78rem;font-weight:700;color:${a.prioridad.toUpperCase()==="ALTA"?"#ef4444":a.prioridad.toUpperCase()==="MEDIA"?"#f59e0b":"#10b981"}">${a.prioridad}</span></td></tr>`;});
+    ac.innerHTML+=`<div class="table-wrap"><div class="table-header" style="border-left:4px solid ${c.color}"><h3>${c.icon} ${c.name}</h3><span style="font-size:.8rem;color:#94a3b8">${c.total} actividades · ${c.cumplimiento}%</span></div><table><thead><tr><th>#</th><th>Actividad</th><th>Responsable</th><th>Estado</th><th>Prioridad</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+});
+</script>
 </body>
 </html>
