@@ -770,15 +770,15 @@
       "name": "Seguridad y PC",
       "icon": "🛡️",
       "color": "#ef4444",
-      "total": 141,
-      "completadas": 100,
-      "enProceso": 29,
+      "total": 147,
+      "completadas": 101,
+      "enProceso": 31,
       "enRevision": 4,
-      "noIniciadas": 8,
-      "cumplimiento": 70.9,
+      "noIniciadas": 11,
+      "cumplimiento": 68.7,
       "prioridades": {
-        "alta": 72,
-        "media": 60,
+        "alta": 74,
+        "media": 61,
         "baja": 1
       },
       "areas": [
@@ -818,7 +818,7 @@
       "responsables": [
         {
           "name": "ISIDRO ZAVALA DE LA CRUZ",
-          "value": 42
+          "value": 45
         },
         {
           "name": "MOYSES MORALES SANTIZO",
@@ -1737,6 +1737,42 @@
           "estado": "nan",
           "prioridad": "nan",
           "responsable": "nan"
+        },
+        {
+          "nombre": "seguimiento a reporte del area de psicologia/nombres/reportes",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "revsion de camaras para reporte de psicologia",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "seguimientgo a oficios institucionels",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "señaleticas en cafetria, lechucitas, campo y oliva",
+          "estado": "nan",
+          "prioridad": "nan",
+          "responsable": "nan"
+        },
+        {
+          "nombre": "reporte de carga de gas en las cafetrias oliva. basica y campo",
+          "estado": "nan",
+          "prioridad": "nan",
+          "responsable": "nan"
+        },
+        {
+          "nombre": "planeacion de simulacros",
+          "estado": "nan",
+          "prioridad": "nan",
+          "responsable": "nan"
         }
       ]
     },
@@ -2544,16 +2580,16 @@
     }
   ],
   "totales": {
-    "actividades": 364,
-    "completadas": 266,
-    "enProceso": 78,
-    "pendientes": 20,
-    "tasaCumplimiento": 73.1
+    "actividades": 370,
+    "completadas": 267,
+    "enProceso": 80,
+    "pendientes": 23,
+    "tasaCumplimiento": 72.2
   },
   "prioridades": {
-    "ALTA": 155,
-    "MEDIA": 122,
+    "ALTA": 157,
+    "MEDIA": 123,
     "BAJA": 78
   },
-  "generado": "2026-03-13 21:41:13"
+  "generado": "2026-03-13 21:44:12"
 }
