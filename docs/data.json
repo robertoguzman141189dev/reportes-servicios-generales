@@ -1781,59 +1781,67 @@
       "name": "Gestión Espacios",
       "icon": "🏛️",
       "color": "#10b981",
-      "total": 129,
-      "completadas": 99,
+      "total": 158,
+      "completadas": 128,
       "enProceso": 30,
       "enRevision": 0,
       "noIniciadas": 0,
-      "cumplimiento": 76.7,
+      "cumplimiento": 81.0,
       "prioridades": {
         "alta": 8,
         "media": 36,
-        "baja": 85
+        "baja": 114
       },
       "areas": [
         {
           "name": "Auditorio General",
-          "value": 29
+          "value": 46
+        },
+        {
+          "name": "Auditorio Salud",
+          "value": 19
         },
         {
           "name": "Coordinación de gestión de espacios",
           "value": 17
         },
         {
-          "name": "Auditorio Salud",
-          "value": 13
+          "name": "Departamento de compras",
+          "value": 14
         },
         {
           "name": "Servicios Generales",
           "value": 13
         },
         {
-          "name": "Departamento de compras",
-          "value": 11
-        },
-        {
           "name": "Responsable de Material Técnico Didáctico",
           "value": 6
         },
         {
-          "name": "Centro Odontologico y Practicas Odontologicas",
-          "value": 4
+          "name": "Edificio D103",
+          "value": 5
         },
         {
-          "name": "Protección Civil",
-          "value": 3
+          "name": "Centro Odontologico y Practicas Odontologicas",
+          "value": 4
         }
       ],
       "responsables": [],
       "solicitantes": [
         {
           "name": "Coordinación de gestión de espacios",
-          "value": 69
+          "value": 72
         },
         {
           "name": "Dirección de capital humano",
+          "value": 20
+        },
+        {
+          "name": "Dirección de Ingenierias",
+          "value": 9
+        },
+        {
+          "name": "Dirección de la licenciatura en médico c",
           "value": 8
         },
         {
@@ -1841,23 +1849,15 @@
           "value": 5
         },
         {
-          "name": "Dirección de la licenciatura en médico c",
+          "name": "Rectoria y Dirección de operaciones",
           "value": 5
         },
         {
-          "name": "Dirección de Ingenierias",
-          "value": 4
+          "name": "Dirección del área de idiomas",
+          "value": 5
         },
         {
           "name": "Recursos Humanos",
-          "value": 3
-        },
-        {
-          "name": "Dirección de VInculación",
-          "value": 3
-        },
-        {
-          "name": "Dirección de Derecho",
           "value": 3
         }
       ],
@@ -2635,21 +2635,195 @@
           "estado": "COMPLETADO",
           "prioridad": "BAJA",
           "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio de Salud 11 de Marzo)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 26 de Junio)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Mesa de trabajo para mejora de procesos académicos y operativos",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 27 de marzo)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 06 al 10 de abril)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio de salud 24de abril y  12 de junio)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio de salud: (Proyecto integrador Dirección de ingeniera)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 26 de Junio)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Mesa de trabajo para mejora de procesos académicos y operativos",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 27 de marzo)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 06 al 10 de abril)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio de salud 24de abril y  12 de junio)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio de salud: (Proyecto integrador Dirección de ingeniera)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio de Salud 11 de Marzo)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 26 de Junio)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Mesa de trabajo para mejora de procesos académicos y operativos",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 27 de marzo)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 06 al 10 de abril)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio de salud 24de abril y  12 de junio)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio de salud: (Proyecto integrador Dirección de ingeniera)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
         }
       ]
     }
   ],
   "totales": {
-    "actividades": 380,
-    "completadas": 277,
+    "actividades": 409,
+    "completadas": 306,
     "enProceso": 80,
     "pendientes": 23,
-    "tasaCumplimiento": 72.9
+    "tasaCumplimiento": 74.8
   },
   "prioridades": {
     "ALTA": 157,
     "MEDIA": 123,
-    "BAJA": 88
+    "BAJA": 117
   },
-  "generado": "2026-03-13 21:54:14"
+  "generado": "2026-03-13 21:57:18"
 }
