@@ -5,15 +5,15 @@
       "name": "Mantenimiento",
       "icon": "🔧",
       "color": "#3b82f6",
-      "total": 79,
-      "completadas": 65,
+      "total": 81,
+      "completadas": 66,
       "enProceso": 2,
       "noIniciadas": 10,
       "enRevision": 0,
-      "cumplimiento": 82.3,
+      "cumplimiento": 81.5,
       "prioridades": {
-        "alta": 59,
-        "media": 17,
+        "alta": 60,
+        "media": 18,
         "baja": 2
       },
       "areas": [
@@ -27,11 +27,11 @@
         },
         {
           "name": "UNIDADES AUTOMOTORAS",
-          "value": 9
+          "value": 10
         },
         {
           "name": "AIRE ACONDICIONADO",
-          "value": 7
+          "value": 8
         },
         {
           "name": "JARDINERIA",
@@ -45,11 +45,11 @@
       "responsables": [
         {
           "name": "JORGE FEDERICO AGUILAR CASTRO",
-          "value": 61
+          "value": 62
         },
         {
           "name": "EDUARDO CABRERA COUTIÑO",
-          "value": 17
+          "value": 18
         }
       ],
       "solicitantes": [
@@ -76,19 +76,57 @@
       ]
     },
     {
+      "id": "INFRAESTRUCTURA",
+      "name": "Infraestructura",
+      "icon": "🏗️",
+      "color": "#f59e0b",
+      "total": 7,
+      "completadas": 3,
+      "enProceso": 4,
+      "noIniciadas": 0,
+      "enRevision": 0,
+      "cumplimiento": 42.9,
+      "prioridades": {
+        "alta": 5,
+        "media": 2,
+        "baja": 0
+      },
+      "areas": [
+        {
+          "name": "CONSTRUCCION",
+          "value": 7
+        }
+      ],
+      "responsables": [],
+      "solicitantes": [
+        {
+          "name": "MANTENIMIENTO GENERAL",
+          "value": 5
+        },
+        {
+          "name": "ODONTOLOGIA",
+          "value": 1
+        },
+        {
+          "name": "QUIMICOS FARMACOBIOLOGOS",
+          "value": 1
+        }
+      ]
+    },
+    {
       "id": "COORDINACION DE SEGURIDAD Y PC",
       "name": "Seguridad y PC",
       "icon": "🛡️",
       "color": "#ef4444",
-      "total": 134,
-      "completadas": 99,
-      "enProceso": 27,
+      "total": 141,
+      "completadas": 100,
+      "enProceso": 29,
       "noIniciadas": 0,
       "enRevision": 4,
-      "cumplimiento": 73.9,
+      "cumplimiento": 70.9,
       "prioridades": {
-        "alta": 70,
-        "media": 59,
+        "alta": 72,
+        "media": 60,
         "baja": 1
       },
       "areas": [
@@ -120,7 +158,7 @@
       "responsables": [
         {
           "name": " ISIDRO ZAVALA DE LA CRUZ",
-          "value": 39
+          "value": 42
         },
         {
           "name": "MOYSES MORALES SANTIZO",
@@ -167,23 +205,23 @@
       "name": "Gestión Espacios",
       "icon": "🏛️",
       "color": "#10b981",
-      "total": 91,
-      "completadas": 69,
-      "enProceso": 22,
+      "total": 119,
+      "completadas": 89,
+      "enProceso": 30,
       "noIniciadas": 0,
       "enRevision": 0,
-      "cumplimiento": 75.8,
+      "cumplimiento": 74.8,
       "prioridades": {
         "alta": 8,
-        "media": 33,
-        "baja": 50
+        "media": 36,
+        "baja": 75
       },
       "areas": [],
       "responsables": [],
       "solicitantes": [
         {
           "name": "Coordinación de gestión de espacios",
-          "value": 55
+          "value": 68
         },
         {
           "name": "Departamento de compras",
@@ -191,68 +229,30 @@
         },
         {
           "name": "Dirección de la licenciatura en médico cirujano",
-          "value": 3
+          "value": 4
+        },
+        {
+          "name": "Dirección de capital humano",
+          "value": 4
         },
         {
           "name": "Recursos Humanos",
           "value": 3
-        },
-        {
-          "name": "Dirección de VInculación",
-          "value": 3
-        }
-      ]
-    },
-    {
-      "id": "INFRAESTRUCTURA",
-      "name": "Infraestructura",
-      "icon": "🏗️",
-      "color": "#f59e0b",
-      "total": 7,
-      "completadas": 3,
-      "enProceso": 3,
-      "noIniciadas": 1,
-      "enRevision": 0,
-      "cumplimiento": 42.9,
-      "prioridades": {
-        "alta": 5,
-        "media": 2,
-        "baja": 0
-      },
-      "areas": [
-        {
-          "name": "CONSTRUCCION",
-          "value": 7
-        }
-      ],
-      "responsables": [],
-      "solicitantes": [
-        {
-          "name": "MANTENIMIENTO GENERAL",
-          "value": 5
-        },
-        {
-          "name": "ODONTOLOGIA",
-          "value": 1
-        },
-        {
-          "name": "QUIMICOS FARMACOBIOLOGOS",
-          "value": 1
         }
       ]
     }
   ],
   "totales": {
-    "actividades": 311,
-    "completadas": 236,
-    "enProceso": 54,
-    "pendientes": 15,
-    "tasaCumplimiento": 75.9
+    "actividades": 348,
+    "completadas": 258,
+    "enProceso": 65,
+    "pendientes": 14,
+    "tasaCumplimiento": 74.1
   },
   "prioridades": {
-    "ALTA": 142,
-    "MEDIA": 111,
-    "BAJA": 53
+    "ALTA": 145,
+    "MEDIA": 116,
+    "BAJA": 78
   },
-  "generado": "2026-03-12 18:57:42"
+  "generado": "2026-03-13 20:22:11"
 }

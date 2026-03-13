@@ -13,7 +13,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #f8fafc, #e2e8f0); min-height: 100vh; padding: 24px; }
         .container { max-width: 1400px; margin: 0 auto; }
-
+        
         .header {
             background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #db2777 100%);
             border-radius: 20px; padding: 35px 40px; color: white; margin-bottom: 30px;
@@ -21,517 +21,542 @@
         }
         .header h1 { font-size: 2.5rem; font-weight: 800; }
         .header p { opacity: 0.9; margin-top: 8px; }
-        .header-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; margin-top: 30px; }
-        .header-stat { background: rgba(255,255,255,0.15); padding: 18px 22px; border-radius: 14px; backdrop-filter: blur(10px); transition: background .2s, transform .2s; cursor: default; }
-        .header-stat:hover { background: rgba(255,255,255,0.22); transform: translateY(-2px); }
+        .header-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin-top: 30px; }
+        .header-stat { background: rgba(255,255,255,0.15); padding: 18px 22px; border-radius: 14px; backdrop-filter: blur(10px); }
         .header-stat .value { font-size: 2rem; font-weight: 800; }
-        .header-stat .label { font-size: 0.88rem; opacity: 0.85; margin-top: 5px; }
-        .header-stat .sub { font-size: 0.78rem; opacity: 0.6; margin-top: 2px; }
-
-        .alert-bar { background: linear-gradient(90deg,#fef3c7,#fde68a); border-left: 4px solid #f59e0b; border-radius: 0 14px 14px 0; padding: 12px 18px; margin-bottom: 22px; font-size: 0.9rem; color: #78350f; display: none; align-items: center; gap: 10px; }
-        .adot { width: 8px; height: 8px; background: #f59e0b; border-radius: 50%; animation: pulse 2s infinite; flex-shrink: 0; }
+        .header-stat .label { font-size: 0.9rem; opacity: 0.85; margin-top: 5px; }
 
         .tabs { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
-        .tab { padding: 12px 24px; border-radius: 12px; border: none; cursor: pointer; font-size: 0.95rem; font-weight: 600; transition: all 0.3s; background: white; color: #64748b; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+        .tab { padding: 14px 28px; border-radius: 12px; border: none; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s; background: white; color: #64748b; }
         .tab:hover { background: #f1f5f9; }
-        .tab.active { background: linear-gradient(135deg, var(--blue), var(--purple)); color: white; box-shadow: 0 8px 25px rgba(59,130,246,0.4); }
+        .tab.active { background: linear-gradient(135deg, var(--blue), var(--purple)); color: white; box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4); }
 
         .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.35s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .charts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 28px; }
-        @media (max-width: 1000px) { .charts-grid { grid-template-columns: 1fr; } }
-        .charts-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 28px; }
-        @media (max-width: 1100px) { .charts-grid-3 { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 700px) { .charts-grid-3 { grid-template-columns: 1fr; } }
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin-bottom: 30px; }
+        .kpi-card { background: white; border-radius: 18px; padding: 26px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border-top: 4px solid; transition: transform 0.3s; }
+        .kpi-card:hover { transform: translateY(-5px); }
+        .kpi-card .icon { width: 55px; height: 55px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 18px; }
+        .kpi-card .value { font-size: 2.8rem; font-weight: 800; line-height: 1; }
+        .kpi-card .label { color: #64748b; font-size: 0.95rem; margin-top: 8px; }
+        .kpi-card .trend { display: inline-flex; align-items: center; gap: 5px; margin-top: 12px; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .trend.up { background: #d1fae5; color: #047857; }
 
+        .charts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin-bottom: 30px; }
+        @media (max-width: 1100px) { .charts-grid { grid-template-columns: 1fr; } }
         .chart-card { background: white; border-radius: 18px; padding: 26px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
         .chart-card.full { grid-column: 1 / -1; }
-        .chart-card h3 { font-size: 1rem; font-weight: 700; color: #1e293b; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
-        .chart-card h3 .icon { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-        .chart-container { height: 300px; }
-        .chart-container.tall { height: 380px; }
-        .chart-container.sm { height: 240px; }
+        .chart-card h3 { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .chart-card h3 .icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+        .chart-container { height: 320px; }
+        .chart-container.tall { height: 400px; }
 
-        .coord-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-        @media (max-width: 1000px) { .coord-grid { grid-template-columns: 1fr; } }
+        .coord-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+        @media (max-width: 1100px) { .coord-grid { grid-template-columns: 1fr; } }
         .coord-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        .coord-header { padding: 28px; color: white; position: relative; overflow: hidden; }
-        .coord-header::after { content:""; position:absolute; top:-40px; right:-40px; width:140px; height:140px; border-radius:50%; background:rgba(255,255,255,.1); }
-        .coord-header h3 { font-size: 1.3rem; font-weight: 700; }
-        .coord-header p { opacity: 0.88; margin-top: 4px; font-size:.9rem; }
-        .coord-header .percentage { font-size: 3.2rem; font-weight: 800; margin-top: 14px; }
-        .coord-body { padding: 24px; }
-        .coord-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
-        .coord-stat { text-align: center; padding: 14px 8px; border-radius: 12px; }
+        .coord-header { padding: 28px; color: white; }
+        .coord-header h3 { font-size: 1.4rem; font-weight: 700; }
+        .coord-header p { opacity: 0.9; margin-top: 5px; }
+        .coord-header .percentage { font-size: 3rem; font-weight: 800; margin-top: 15px; }
+        .coord-body { padding: 25px; }
+        .coord-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px; }
+        .coord-stat { text-align: center; padding: 15px; border-radius: 12px; }
         .coord-stat .value { font-size: 1.6rem; font-weight: 800; }
-        .coord-stat .label { font-size: 0.78rem; margin-top: 4px; font-weight:600; }
+        .coord-stat .label { font-size: 0.8rem; margin-top: 4px; }
+
         .progress-item { margin-bottom: 12px; }
-        .progress-header { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.85rem; font-weight:600; }
-        .progress-bar { height: 9px; background: #e2e8f0; border-radius: 10px; overflow: hidden; }
-        .progress-fill { height: 100%; border-radius: 10px; }
+        .progress-header { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 0.9rem; }
+        .progress-bar { height: 10px; background: #e2e8f0; border-radius: 10px; overflow: hidden; }
+        .progress-fill { height: 100%; border-radius: 10px; transition: width 0.8s ease; }
 
-        .summary { background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 20px; padding: 38px; color: white; margin-top: 28px; }
-        .summary h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 26px; }
-        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 18px; }
-        .summary-item { text-align: center; padding: 22px 14px; background: rgba(255,255,255,0.08); border-radius: 16px; transition: background .2s; }
-        .summary-item:hover { background: rgba(255,255,255,0.13); }
-        .summary-item .value { font-size: 2.4rem; font-weight: 800; }
-        .summary-item .label { font-size: 0.82rem; opacity: 0.78; margin-top: 8px; }
+        .summary { background: linear-gradient(135deg, #0f172a, #1e293b); border-radius: 20px; padding: 40px; color: white; margin-top: 30px; }
+        .summary h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 30px; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; }
+        .summary-item { text-align: center; padding: 25px 15px; background: rgba(255,255,255,0.08); border-radius: 16px; }
+        .summary-item .value { font-size: 2.5rem; font-weight: 800; }
+        .summary-item .label { font-size: 0.85rem; opacity: 0.8; margin-top: 8px; }
 
-        /* Insights */
-        .ins-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 28px; }
-        .ins { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 4px 16px rgba(0,0,0,.07); display: flex; gap: 14px; }
-        .ins-ico { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
-        .ins-title { font-size: .92rem; font-weight: 700; color: #0f172a; margin-bottom: 4px; }
-        .ins-body { font-size: .84rem; color: #64748b; line-height: 1.6; }
+        .footer { text-align: center; padding: 35px; color: #64748b; }
+        .footer .brand { font-size: 1.1rem; font-weight: 600; color: #1e293b; }
 
-        /* Tabla responsables */
-        .table-wrap { background: white; border-radius: 18px; box-shadow: 0 4px 20px rgba(0,0,0,.08); overflow: hidden; margin-bottom: 24px; }
-        .table-header { padding: 18px 24px; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; justify-content: space-between; }
-        .table-header h3 { font-size: 1rem; font-weight: 700; color: #1e293b; }
-        table { width: 100%; border-collapse: collapse; }
-        thead th { background: #f8fafc; padding: 10px 16px; text-align: left; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: #94a3b8; border-bottom: 1px solid #f1f5f9; }
-        tbody tr { border-bottom: 1px solid #f8fafc; transition: background .1s; }
-        tbody tr:last-child { border-bottom: none; }
-        tbody tr:hover { background: #fafbff; }
-        tbody td { padding: 11px 16px; font-size: .88rem; vertical-align: middle; }
-        .pill { display:inline-flex; align-items:center; padding: 3px 10px; border-radius: 20px; font-size: .75rem; font-weight: 700; }
-        .pill-done { background:#dcfce7; color:#16a34a; }
-        .pill-prog { background:#dbeafe; color:#1d4ed8; }
-        .pill-pend { background:#fef9c3; color:#a16207; }
-        .pill-rev  { background:#ede9fe; color:#7c3aed; }
-        .av-wrap { display:flex; align-items:center; gap:7px; }
-        .av-bar { flex:1; height:7px; background:#f1f5f9; border-radius:4px; overflow:hidden; min-width:50px; }
-        .av-fill { height:100%; border-radius:4px; }
-        .av-val { font-size:.82rem; font-weight:700; width:34px; text-align:right; }
-        .ava { width:30px; height:30px; border-radius:50%; font-size:.75rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-
-        /* Sparklines */
-        .spark-row { display:flex; align-items:center; padding:9px 0; border-bottom:1px solid #f1f5f9; }
-        .spark-row:last-child { border-bottom:none; }
-        .spark-lbl { font-size:.88rem; font-weight:500; width:200px; flex-shrink:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-        .spark-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; margin:0 14px; overflow:hidden; }
-        .spark-fill { height:100%; border-radius:5px; }
-        .spark-val { font-size:.88rem; font-weight:700; width:30px; text-align:right; }
-
-        .auto-update { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.18); padding:7px 14px; border-radius:25px; font-size:.83rem; margin-top:14px; }
-        .pulse { width:9px; height:9px; background:#22c55e; border-radius:50%; animation:pulse 2s infinite; }
-
-        .footer { text-align:center; padding:35px; color:#64748b; }
-        .footer .brand { font-size:1.05rem; font-weight:600; color:#1e293b; }
+        .auto-update { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 25px; font-size: 0.85rem; margin-top: 15px; }
+        .pulse { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
     </style>
 </head>
 <body>
-<div class="container">
-
-    <div class="header">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px;">
-            <div>
-                <h1>📊 Reporte Ejecutivo Automático</h1>
-                <p>Servicios Generales UPGCH 2026</p>
-                <div class="auto-update"><span class="pulse"></span>Actualizado: 2026-03-13 02:01:58</div>
+    <div class="container">
+        <div class="header">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+                <div>
+                    <h1>📊 Reporte Ejecutivo Automático</h1>
+                    <p>Servicios Generales UPGCH 2026</p>
+                    <div class="auto-update">
+                        <span class="pulse"></span>
+                        Actualizado: 2026-03-13 20:22:11
+                    </div>
+                </div>
+                <div style="text-align: right;">
+                    <div style="font-size: 3rem; font-weight: 800;">74.1%</div>
+                    <div style="opacity: 0.9;">Cumplimiento Global</div>
+                </div>
             </div>
-            <div style="text-align:right;">
-                <div style="font-size:3.2rem;font-weight:800;">75.9%</div>
-                <div style="opacity:.88;">Cumplimiento Global</div>
-            </div>
-        </div>
-        <div class="header-stats">
-            <div class="header-stat"><div class="value">311</div><div class="label">Total Actividades</div><div class="sub">4 coordinaciones</div></div>
-            <div class="header-stat"><div class="value">236</div><div class="label">Completadas</div><div class="sub">75.9% del total</div></div>
-            <div class="header-stat"><div class="value">54</div><div class="label">En Proceso</div><div class="sub">seguimiento activo</div></div>
-            <div class="header-stat"><div class="value">15</div><div class="label">Pendientes</div><div class="sub">requieren acción</div></div>
-            <div class="header-stat"><div class="value">142</div><div class="label">Alta Prioridad</div><div class="sub">45.7% del total</div></div>
-        </div>
-    </div>
-
-    <div class="alert-bar" id="alert-bar"><div class="adot"></div><span id="alert-txt"></span></div>
-
-    <div class="tabs">
-        <button class="tab active" onclick="showTab('dashboard',event)">📊 Dashboard</button>
-        <button class="tab" onclick="showTab('coordinaciones',event)">🏢 Coordinaciones</button>
-        <button class="tab" onclick="showTab('analisis',event)">🎯 Análisis</button>
-        <button class="tab" onclick="showTab('responsables',event)">👤 Responsables</button>
-        <button class="tab" onclick="showTab('actividades',event)">📋 Actividades</button>
-    </div>
-
-    <!-- DASHBOARD -->
-    <div id="dashboard" class="tab-content active">
-        <div class="charts-grid">
-            <div class="chart-card">
-                <h3><span class="icon" style="background:#dbeafe;color:var(--blue);">🥧</span>Estado Global</h3>
-                <div class="chart-container"><canvas id="estadoChart"></canvas></div>
-            </div>
-            <div class="chart-card">
-                <h3><span class="icon" style="background:#d1fae5;color:var(--green);">📊</span>Por Coordinación</h3>
-                <div class="chart-container"><canvas id="coordChart"></canvas></div>
-            </div>
-            <div class="chart-card">
-                <h3><span class="icon" style="background:#fee2e2;color:var(--red);">🎯</span>Prioridades</h3>
-                <div class="chart-container"><canvas id="prioridadChart"></canvas></div>
-            </div>
-            <div class="chart-card">
-                <h3><span class="icon" style="background:#e9d5ff;color:var(--purple);">📈</span>Cumplimiento %</h3>
-                <div class="chart-container"><canvas id="cumplimientoChart"></canvas></div>
+            <div class="header-stats">
+                <div class="header-stat">
+                    <div class="value">348</div>
+                    <div class="label">Total Actividades</div>
+                </div>
+                <div class="header-stat">
+                    <div class="value">258</div>
+                    <div class="label">Completadas</div>
+                </div>
+                <div class="header-stat">
+                    <div class="value">65</div>
+                    <div class="label">En Proceso</div>
+                </div>
+                <div class="header-stat">
+                    <div class="value">14</div>
+                    <div class="label">Pendientes</div>
+                </div>
             </div>
         </div>
-        <div class="charts-grid">
-            <div class="chart-card">
-                <h3><span class="icon" style="background:#cffafe;color:var(--cyan);">📦</span>Estado apilado</h3>
-                <div class="chart-container"><canvas id="stackChart"></canvas></div>
-            </div>
-            <div class="chart-card">
-                <h3><span class="icon" style="background:#fef9c3;color:#a16207;">🏅</span>Áreas solicitantes — Top 8</h3>
-                <div class="chart-container"><canvas id="solicitChart"></canvas></div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('dashboard')">📊 Dashboard</button>
+            <button class="tab" onclick="showTab('coordinaciones')">🏢 Coordinaciones</button>
+            <button class="tab" onclick="showTab('analisis')">🎯 Análisis</button>
+        </div>
+
+        <div id="dashboard" class="tab-content active">
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3><span class="icon" style="background: #dbeafe; color: var(--blue);">🥧</span> Estado Global</h3>
+                    <div class="chart-container"><canvas id="estadoChart"></canvas></div>
+                </div>
+                <div class="chart-card">
+                    <h3><span class="icon" style="background: #d1fae5; color: var(--green);">📊</span> Por Coordinación</h3>
+                    <div class="chart-container"><canvas id="coordChart"></canvas></div>
+                </div>
+                <div class="chart-card">
+                    <h3><span class="icon" style="background: #fee2e2; color: var(--red);">🎯</span> Prioridades</h3>
+                    <div class="chart-container"><canvas id="prioridadChart"></canvas></div>
+                </div>
+                <div class="chart-card">
+                    <h3><span class="icon" style="background: #e9d5ff; color: var(--purple);">📈</span> Cumplimiento</h3>
+                    <div class="chart-container"><canvas id="cumplimientoChart"></canvas></div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- COORDINACIONES -->
-    <div id="coordinaciones" class="tab-content">
-        <div class="coord-grid" id="coordCards"></div>
-        <div class="charts-grid" style="margin-top:24px;">
-            <div class="chart-card">
-                <h3><span class="icon" style="background:#ede9fe;color:var(--purple);">🫧</span>Eficiencia vs Volumen</h3>
-                <div class="chart-container"><canvas id="bubbleChart"></canvas></div>
-            </div>
-            <div class="chart-card">
-                <h3><span class="icon" style="background:#fee2e2;color:var(--red);">🎛️</span>Prioridad por Coordinación</h3>
-                <div class="chart-container"><canvas id="prioCoordChart"></canvas></div>
-            </div>
+        <div id="coordinaciones" class="tab-content">
+            <div class="coord-grid" id="coordCards"></div>
         </div>
-    </div>
 
-    <!-- ANÁLISIS -->
-    <div id="analisis" class="tab-content">
-        <div class="ins-grid" id="ins-box"></div>
-        <div class="charts-grid">
+        <div id="analisis" class="tab-content">
             <div class="chart-card">
-                <h3><span class="icon" style="background:#cffafe;color:var(--cyan);">🎯</span>Radar de Rendimiento</h3>
+                <h3><span class="icon" style="background: #cffafe; color: var(--cyan);">🎯</span> Radar de Rendimiento</h3>
                 <div class="chart-container tall"><canvas id="radarChart"></canvas></div>
             </div>
-            <div class="chart-card">
-                <h3><span class="icon" style="background:#d1fae5;color:var(--green);">📊</span>Actividades por Área Asignada</h3>
-                <div class="chart-container tall"><canvas id="areaChart"></canvas></div>
+            <div class="summary">
+                <h3>🏆 Resumen Ejecutivo</h3>
+                <div class="summary-grid" id="summaryGrid"></div>
             </div>
         </div>
-        <div class="summary">
-            <h3>🏆 Resumen Ejecutivo</h3>
-            <div class="summary-grid" id="summaryGrid"></div>
+
+        <div class="footer">
+            <p class="brand">📊 Sistema de Reportes Automatizados</p>
+            <p>Servicios Generales UPGCH 2026 • Actualización en tiempo real</p>
         </div>
     </div>
 
-    <!-- RESPONSABLES -->
-    <div id="responsables" class="tab-content">
-        <div class="table-wrap">
-            <div class="table-header"><h3>👤 Top responsables por actividades</h3><span style="font-size:.82rem;color:#94a3b8;">Datos reales del organizador</span></div>
-            <table><thead><tr><th>#</th><th>Responsable</th><th>Coordinación</th><th>Actividades</th><th>Avance est.</th></tr></thead>
-            <tbody id="resp-body"></tbody></table>
-        </div>
-        <div class="chart-card">
-            <h3><span class="icon" style="background:#dbeafe;color:var(--blue);">📊</span>Carga por responsable — Top 8</h3>
-            <div class="chart-container tall"><canvas id="respChart"></canvas></div>
-        </div>
-    </div>
-
-    <!-- ACTIVIDADES -->
-    <div id="actividades" class="tab-content">
-        <div id="acts-content"></div>
-    </div>
-
-    <div class="footer">
-        <p class="brand">📊 Sistema de Reportes Automatizados</p>
-        <p>Servicios Generales UPGCH 2026 • Actualización en tiempo real</p>
-    </div>
-</div>
-
-<script>
-const DATA = {"totales": {"actividades": 311, "completadas": 236, "enProceso": 54, "pendientes": 15, "tasaCumplimiento": 75.9}, "prioridades": {"ALTA": 142, "MEDIA": 111, "BAJA": 53}, "coordinaciones": [{"name": "Mantenimiento Técnico", "icon": "🔧", "color": "#0CA678", "total": 79, "completadas": 65, "enProceso": 2, "noIniciadas": 10, "enRevision": 0, "cumplimiento": 82.3, "estados": {"COMPLETADO": 65, "NO INICIADO": 10, "EN PROCESO": 2}, "prioridades": {"alta": 59, "media": 17, "baja": 2}, "responsables": [{"name": "JORGE FEDERICO AGUILAR CASTRO", "value": 61}, {"name": "EDUARDO CABRERA COUTIÑO", "value": 17}], "solicitantes": [{"name": "Servicios Generales", "value": 52}, {"name": "Odontología", "value": 7}, {"name": "Supervisor de Servicios Social LMC", "value": 3}, {"name": "Medicina", "value": 2}, {"name": "Director LMC", "value": 2}, {"name": "Compras", "value": 1}, {"name": "Preparatoria (media superior)", "value": 1}, {"name": "Coordinacion de Enseñanza y Acreditación", "value": 1}], "areas": [{"name": "LIMPIEZA E HIGIENE", "value": 36}, {"name": "FONTANERIA Y SER. GRAL", "value": 13}, {"name": "UNIDADES AUTOMOTORAS", "value": 9}, {"name": "AIRE ACONDICIONADO", "value": 7}, {"name": "JARDINERIA", "value": 4}, {"name": "PINTURA", "value": 2}, {"name": "AREA ACUATICA", "value": 2}, {"name": "ELECTRICIDAD", "value": 2}], "actividades": [{"nombre": "Revisión del aire acondicionado del salon 307 edificio I", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Entrega de reporte de carga de combustible", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "EDUARDO CABRERA COUTIÑO"}, {"nombre": "Limpieza en el inicio del turno matutino de salones, pasillos, baños y oficinas ", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Mantenimiento del aire acondicionado del salon 101 del Edificio J", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Revisión del funcionamiento de los climas en general del edificio E", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Limpieza de andadores y riego de jardinería en el inicio del turno matutino en j", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Poda de arboles de benjaminas entre el estacionamiento y Clinica 1", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Poda de arbustos y vegetación frente al edificio A", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Poda de vegetación colgante en muros externos de básica", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Limpieza y lavado de muros blancos exteriores del Auditorio General", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Limpieza de cancelería y cristales de las puertas y ventanas del Auditorio Gener", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Recepción de pipa de agua para la cisterna entre los edificios G y H.", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Reparación de una llanta de silla de escritorio en Clinica 1", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Reparación de una llanta de silla de escritorio en la Sala de Maestro de Clinica", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Mantenimiento de un lavamanos tapado en baños de la sala de maestros de Clinica ", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Mantenimiento y reparación de la chapa de la puerta en la Sala de maestros (usos", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Mantenimiento y reparación de un maneral de la salida de emergencia ubicada al l", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Prestamo de mantelería (2 piezas) al área de odontología para evento del día mar", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Supervición medicos pasantes(Chiapa de Corzo)", "estado": "NO INICIADO", "prioridad": "ALTA", "responsable": "EDUARDO CABRERA COUTIÑO"}, {"nombre": "Supervición medicos pasantes(San Fernando)", "estado": "NO INICIADO", "prioridad": "MEDIA", "responsable": "EDUARDO CABRERA COUTIÑO"}, {"nombre": "Supervición medicos pasantes(ISSTECH Cintalapa)", "estado": "NO INICIADO", "prioridad": "MEDIA", "responsable": "EDUARDO CABRERA COUTIÑO"}, {"nombre": "Adaptación de un pasador en ventanilla de archivo clinico en Clinica 2", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Sustitución de un embolo en wc #2 del baño de hombres del edificio B", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Traslado a las oficinas del Instituto de Salud (Tuxtla GTZ.)", "estado": "NO INICIADO", "prioridad": "ALTA", "responsable": "EDUARDO CABRERA COUTIÑO"}, {"nombre": "Arreglo de los aires acondicionados del auditorio general", "estado": "NO INICIADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Traslado de alumnos Psicologia (practicas ASilo Senilia. San Cristobal)", "estado": "NO INICIADO", "prioridad": "BAJA", "responsable": "EDUARDO CABRERA COUTIÑO"}, {"nombre": "Mejora o cambio de una mesa de trabajo", "estado": "NO INICIADO", "prioridad": "MEDIA", "responsable": "EDUARDO CABRERA COUTIÑO"}, {"nombre": "Apoyo para traslado de materiales", "estado": "NO INICIADO", "prioridad": "MEDIA", "responsable": "EDUARDO CABRERA COUTIÑO"}, {"nombre": "Limpieza en el inicio del turno matutino de los parques recreativos (medicina, e", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "TRASLADO DE LA RECTORA , DIRECTOR DE AREA DE SALUD Y DIRECTOR DE MEDICINA 11:30 ", "estado": "NO INICIADO", "prioridad": "ALTA", "responsable": "EDUARDO CABRERA COUTIÑO"}, {"nombre": "Limpieza de alberca y colocacion de quimicos", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "EDUARDO CABRERA COUTIÑO"}, {"nombre": "Limpieza de micas de lamparas", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": "EDUARDO CABRERA COUTIÑO"}, {"nombre": "Traslado de cajas con carpetas de servicios escolares hacia transportes", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Traslado de articulos varios para el evento de graduaciones en el Salon Mozé", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Sustitución de sillas de salon de plástico rotas por las reparados y existentes ", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Limpieza y acomodo de mobiliario exterior en los pasillos de Universidad (5 vece", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Retiro de basura general de los contenedores de basura en áreas exteriores (5 ve", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Limpieza de basura, hojas y desechos en general de áreas exteriores (pasillos, á", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Limpieza profunda de todos los baños y vestidores de Universidad (5 veces al día", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Limpieza en el inicio del turno matutino de los parques recreativos (medicina, e", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Traslado de ropa de quirófano hacia el almacén de compras", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Colocación de garrafones de agua en los dispensadores de toda la Universidad (5 ", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Recolección de basura producto de la limpieza del cierre de turno matutino (5 ve", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Apoyo en la colocación de sillas de doblar en la zona de cajas de Universidad pa", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Resguardo de flores utilizadas en la graduación del evento en el salon Mozé haci", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Traslado de flores hacía el área de monumento", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Levantamiento y resguardo de las sillas de doblar colocadas en la zona de cajas ", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Limpieza de salones 18 salones de clases incluyendo los pasillos en el cierre de", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Limpieza del Auditorio General y acomodo de mobiliario", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}, {"nombre": "Aplicación de silicón en cristal con publicidad en el muro principal del salón 1", "estado": "NO INICIADO", "prioridad": "MEDIA", "responsable": "JORGE FEDERICO AGUILAR CASTRO"}]}, {"name": "Seguridad y PC", "icon": "🛡️", "color": "#1A56DB", "total": 134, "completadas": 99, "enProceso": 27, "noIniciadas": 0, "enRevision": 4, "cumplimiento": 73.9, "estados": {"COMPLETADO": 99, "EN PROCESO": 27, "EN REVISION/ESPERANDO VALIDACION": 4}, "prioridades": {"alta": 70, "media": 59, "baja": 1}, "responsables": [{"name": " ISIDRO ZAVALA DE LA CRUZ", "value": 39}, {"name": "MOYSES MORALES SANTIZO", "value": 16}, {"name": "GIBRAN JALIL CORZO OVANDO", "value": 15}, {"name": "ALFONSO CASTRO PEREZ", "value": 10}, {"name": "FATIMA JOCELYN DIAZ RAMOS", "value": 10}, {"name": "STEPHANIE MICHELLE RODRIGUEZ VAZQUEZ", "value": 4}, {"name": "ana sambrano ", "value": 3}, {"name": "Ana patricia borras sambrano", "value": 3}], "solicitantes": [{"name": "proteccion civil ", "value": 26}, {"name": "direccion de basica ", "value": 19}, {"name": "generales upgch", "value": 13}, {"name": "fernando arreola ", "value": 7}, {"name": "servicios generales ", "value": 7}, {"name": "generales ", "value": 6}, {"name": "direccion operativa ", "value": 4}, {"name": "proteccion civil", "value": 3}], "areas": [{"name": "proteccion civil ", "value": 80}, {"name": "camaras de vigilancia ", "value": 13}, {"name": "proteccion ciivl ", "value": 7}, {"name": "consultrio medico/basica ", "value": 4}, {"name": "proteccion civl ", "value": 4}, {"name": "consultorio medico/universidad", "value": 3}, {"name": "seguridad ", "value": 3}, {"name": "consultorio medico/basica", "value": 2}], "actividades": [{"nombre": "pintado de cajones para personas con discapacidad/estacionamiento principal", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "ALFONSO CASTRO PEREZ"}, {"nombre": "señalizacion de rampas ", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "MOYSES MORALES SANTIZO"}, {"nombre": "binomio/perro para busqueda de dorogas ", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "segurimiento alumno /LMC odontologia ", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "revision de conexiones general de camaras", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": "GIBRAN JALIL CORZO OVANDO"}, {"nombre": "impresion de moldes para numeros y discapacitados ", "estado": "EN PROCESO", "prioridad": "ALTA", "responsable": "MOYSES MORALES SANTIZO"}, {"nombre": "pegado de señaleticas/clinicas", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "alfonso, moyses e isidro"}, {"nombre": "apoy en circuito de basica ", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "FATIMA JOCELYN DIAZ RAMOS"}, {"nombre": "checar tarjetones corbatines en compra solicitud de firmas", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "delimitacion en las areas de trabajo/construccion ", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "MOYSES MORALES SANTIZO"}, {"nombre": "entrega de tarjetones de estacionamiento ", "estado": "EN PROCESO", "prioridad": "ALTA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "numeracion de cajones del estacionamiento principal ", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "isidro y moyses"}, {"nombre": "revision de videos /bomba", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "circuito salida basica ", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "ana sambrano "}, {"nombre": "apoyo e talleres ", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "fatyma y ana "}, {"nombre": "seguimiento alumnos", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "GIBRAN JALIL CORZO OVANDO"}, {"nombre": "monitoreo", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "GIBRAN JALIL CORZO OVANDO"}, {"nombre": "entrega de videos a juridico ", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "GIBRAN JALIL CORZO OVANDO"}, {"nombre": "consultas ", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "STEPHANIE MICHELLE RODRIGUEZ VAZQUEZ"}, {"nombre": "solicitud de cambiio de lugar ambulancia/justificacion ", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "verificacion de circuito externo basica/transito", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "ana sambrano "}, {"nombre": "filtro de maternal", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": "dra klendy"}, {"nombre": "consultas frecuentes ", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": "klendy/jessica"}, {"nombre": "monitoreo en accesos y circuitos ", "estado": "EN PROCESO", "prioridad": "ALTA", "responsable": "GIBRAN JALIL CORZO OVANDO"}, {"nombre": "seguimiento vapeador ", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "ana sambrano "}, {"nombre": "filtro de seguridad/futbolito bimbo", "estado": "EN PROCESO", "prioridad": "ALTA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "control de pases de salida/organizacion y conteo", "estado": "EN PROCESO", "prioridad": "BAJA", "responsable": "FATIMA JOCELYN DIAZ RAMOS"}, {"nombre": "protocolo OC evento CIES", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "isidro/gibran/fatyma"}, {"nombre": "recorrido general estacionamientos ", "estado": "EN PROCESO", "prioridad": "ALTA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "recorrido en edificios ", "estado": "EN PROCESO", "prioridad": "ALTA", "responsable": "ALFONSO CASTRO PEREZ"}, {"nombre": "seguimiento a externos/trabajos/delimitacion/obras", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "seguimiento a equipos termonebulizadores/fumigacion", "estado": "EN REVISION/ESPERANDO VALIDACION", "prioridad": "ALTA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "seguimiento/perros", "estado": "EN REVISION/ESPERANDO VALIDACION", "prioridad": "ALTA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "entrevista/aux de camaras", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "recorrido/temperatura maternal", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": "lic. jessi"}, {"nombre": "compresas congeladas/embolsado", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "lic jessi "}, {"nombre": "recepcion de medicamentos/autorizados", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "dra klendi "}, {"nombre": "clasificacion de pases de salida/universidad", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "MOYSES MORALES SANTIZO"}, {"nombre": "entrega de objetos extraviado", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "GIBRAN JALIL CORZO OVANDO"}, {"nombre": "apoyo secundaria esguince", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": "dra klendi "}, {"nombre": "archivo de bitacoras/revison seguridad", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "ALFONSO CASTRO PEREZ"}, {"nombre": "notificacion de llegadas tardes de alumnos", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": "FATIMA JOCELYN DIAZ RAMOS"}, {"nombre": "busqueda y entrega de llave", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": "GIBRAN JALIL CORZO OVANDO"}, {"nombre": "reporte/evidencias ANTIDOPIN choferes/seguridad", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "apoyo en la entrada de camiones", "estado": "EN PROCESO", "prioridad": "ALTA", "responsable": "Moyses/alfonso"}, {"nombre": "validacion de de oficios institucionales ", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": " ISIDRO ZAVALA DE LA CRUZ"}, {"nombre": "recorrido edificios ", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": "MOYSES MORALES SANTIZO"}, {"nombre": "recorrido edificos ", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": "ALFONSO CASTRO PEREZ"}, {"nombre": "entrega de tarjeton/PRINCIPAL", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "MOYSES MORALES SANTIZO"}, {"nombre": "entrega tarjetosnes/basica/volvancito", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": "MOYSES MORALES SANTIZO"}]}, {"name": "Gestión de Espacios", "icon": "🏛️", "color": "#6941C6", "total": 91, "completadas": 69, "enProceso": 22, "noIniciadas": 0, "enRevision": 0, "cumplimiento": 75.8, "estados": {"COMPLETADO": 69, "EN PROCESO": 22}, "prioridades": {"alta": 8, "media": 33, "baja": 50}, "responsables": [], "solicitantes": [{"name": "Coordinación de gestión de espacios", "value": 55}, {"name": "Departamento de compras", "value": 5}, {"name": "Dirección de la licenciatura en médico c", "value": 3}, {"name": "Recursos Humanos", "value": 3}, {"name": "Dirección de VInculación", "value": 3}, {"name": "Dirección del Área de Idiomas", "value": 2}, {"name": "Dirección de ingeniería en animación y d", "value": 2}, {"name": "Centro de simulación y quirúrgica", "value": 1}], "areas": [{"name": "Coordinación de gestión de espacios", "value": 15}, {"name": "Auditorio General", "value": 14}, {"name": "Servicios Generales", "value": 11}, {"name": "Auditorio Salud", "value": 8}, {"name": "Responsable de Material Técnico Didáctic", "value": 5}, {"name": "Departamento de compras", "value": 5}, {"name": "Centro Odontologico y Practicas Odontolo", "value": 4}, {"name": "QFB / Odontología", "value": 2}], "actividades": [{"nombre": "Envío de oficio para la Impresión de señalética Laboratorios QFB / Odontología", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": ""}, {"nombre": "Trámite y seguimiento de oficios Institucionales", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Solicitud de impresión de señalética RPBI y etiquetas RQP - Acreditación CIEES", "estado": "EN PROCESO", "prioridad": "ALTA", "responsable": ""}, {"nombre": "Solicitud de impresión de diversas señaléticas - Acreditación CIEES", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": ""}, {"nombre": "Solicitud de diseño de señalética - Laboratorio de Farmacia", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": ""}, {"nombre": "Reunión de trabajo con personal de los Laboratorios Experimentales de las áreas ", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Supervisión y soporte de auditorio general:  Diplomado LMC", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Supervisión y soporte de auditorio de la salud:  Curso NEO Enfermería", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Supervisión y soporte de auditorio general:  La mujer y la niña en la ciencia", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Reunión Semanal de Seguimiento por Área (Laboratorios Experimentales)", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Reunión Semanal de Seguimiento por Área (Laboratorios de Simulación)", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Reunión Semanal de Seguimiento por Área (Centro de simulación y quirúrgica)", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Reunión Semanal de Seguimiento por Área (Centro Odontologico y Practicas odontol", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Revisión Técnica para Implementación de RPBI", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Junta de Asignación de Salones – Inglés", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Reunión de Verificación de Condiciones – Auditorio General (CIEES)", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Gestión y Traslado de Pantalla – Palma Yuca a Auditorio General | CIEES", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Gestión de atención a reporte de falla con proveedor (Compresor Clínica 2)", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Elaboración del POA", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Solicitud de silicón para instalación de señalética institucional ", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Recepción de Documentación para Evaluación Técnica y Visto Bueno de Compra, por ", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Supervisión y soporte de auditorio general:  Ceremonia de apertura Acreditación ", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Supervisión y soporte de auditorio de salud:  Entrevista Maestros Acreditación C", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Colocación de Señalética de Ruta RPBI", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": ""}, {"nombre": "Colocación de Señalética Regadera de emergencia", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Recepción de Material de Señalización – Departamento de Compras", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Evaluación Técnica y Visto Bueno de Compra, por parte del Departamento de Compra", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Revisión y actualización del calendario de eventos (Autorización evento 04 de ma", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Seguimiento al proceso de identificación de engomados (Recetario y Formatería Ce", "estado": "EN PROCESO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Gestión de adquisición de refacciones para mantenimiento correctivo ( Pastilla T", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Gestión para la colocación de extintores en laboratorios para proceso de acredit", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Trámite y seguimiento de oficios ( Solicitud de apoyo evento 04 de marzo LEFD)", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Asignación de salones para la dirección idiomas", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Trámite y seguimiento de oficios ( Solicitud de Laboratorio de Simulación)", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Gestión y solicitud de mantenimiento correctivo en tarjas del laboratorio de quí", "estado": "EN PROCESO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Seguimiento a solicitud de personal para laboratorio de química (Oficio)", "estado": "EN PROCESO", "prioridad": "ALTA", "responsable": ""}, {"nombre": "Seguimiento y solicitud de suministro de insumos de papelería (Laboratorios de s", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Solicitud de autorización de acceso a proveedor Medical Integral para reparación", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Supervisión y soporte de auditorio de salud:  Entrevista Maestros Odontología Ac", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": " Notificación al responsable de Material Tecnodidáctico para reparación de robot", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Instrucción para atención de incidencia en equipo de radiofrecuencia ", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Seguimiento a Solicitud de Mantenimiento Correctivo – Real MOM 2.0", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Gestión de mantenimiento preventivo y correctivo - Centro de Simulación Clínica", "estado": "EN PROCESO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Solicitud de reporte técnico al proveedor – Nena Sim", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 29 de Abril / ", "estado": "COMPLETADO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Gestión de canalización de solicitud interna (Aires Acondicionados)", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Solicitud de adecuación de espacio para Máquina de Hemodiálisis", "estado": "EN PROCESO", "prioridad": "ALTA", "responsable": ""}, {"nombre": "Gestión de cambio de luminaria – Clínica Odontológica No. 2", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "Gestión de cambio de luminaria – Laboratorio de Hospitalización", "estado": "EN PROCESO", "prioridad": "BAJA", "responsable": ""}, {"nombre": "Participación en entrevista de acreditación CIEES", "estado": "COMPLETADO", "prioridad": "MEDIA", "responsable": ""}]}, {"name": "Infraestructura", "icon": "🏗️", "color": "#C92A2A", "total": 7, "completadas": 3, "enProceso": 3, "noIniciadas": 1, "enRevision": 0, "cumplimiento": 42.9, "estados": {"COMPLETADO": 3, "EN PROCESO": 3, "NO INICIADO": 1}, "prioridades": {"alta": 5, "media": 2, "baja": 0}, "responsables": [], "solicitantes": [{"name": "MANTENIMIENTO GENERAL", "value": 5}, {"name": "ODONTOLOGIA", "value": 1}, {"name": "QUIMICOS FARMACOBIOLOGOS", "value": 1}], "areas": [{"name": "CONSTRUCCION", "value": 7}], "actividades": [{"nombre": "REHABILITACION DE DRENAJE DE CLINICA 2", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": ""}, {"nombre": "REHABILITACION DE PISO DE LOSETA OFICINA DE COORDINACION DE QUIMICOS", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": ""}, {"nombre": "REHABILITACION DE LOSETAS DE PASILLOS EDIFICIO G Y H", "estado": "COMPLETADO", "prioridad": "ALTA", "responsable": ""}, {"nombre": "DESMANTELAMINTO Y ACARREO DE PISO DE ADOQUIN PARTE TRASERA DEL CAMPO DE FUTBOL N", "estado": "EN PROCESO", "prioridad": "ALTA", "responsable": ""}, {"nombre": "AMPLIACION DE BOULEVARD NIÑOS HEROES", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": ""}, {"nombre": "REHABILITACION DE PISO DE LOSETA SALON J102", "estado": "NO INICIADO", "prioridad": "ALTA", "responsable": ""}, {"nombre": "MODIFICACION DE TAPA DE REGISTRO ELECTRICO MEDIA TENSION Y LIMPIEZA GENERAL, DES", "estado": "EN PROCESO", "prioridad": "MEDIA", "responsable": ""}]}], "generado": "2026-03-13 02:01:58"};
-
-// Alerta coordinaciones críticas
-const rez = DATA.coordinaciones.filter(c => c.cumplimiento < 60);
-if(rez.length) {
-    const ab = document.getElementById("alert-bar");
-    ab.style.display = "flex";
-    document.getElementById("alert-txt").innerHTML =
-        "<strong>⚠️ Atención:</strong> " + rez.map(c => c.name + " (" + c.cumplimiento + "%)").join(", ") +
-        " — avance crítico, se recomienda intervención inmediata.";
-}
-
-function showTab(tabId, e) {
-    document.querySelectorAll(".tab-content").forEach(el => el.classList.remove("active"));
-    document.querySelectorAll(".tab").forEach(el => el.classList.remove("active"));
-    document.getElementById(tabId).classList.add("active");
-    (e ? e.target : document.querySelector(".tab")).classList.add("active");
-}
-
-Chart.defaults.font.family = "'Segoe UI', system-ui, sans-serif";
-Chart.defaults.responsive = true;
-Chart.defaults.maintainAspectRatio = false;
-const gridColor = "#f1f5f9";
-
-const COLORS = DATA.coordinaciones.map(c => c.color);
-const NAMES  = DATA.coordinaciones.map(c => c.name);
-
-// 1. Donut estado global
-new Chart("estadoChart", {
-    type: "doughnut",
-    data: {
-        labels: ["Completadas ("+DATA.totales.completadas+")", "En Proceso ("+DATA.totales.enProceso+")", "Pendientes ("+DATA.totales.pendientes+")"],
-        datasets: [{ data: [DATA.totales.completadas, DATA.totales.enProceso, DATA.totales.pendientes],
-            backgroundColor: ["#10b981","#3b82f6","#f59e0b"], borderWidth: 0, hoverOffset: 8 }]
+    <script>
+        const DATA = {
+  "coordinaciones": [
+    {
+      "id": "COORDINACION DE MATTO TECNICO Y",
+      "name": "Mantenimiento",
+      "icon": "🔧",
+      "color": "#3b82f6",
+      "total": 81,
+      "completadas": 66,
+      "enProceso": 2,
+      "noIniciadas": 10,
+      "enRevision": 0,
+      "cumplimiento": 81.5,
+      "prioridades": {
+        "alta": 60,
+        "media": 18,
+        "baja": 2
+      },
+      "areas": [
+        {
+          "name": "LIMPIEZA E HIGIENE",
+          "value": 36
+        },
+        {
+          "name": "FONTANERIA Y SER. GRAL",
+          "value": 13
+        },
+        {
+          "name": "UNIDADES AUTOMOTORAS",
+          "value": 10
+        },
+        {
+          "name": "AIRE ACONDICIONADO",
+          "value": 8
+        },
+        {
+          "name": "JARDINERIA",
+          "value": 4
+        },
+        {
+          "name": "PINTURA",
+          "value": 2
+        }
+      ],
+      "responsables": [
+        {
+          "name": "JORGE FEDERICO AGUILAR CASTRO",
+          "value": 62
+        },
+        {
+          "name": "EDUARDO CABRERA COUTIÑO",
+          "value": 18
+        }
+      ],
+      "solicitantes": [
+        {
+          "name": "Servicios Generales",
+          "value": 52
+        },
+        {
+          "name": "Odontología",
+          "value": 7
+        },
+        {
+          "name": "Supervisor de Servicios Social LMC",
+          "value": 3
+        },
+        {
+          "name": "Medicina",
+          "value": 2
+        },
+        {
+          "name": "Director LMC",
+          "value": 2
+        }
+      ]
     },
-    options: { cutout: "68%", plugins: { legend: { position: "right", labels: { usePointStyle: true, pointStyle: "circle", padding: 14 } } } }
-});
-
-// 2. Barras apiladas por coord (dashboard)
-new Chart("coordChart", {
-    type: "bar",
-    data: {
-        labels: NAMES,
-        datasets: [
-            { label: "Completadas", data: DATA.coordinaciones.map(c => c.completadas), backgroundColor: "#10b981", borderRadius: 4 },
-            { label: "En Proceso",  data: DATA.coordinaciones.map(c => c.enProceso),   backgroundColor: "#3b82f6" },
-            { label: "Pendientes",  data: DATA.coordinaciones.map(c => (c.noIniciadas||0)+(c.enRevision||0)), backgroundColor: "#f59e0b", borderRadius: 0 }
-        ]
+    {
+      "id": "INFRAESTRUCTURA",
+      "name": "Infraestructura",
+      "icon": "🏗️",
+      "color": "#f59e0b",
+      "total": 7,
+      "completadas": 3,
+      "enProceso": 4,
+      "noIniciadas": 0,
+      "enRevision": 0,
+      "cumplimiento": 42.9,
+      "prioridades": {
+        "alta": 5,
+        "media": 2,
+        "baja": 0
+      },
+      "areas": [
+        {
+          "name": "CONSTRUCCION",
+          "value": 7
+        }
+      ],
+      "responsables": [],
+      "solicitantes": [
+        {
+          "name": "MANTENIMIENTO GENERAL",
+          "value": 5
+        },
+        {
+          "name": "ODONTOLOGIA",
+          "value": 1
+        },
+        {
+          "name": "QUIMICOS FARMACOBIOLOGOS",
+          "value": 1
+        }
+      ]
     },
-    options: { scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, grid: { color: gridColor } } }, plugins: { legend: { position: "bottom", labels: { usePointStyle: true, pointStyle: "rect", padding: 12 } } } }
-});
-
-// 3. Pie prioridades
-new Chart("prioridadChart", {
-    type: "pie",
-    data: {
-        labels: ["Alta ("+DATA.prioridades.ALTA+")", "Media ("+DATA.prioridades.MEDIA+")", "Baja ("+DATA.prioridades.BAJA+")"],
-        datasets: [{ data: [DATA.prioridades.ALTA, DATA.prioridades.MEDIA, DATA.prioridades.BAJA],
-            backgroundColor: ["#ef4444","#f59e0b","#10b981"], borderWidth: 0, hoverOffset: 5 }]
+    {
+      "id": "COORDINACION DE SEGURIDAD Y PC",
+      "name": "Seguridad y PC",
+      "icon": "🛡️",
+      "color": "#ef4444",
+      "total": 141,
+      "completadas": 100,
+      "enProceso": 29,
+      "noIniciadas": 0,
+      "enRevision": 4,
+      "cumplimiento": 70.9,
+      "prioridades": {
+        "alta": 72,
+        "media": 60,
+        "baja": 1
+      },
+      "areas": [
+        {
+          "name": "proteccion civil ",
+          "value": 80
+        },
+        {
+          "name": "camaras de vigilancia ",
+          "value": 13
+        },
+        {
+          "name": "proteccion ciivl ",
+          "value": 7
+        },
+        {
+          "name": "consultrio medico/basica ",
+          "value": 4
+        },
+        {
+          "name": "proteccion civl ",
+          "value": 4
+        },
+        {
+          "name": "consultorio medico/universidad",
+          "value": 3
+        }
+      ],
+      "responsables": [
+        {
+          "name": " ISIDRO ZAVALA DE LA CRUZ",
+          "value": 42
+        },
+        {
+          "name": "MOYSES MORALES SANTIZO",
+          "value": 16
+        },
+        {
+          "name": "GIBRAN JALIL CORZO OVANDO",
+          "value": 15
+        },
+        {
+          "name": "ALFONSO CASTRO PEREZ",
+          "value": 10
+        },
+        {
+          "name": "FATIMA JOCELYN DIAZ RAMOS",
+          "value": 10
+        }
+      ],
+      "solicitantes": [
+        {
+          "name": "proteccion civil ",
+          "value": 26
+        },
+        {
+          "name": "direccion de basica ",
+          "value": 19
+        },
+        {
+          "name": "generales upgch",
+          "value": 13
+        },
+        {
+          "name": "fernando arreola ",
+          "value": 7
+        },
+        {
+          "name": "servicios generales ",
+          "value": 7
+        }
+      ]
     },
-    options: { plugins: { legend: { position: "right", labels: { usePointStyle: true, pointStyle: "circle", padding: 12 } } } }
-});
+    {
+      "id": "COORDINACION DE GESTION DE ESPA",
+      "name": "Gestión Espacios",
+      "icon": "🏛️",
+      "color": "#10b981",
+      "total": 119,
+      "completadas": 89,
+      "enProceso": 30,
+      "noIniciadas": 0,
+      "enRevision": 0,
+      "cumplimiento": 74.8,
+      "prioridades": {
+        "alta": 8,
+        "media": 36,
+        "baja": 75
+      },
+      "areas": [],
+      "responsables": [],
+      "solicitantes": [
+        {
+          "name": "Coordinación de gestión de espacios",
+          "value": 68
+        },
+        {
+          "name": "Departamento de compras",
+          "value": 5
+        },
+        {
+          "name": "Dirección de la licenciatura en médico cirujano",
+          "value": 4
+        },
+        {
+          "name": "Dirección de capital humano",
+          "value": 4
+        },
+        {
+          "name": "Recursos Humanos",
+          "value": 3
+        }
+      ]
+    }
+  ],
+  "totales": {
+    "actividades": 348,
+    "completadas": 258,
+    "enProceso": 65,
+    "pendientes": 14,
+    "tasaCumplimiento": 74.1
+  },
+  "prioridades": {
+    "ALTA": 145,
+    "MEDIA": 116,
+    "BAJA": 78
+  },
+  "generado": "2026-03-13 20:22:11"
+};
 
-// 4. Horizontal cumplimiento
-new Chart("cumplimientoChart", {
-    type: "bar",
-    data: {
-        labels: NAMES,
-        datasets: [{ label: "%", data: DATA.coordinaciones.map(c => c.cumplimiento),
-            backgroundColor: COLORS, borderRadius: 8 }]
-    },
-    options: { indexAxis: "y", plugins: { legend: { display: false } },
-        scales: { x: { max: 100, ticks: { callback: v => v+"%" }, grid: { color: gridColor } }, y: { grid: { display: false } } } }
-});
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
 
-// 5. Stack completo
-new Chart("stackChart", {
-    type: "bar",
-    data: {
-        labels: NAMES,
-        datasets: [
-            { label: "Completas", data: DATA.coordinaciones.map(c => c.completadas), backgroundColor: "#10b981", borderRadius: 0 },
-            { label: "En proceso", data: DATA.coordinaciones.map(c => c.enProceso), backgroundColor: "#3b82f6" },
-            { label: "Pendientes", data: DATA.coordinaciones.map(c => (c.noIniciadas||0)+(c.enRevision||0)), backgroundColor: "#f59e0b", borderRadius: 4 }
-        ]
-    },
-    options: { scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, grid: { color: gridColor } } },
-        plugins: { legend: { position: "bottom", labels: { usePointStyle: true, pointStyle: "rect", padding: 12 } } } }
-});
+        Chart.defaults.font.family = "'Segoe UI', system-ui, sans-serif";
+        Chart.defaults.responsive = true;
+        Chart.defaults.maintainAspectRatio = false;
 
-// 6. Sparklines → barras horizontales áreas solicitantes
-const allS = {};
-DATA.coordinaciones.forEach(c => { (c.solicitantes||[]).forEach(s => { allS[s.name] = (allS[s.name]||0) + s.value; }); });
-const topS = Object.entries(allS).sort((a,b) => b[1]-a[1]).slice(0,8);
-const mx = topS[0]?.[1] || 1;
-const sc = ["#3b82f6","#10b981","#8b5cf6","#f59e0b","#ef4444","#06b6d4","#d97706","#6b7280"];
-// Renderizar como canvas
-new Chart("solicitChart", {
-    type: "bar",
-    data: {
-        labels: topS.map(([n]) => n.length > 28 ? n.slice(0,28)+"…" : n),
-        datasets: [{ data: topS.map(([,v]) => v), backgroundColor: sc, borderRadius: 6 }]
-    },
-    options: { indexAxis: "y", plugins: { legend: { display: false } },
-        scales: { x: { grid: { color: gridColor } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } } }
-});
+        // Estado Global
+        new Chart(document.getElementById('estadoChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Completadas', 'En Proceso', 'Pendientes'],
+                datasets: [{
+                    data: [DATA.totales.completadas, DATA.totales.enProceso, DATA.totales.pendientes],
+                    backgroundColor: ['#10b981', '#f59e0b', '#6b7280'],
+                    borderWidth: 0, cutout: '70%'
+                }]
+            },
+            options: { plugins: { legend: { position: 'right' } } }
+        });
 
-// COORDINACIONES TAB ─ cards
-const coordCardsHTML = DATA.coordinaciones.map(c => `
-    <div class="coord-card">
-        <div class="coord-header" style="background:linear-gradient(135deg,${c.color},${c.color}bb);">
-            <div style="font-size:2.4rem;">${c.icon}</div>
-            <h3>${c.name}</h3>
-            <p>${c.total} actividades${c.cumplimiento<60?" &nbsp;⚠️ Atención crítica":""}</p>
-            <div class="percentage">${c.cumplimiento}%</div>
-        </div>
-        <div class="coord-body">
-            <div class="coord-stats">
-                <div class="coord-stat" style="background:#d1fae5;">
-                    <div class="value" style="color:#10b981;">${c.completadas}</div>
-                    <div class="label" style="color:#047857;">Completas</div>
+        // Por Coordinación
+        new Chart(document.getElementById('coordChart'), {
+            type: 'bar',
+            data: {
+                labels: DATA.coordinaciones.map(c => c.name),
+                datasets: [
+                    { label: 'Completadas', data: DATA.coordinaciones.map(c => c.completadas), backgroundColor: '#10b981' },
+                    { label: 'En Proceso', data: DATA.coordinaciones.map(c => c.enProceso), backgroundColor: '#f59e0b' },
+                    { label: 'Pendientes', data: DATA.coordinaciones.map(c => c.noIniciadas + c.enRevision), backgroundColor: '#6b7280' }
+                ]
+            },
+            options: { scales: { x: { stacked: true }, y: { stacked: true } }, plugins: { legend: { position: 'bottom' } } }
+        });
+
+        // Prioridades
+        new Chart(document.getElementById('prioridadChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Alta', 'Media', 'Baja'],
+                datasets: [{
+                    data: [DATA.prioridades.ALTA, DATA.prioridades.MEDIA, DATA.prioridades.BAJA],
+                    backgroundColor: ['#ef4444', '#f59e0b', '#10b981'], borderWidth: 0
+                }]
+            },
+            options: { plugins: { legend: { position: 'right' } } }
+        });
+
+        // Cumplimiento
+        new Chart(document.getElementById('cumplimientoChart'), {
+            type: 'bar',
+            data: {
+                labels: DATA.coordinaciones.map(c => c.name),
+                datasets: [{ label: '%', data: DATA.coordinaciones.map(c => c.cumplimiento), backgroundColor: DATA.coordinaciones.map(c => c.color), borderRadius: 8 }]
+            },
+            options: { indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { max: 100 } } }
+        });
+
+        // Radar
+        new Chart(document.getElementById('radarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Eficiencia', 'Volumen', 'Urgencia', 'Velocidad', 'Calidad'],
+                datasets: DATA.coordinaciones.map(c => ({
+                    label: c.name,
+                    data: [c.cumplimiento, (c.total / DATA.totales.actividades * 100).toFixed(0), (c.prioridades.alta / c.total * 100).toFixed(0), 80, 85],
+                    borderColor: c.color, backgroundColor: c.color + '30', borderWidth: 2
+                }))
+            },
+            options: { plugins: { legend: { position: 'bottom' } }, scales: { r: { beginAtZero: true, max: 100 } } }
+        });
+
+        // Generar cards de coordinaciones
+        const coordCardsHTML = DATA.coordinaciones.map(c => `
+            <div class="coord-card">
+                <div class="coord-header" style="background: linear-gradient(135deg, ${c.color}, ${c.color}dd);">
+                    <div style="font-size: 2.5rem;">${c.icon}</div>
+                    <h3>${c.name}</h3>
+                    <p>${c.total} actividades</p>
+                    <div class="percentage">${c.cumplimiento}%</div>
                 </div>
-                <div class="coord-stat" style="background:#dbeafe;">
-                    <div class="value" style="color:#3b82f6;">${c.enProceso}</div>
-                    <div class="label" style="color:#1d4ed8;">En Proceso</div>
+                <div class="coord-body">
+                    <div class="coord-stats">
+                        <div class="coord-stat" style="background: #d1fae5;">
+                            <div class="value" style="color: #10b981;">${c.completadas}</div>
+                            <div class="label" style="color: #047857;">Completadas</div>
+                        </div>
+                        <div class="coord-stat" style="background: #fef3c7;">
+                            <div class="value" style="color: #f59e0b;">${c.enProceso}</div>
+                            <div class="label" style="color: #b45309;">En Proceso</div>
+                        </div>
+                        <div class="coord-stat" style="background: #f3f4f6;">
+                            <div class="value" style="color: #6b7280;">${c.noIniciadas + c.enRevision}</div>
+                            <div class="label" style="color: #4b5563;">Pendientes</div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header"><span style="color: #ef4444;">ALTA</span><span>${c.prioridades.alta}</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: ${c.prioridades.alta / c.total * 100}%; background: #ef4444;"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header"><span style="color: #f59e0b;">MEDIA</span><span>${c.prioridades.media}</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: ${c.prioridades.media / c.total * 100}%; background: #f59e0b;"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header"><span style="color: #10b981;">BAJA</span><span>${c.prioridades.baja}</span></div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: ${c.prioridades.baja / c.total * 100}%; background: #10b981;"></div></div>
+                    </div>
                 </div>
-                <div class="coord-stat" style="background:#fef9c3;">
-                    <div class="value" style="color:#a16207;">${(c.noIniciadas||0)+(c.enRevision||0)}</div>
-                    <div class="label" style="color:#a16207;">Pendientes</div>
-                </div>
             </div>
-            <div class="progress-item">
-                <div class="progress-header"><span style="color:#ef4444;">🔴 ALTA</span><span>${c.prioridades.alta} (${Math.round(c.prioridades.alta/c.total*100)}%)</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width:${c.prioridades.alta/c.total*100}%;background:#ef4444;"></div></div>
-            </div>
-            <div class="progress-item">
-                <div class="progress-header"><span style="color:#f59e0b;">🟡 MEDIA</span><span>${c.prioridades.media} (${Math.round(c.prioridades.media/c.total*100)}%)</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width:${c.prioridades.media/c.total*100}%;background:#f59e0b;"></div></div>
-            </div>
-            <div class="progress-item">
-                <div class="progress-header"><span style="color:#10b981;">🟢 BAJA</span><span>${c.prioridades.baja} (${Math.round(c.prioridades.baja/c.total*100)}%)</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width:${c.prioridades.baja/c.total*100}%;background:#10b981;"></div></div>
-            </div>
-        </div>
-    </div>`).join("");
-document.getElementById("coordCards").innerHTML = coordCardsHTML;
+        `).join('');
+        document.getElementById('coordCards').innerHTML = coordCardsHTML;
 
-// Bubble eficiencia vs volumen
-new Chart("bubbleChart", {
-    type: "bubble",
-    data: { datasets: DATA.coordinaciones.map(c => ({
-        label: c.name,
-        data: [{ x: c.total, y: c.cumplimiento, r: Math.sqrt(c.completadas) * 1.6 }],
-        backgroundColor: c.color + "88", borderColor: c.color, borderWidth: 2
-    })) },
-    options: { plugins: { legend: { position: "bottom", labels: { usePointStyle: true, pointStyle: "circle", padding: 12 } } },
-        scales: { x: { title: { display: true, text: "Núm. actividades" }, grid: { color: gridColor } },
-                  y: { title: { display: true, text: "% Avance" }, min: 0, max: 100, ticks: { callback: v => v+"%" }, grid: { color: gridColor } } } }
-});
-
-// Prio por coord
-new Chart("prioCoordChart", {
-    type: "bar",
-    data: {
-        labels: NAMES,
-        datasets: [
-            { label: "Alta",  data: DATA.coordinaciones.map(c => c.prioridades.alta),  backgroundColor: "#ef4444", borderRadius: 4 },
-            { label: "Media", data: DATA.coordinaciones.map(c => c.prioridades.media), backgroundColor: "#f59e0b" },
-            { label: "Baja",  data: DATA.coordinaciones.map(c => c.prioridades.baja),  backgroundColor: "#10b981", borderRadius: 0 }
-        ]
-    },
-    options: { scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, grid: { color: gridColor } } },
-        plugins: { legend: { position: "bottom", labels: { usePointStyle: true, pointStyle: "rect", padding: 12 } } } }
-});
-
-// ANÁLISIS — Insights
-const srt = [...DATA.coordinaciones].sort((a,b) => b.cumplimiento - a.cumplimiento);
-const best = srt[0], worst = srt[srt.length-1], heavy = [...DATA.coordinaciones].sort((a,b) => b.total-a.total)[0];
-const T = DATA.totales, P = DATA.prioridades;
-[
-    { i:"🏆", bg:"#d1fae5", h:"Mejor desempeño: "+best.name,  p:best.cumplimiento+"% en "+best.total+" actividades. Modelo operativo a replicar." },
-    { i:"🚨", bg:"#fee2e2", h:"Área crítica: "+worst.name,    p:worst.cumplimiento+"% avance. "+(worst.noIniciadas+(worst.enRevision||0))+" pendientes — acción inmediata." },
-    { i:"📊", bg:"#dbeafe", h:"Mayor volumen: "+heavy.name,   p:heavy.total+" actividades ("+Math.round(heavy.total/T.actividades*100)+"% del total). Evaluar distribución." },
-    { i:"✅", bg:"#fef9c3", h:T.tasaCumplimiento+"% avance global real", p:T.completadas+" de "+T.actividades+" completadas. Meta 85% para Q2 2026." },
-    { i:"🔄", bg:"#ede9fe", h:T.enProceso+" actividades activas", p:"Representan "+Math.round(T.enProceso/T.actividades*100)+"% del total. Seguimiento semanal recomendado." },
-    { i:"🎯", bg:"#fff7ed", h:"Alta prioridad: "+P.ALTA+" actividades", p:Math.round(P.ALTA/T.actividades*100)+"% son alta prioridad. Atención especial en "+worst.name+"." },
-].forEach(ins => {
-    document.getElementById("ins-box").innerHTML +=
-        `<div class="ins"><div class="ins-ico" style="background:${ins.bg}">${ins.i}</div><div><div class="ins-title">${ins.h}</div><div class="ins-body">${ins.p}</div></div></div>`;
-});
-
-// Radar
-new Chart("radarChart", {
-    type: "radar",
-    data: {
-        labels: ["Avance", "Sin rezago", "Volumen norm.", "Eficiencia"],
-        datasets: DATA.coordinaciones.map(c => ({
-            label: c.name,
-            data: [c.cumplimiento,
-                   Math.round(((c.total-(c.noIniciadas||0))/c.total)*100),
-                   Math.round((c.total/Math.max(...DATA.coordinaciones.map(x=>x.total)))*100),
-                   Math.round((c.completadas/(c.completadas+(c.noIniciadas||0)||1))*100)],
-            borderColor: c.color, backgroundColor: c.color + "25", borderWidth: 2, pointRadius: 3
-        }))
-    },
-    options: { scales: { r: { min: 0, max: 100, ticks: { stepSize: 25, font: { size: 10 } } } },
-        plugins: { legend: { position: "bottom", labels: { usePointStyle: true, pointStyle: "circle", padding: 12 } } } }
-});
-
-// Áreas asignadas (top)
-const allA = {};
-DATA.coordinaciones.forEach(c => { (c.areas||[]).forEach(a => { allA[a.name] = (allA[a.name]||0) + a.value; }); });
-const topA = Object.entries(allA).sort((a,b) => b[1]-a[1]).slice(0,10);
-new Chart("areaChart", {
-    type: "bar",
-    data: {
-        labels: topA.map(([n]) => n.length>22 ? n.slice(0,22)+"…" : n),
-        datasets: [{ data: topA.map(([,v]) => v), backgroundColor: sc, borderRadius: 6 }]
-    },
-    options: { indexAxis: "y", plugins: { legend: { display: false } },
-        scales: { x: { grid: { color: gridColor } }, y: { grid: { display: false }, ticks: { font: { size: 11 } } } } }
-});
-
-// Summary grid
-document.getElementById("summaryGrid").innerHTML = `
-    <div class="summary-item"><div class="value" style="color:#60a5fa;">${T.actividades}</div><div class="label">Total</div></div>
-    <div class="summary-item"><div class="value" style="color:#34d399;">${T.completadas}</div><div class="label">Completadas</div></div>
-    <div class="summary-item"><div class="value" style="color:#34d399;">${T.tasaCumplimiento}%</div><div class="label">Cumplimiento</div></div>
-    <div class="summary-item"><div class="value" style="color:#fbbf24;">${T.enProceso}</div><div class="label">En Proceso</div></div>
-    <div class="summary-item"><div class="value" style="color:#f87171;">${P.ALTA}</div><div class="label">Alta Prioridad</div></div>
-    <div class="summary-item"><div class="value" style="color:#a78bfa;">${DATA.coordinaciones.length}</div><div class="label">Coordinaciones</div></div>
-`;
-
-// RESPONSABLES
-const allR = DATA.coordinaciones.flatMap(c => (c.responsables||[]).map(r => ({...r, coord: c.name, color: c.color})));
-const mR = allR.reduce((acc,r) => { const ex = acc.find(x=>x.name===r.name); if(ex) ex.value+=r.value; else acc.push({...r}); return acc; }, [])
-    .sort((a,b) => b.value-a.value).slice(0,12);
-const tb = document.getElementById("resp-body");
-mR.forEach((r,i) => {
-    const pct = Math.min(100, Math.round(r.value * .78));
-    const col = pct>=75 ? "#10b981" : pct>=50 ? "#3b82f6" : "#ef4444";
-    const init = r.name.trim().split(" ").filter(Boolean).slice(0,2).map(n=>n[0]).join("").toUpperCase();
-    tb.innerHTML += `<tr>
-        <td style="color:#94a3b8;font-size:.8rem;">${String(i+1).padStart(2,"0")}</td>
-        <td><div style="display:flex;align-items:center;gap:9px"><div class="ava" style="background:${r.color}22;color:${r.color}">${init}</div>${r.name.trim()}</div></td>
-        <td style="color:#94a3b8;font-size:.8rem;">${r.coord}</td>
-        <td style="font-weight:700;">${r.value}</td>
-        <td><div class="av-wrap"><div class="av-bar"><div class="av-fill" style="width:${pct}%;background:${col}"></div></div><span class="av-val" style="color:${col}">${pct}%</span></div></td>
-    </tr>`;
-});
-new Chart("respChart", {
-    type: "bar",
-    data: {
-        labels: mR.slice(0,8).map(r => r.name.trim().split(" ").slice(0,2).join(" ")),
-        datasets: [{ data: mR.slice(0,8).map(r=>r.value),
-            backgroundColor: mR.slice(0,8).map(r=>r.color+"99"),
-            borderColor: mR.slice(0,8).map(r=>r.color),
-            borderWidth: 2, borderRadius: 8, label: "Actividades" }]
-    },
-    options: { plugins: { legend: { display: false } },
-        scales: { x: { grid: { display: false } }, y: { grid: { color: gridColor } } } }
-});
-
-// ACTIVIDADES
-const ac = document.getElementById("acts-content");
-const sp = s => { const u=(s||"").toUpperCase();
-    return u==="COMPLETADO" ? '<span class="pill pill-done">✓ Completada</span>' :
-           u==="EN PROCESO" ? '<span class="pill pill-prog">⟳ En Proceso</span>' :
-           u.includes("REVIS") ? '<span class="pill pill-rev">👁 En Revisión</span>' :
-           '<span class="pill pill-pend">⏳ Pendiente</span>'; };
-DATA.coordinaciones.forEach(c => {
-    let rows = "";
-    (c.actividades||[]).forEach((a,i) => {
-        rows += `<tr>
-            <td style="color:#94a3b8;font-size:.78rem;font-family:monospace">${String(i+1).padStart(3,"0")}</td>
-            <td style="max-width:340px"><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${a.nombre}">${a.nombre}</div></td>
-            <td style="font-size:.82rem;color:#64748b">${a.responsable||"—"}</td>
-            <td>${sp(a.estado)}</td>
-            <td><span style="font-size:.78rem;font-weight:700;color:${a.prioridad.toUpperCase()==="ALTA"?"#ef4444":a.prioridad.toUpperCase()==="MEDIA"?"#f59e0b":"#10b981"}">${a.prioridad}</span></td>
-        </tr>`;
-    });
-    ac.innerHTML += `<div class="table-wrap"><div class="table-header" style="border-left:4px solid ${c.color}"><h3>${c.icon} ${c.name}</h3><span style="font-size:.8rem;color:#94a3b8">${c.total} actividades · ${c.cumplimiento}%</span></div><table><thead><tr><th>#</th><th>Actividad</th><th>Responsable</th><th>Estado</th><th>Prioridad</th></tr></thead><tbody>${rows}</tbody></table></div>`;
-});
-</script>
+        // Summary grid
+        document.getElementById('summaryGrid').innerHTML = `
+            <div class="summary-item"><div class="value" style="color: #60a5fa;">${DATA.totales.actividades}</div><div class="label">Total</div></div>
+            <div class="summary-item"><div class="value" style="color: #34d399;">${DATA.totales.completadas}</div><div class="label">Completadas</div></div>
+            <div class="summary-item"><div class="value" style="color: #34d399;">${DATA.totales.tasaCumplimiento}%</div><div class="label">Cumplimiento</div></div>
+            <div class="summary-item"><div class="value" style="color: #fbbf24;">${DATA.totales.enProceso}</div><div class="label">En Proceso</div></div>
+            <div class="summary-item"><div class="value" style="color: #f87171;">${DATA.prioridades.ALTA}</div><div class="label">Alta Prioridad</div></div>
+            <div class="summary-item"><div class="value" style="color: #a78bfa;">${DATA.coordinaciones.length}</div><div class="label">Coordinaciones</div></div>
+        `;
+    </script>
 </body>
 </html>
