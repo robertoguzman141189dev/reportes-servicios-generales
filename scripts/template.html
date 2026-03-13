@@ -1,367 +1,506 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reporte Ejecutivo - Servicios Generales 2026</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-    <style>
-        :root {
-            --blue: #3b82f6; --green: #10b981; --amber: #f59e0b; --red: #ef4444;
-            --purple: #8b5cf6; --pink: #ec4899; --cyan: #06b6d4; --gray: #6b7280;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #f8fafc, #e2e8f0); min-height: 100vh; padding: 24px; }
-        .container { max-width: 1400px; margin: 0 auto; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporte Ejecutivo - Servicios Generales 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--blue:#3b82f6;--green:#10b981;--amber:#f59e0b;--red:#ef4444;--purple:#8b5cf6;--cyan:#06b6d4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:linear-gradient(135deg,#f8fafc,#e2e8f0);min-height:100vh;padding:24px}
+.container{max-width:1400px;margin:0 auto}
 
-        .header {
-            background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #db2777 100%);
-            border-radius: 20px; padding: 35px 40px; color: white; margin-bottom: 30px;
-            box-shadow: 0 15px 50px rgba(30, 64, 175, 0.3); position: relative; overflow: hidden;
-        }
-        .header::before { content:""; position:absolute; top:-80px; right:-80px; width:380px; height:380px; border-radius:50%; background:rgba(255,255,255,.07); }
-        .header::after  { content:""; position:absolute; bottom:-60px; left:8%; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,.05); }
-        .header-top { position:relative; z-index:1; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:20px; }
-        .header h1 { font-size: 2.5rem; font-weight: 800; }
-        .header p { opacity: 0.9; margin-top: 8px; }
-        .header-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; margin-top: 28px; position:relative; z-index:1; }
-        .header-stat { background: rgba(255,255,255,0.15); padding: 18px 22px; border-radius: 14px; backdrop-filter: blur(10px); transition: background .2s, transform .2s; cursor:default; }
-        .header-stat:hover { background: rgba(255,255,255,0.22); transform: translateY(-2px); }
-        .header-stat .value { font-size: 2rem; font-weight: 800; }
-        .header-stat .label { font-size: 0.88rem; opacity: 0.85; margin-top: 5px; }
-        .header-stat .sub   { font-size: 0.78rem; opacity: 0.6;  margin-top: 2px; }
+/* HEADER */
+.header{background:linear-gradient(135deg,#1e40af 0%,#7c3aed 50%,#db2777 100%);border-radius:20px;padding:35px 40px;color:white;margin-bottom:28px;box-shadow:0 15px 50px rgba(30,64,175,.3);position:relative;overflow:hidden}
+.header::before{content:"";position:absolute;top:-80px;right:-80px;width:380px;height:380px;border-radius:50%;background:rgba(255,255,255,.07)}
+.header::after{content:"";position:absolute;bottom:-60px;left:8%;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.05)}
+.header-top{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px}
+.header h1{font-size:2.5rem;font-weight:800}
+.header p{opacity:.9;margin-top:8px}
+.header-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;margin-top:28px;position:relative;z-index:1}
+.hstat{background:rgba(255,255,255,.15);padding:18px 22px;border-radius:14px;backdrop-filter:blur(10px);transition:background .2s,transform .2s;cursor:default}
+.hstat:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
+.hstat .value{font-size:2rem;font-weight:800}
+.hstat .label{font-size:.88rem;opacity:.85;margin-top:5px}
+.hstat .sub{font-size:.78rem;opacity:.6;margin-top:2px}
+.auto-update{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.18);padding:7px 14px;border-radius:25px;font-size:.83rem;margin-top:14px}
+.pulse{width:9px;height:9px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-        .alert-bar { background:linear-gradient(90deg,#fef3c7,#fde68a); border-left:4px solid #f59e0b; border-radius:0 14px 14px 0; padding:12px 18px; margin-bottom:22px; font-size:.9rem; color:#78350f; display:none; align-items:center; gap:10px; }
-        .adot { width:8px; height:8px; background:#f59e0b; border-radius:50%; animation:pulse 2s infinite; flex-shrink:0; }
-        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+/* ALERT */
+.alert-bar{background:linear-gradient(90deg,#fef3c7,#fde68a);border-left:4px solid #f59e0b;border-radius:0 14px 14px 0;padding:12px 18px;margin-bottom:20px;font-size:.9rem;color:#78350f;display:none;align-items:center;gap:10px}
+.adot{width:8px;height:8px;background:#f59e0b;border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
 
-        .tabs { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
-        .tab { padding: 12px 24px; border-radius: 12px; border: none; cursor: pointer; font-size: .95rem; font-weight: 600; transition: all .3s; background: white; color: #64748b; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
-        .tab:hover { background: #f1f5f9; }
-        .tab.active { background: linear-gradient(135deg, var(--blue), var(--purple)); color: white; box-shadow: 0 8px 25px rgba(59,130,246,.4); }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn .35s ease; }
-        @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+/* TABS */
+.tabs{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.tab{padding:12px 24px;border-radius:12px;border:none;cursor:pointer;font-size:.95rem;font-weight:600;transition:all .3s;background:white;color:#64748b;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.tab:hover{background:#f1f5f9}
+.tab.active{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;box-shadow:0 8px 25px rgba(59,130,246,.4)}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeIn .35s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-        .charts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 28px; }
-        @media(max-width:1000px){ .charts-grid{grid-template-columns:1fr} }
-        .chart-card { background: white; border-radius: 18px; padding: 26px; box-shadow: 0 4px 20px rgba(0,0,0,.08); }
-        .chart-card h3 { font-size: 1rem; font-weight: 700; color: #1e293b; margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
-        .chart-card h3 .icon { width:34px; height:34px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
-        .chart-container { height: 300px; }
-        .chart-container.tall { height: 380px; }
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+@media(max-width:1000px){.g2{grid-template-columns:1fr}}
 
-        .coord-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
-        @media(max-width:1000px){ .coord-grid{grid-template-columns:1fr} }
-        .coord-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,.08); }
-        .coord-header { padding: 28px; color: white; position:relative; overflow:hidden; }
-        .coord-header::after { content:""; position:absolute; top:-40px; right:-40px; width:140px; height:140px; border-radius:50%; background:rgba(255,255,255,.1); }
-        .coord-header h3 { font-size: 1.3rem; font-weight: 700; }
-        .coord-header p { opacity:.88; margin-top:4px; font-size:.9rem; }
-        .coord-header .percentage { font-size: 3.2rem; font-weight: 800; margin-top: 14px; }
-        .coord-body { padding: 24px; }
-        .coord-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 20px; }
-        .coord-stat { text-align:center; padding:14px 8px; border-radius:12px; }
-        .coord-stat .value { font-size: 1.6rem; font-weight: 800; }
-        .coord-stat .label { font-size: .78rem; margin-top: 4px; font-weight:600; }
-        .progress-item { margin-bottom: 12px; }
-        .progress-header { display:flex; justify-content:space-between; margin-bottom:5px; font-size:.85rem; font-weight:600; }
-        .progress-bar { height:9px; background:#e2e8f0; border-radius:10px; overflow:hidden; }
-        .progress-fill { height:100%; border-radius:10px; }
+/* CARDS */
+.card{background:white;border-radius:18px;padding:26px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.card h3{font-size:1rem;font-weight:700;color:#1e293b;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.card h3 .ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.ch{height:300px}
+.ch.tall{height:380px}
 
-        .ins-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin-bottom:28px; }
-        .ins { background:white; border-radius:16px; padding:20px; box-shadow:0 4px 16px rgba(0,0,0,.07); display:flex; gap:14px; }
-        .ins-ico { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0; }
-        .ins-title { font-size:.92rem; font-weight:700; color:#0f172a; margin-bottom:4px; }
-        .ins-body  { font-size:.84rem; color:#64748b; line-height:1.6; }
+/* COORD CARDS clickables */
+.coord-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:24px}
+@media(max-width:1000px){.coord-grid{grid-template-columns:1fr}}
+.coord-card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);cursor:pointer;transition:transform .25s,box-shadow .25s}
+.coord-card:hover{transform:translateY(-5px);box-shadow:0 12px 35px rgba(0,0,0,.15)}
+.coord-card:hover .coord-badge{opacity:1;transform:translateX(0)}
+.coord-hdr{padding:28px;color:white;position:relative;overflow:hidden}
+.coord-hdr::after{content:"";position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.1)}
+.coord-hdr h3{font-size:1.3rem;font-weight:700}
+.coord-hdr p{opacity:.88;margin-top:4px;font-size:.9rem}
+.coord-hdr .pct{font-size:3.2rem;font-weight:800;margin-top:14px}
+.coord-badge{background:rgba(255,255,255,.25);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:6px 12px;font-size:.8rem;font-weight:600;display:inline-flex;align-items:center;gap:6px;margin-top:10px;opacity:0;transform:translateX(-8px);transition:all .25s}
+.coord-body{padding:24px}
+.coord-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.cstat{text-align:center;padding:14px 8px;border-radius:12px}
+.cstat .val{font-size:1.6rem;font-weight:800}
+.cstat .lbl{font-size:.78rem;margin-top:4px;font-weight:600}
+.prog-bar{height:9px;background:#e2e8f0;border-radius:10px;overflow:hidden;margin-bottom:12px}
+.prog-fill{height:100%;border-radius:10px}
+.prog-hdr{display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem;font-weight:600}
 
-        .table-wrap { background:white; border-radius:18px; box-shadow:0 4px 20px rgba(0,0,0,.08); overflow:hidden; margin-bottom:24px; }
-        .table-header { padding:18px 24px; border-bottom:1px solid #f1f5f9; display:flex; align-items:center; justify-content:space-between; }
-        .table-header h3 { font-size:1rem; font-weight:700; color:#1e293b; }
-        table { width:100%; border-collapse:collapse; }
-        thead th { background:#f8fafc; padding:10px 16px; text-align:left; font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:#94a3b8; border-bottom:1px solid #f1f5f9; }
-        tbody tr { border-bottom:1px solid #f8fafc; transition:background .1s; }
-        tbody tr:last-child { border-bottom:none; }
-        tbody tr:hover { background:#fafbff; }
-        tbody td { padding:11px 16px; font-size:.88rem; vertical-align:middle; }
-        .pill { display:inline-flex; align-items:center; padding:3px 10px; border-radius:20px; font-size:.75rem; font-weight:700; }
-        .pill-done { background:#dcfce7; color:#16a34a; }
-        .pill-prog { background:#dbeafe; color:#1d4ed8; }
-        .pill-pend { background:#fef9c3; color:#a16207; }
-        .pill-rev  { background:#ede9fe; color:#7c3aed; }
-        .av-wrap { display:flex; align-items:center; gap:7px; }
-        .av-bar  { flex:1; height:7px; background:#f1f5f9; border-radius:4px; overflow:hidden; min-width:50px; }
-        .av-fill { height:100%; border-radius:4px; }
-        .av-val  { font-size:.82rem; font-weight:700; width:34px; text-align:right; }
-        .ava { width:30px; height:30px; border-radius:50%; font-size:.75rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+/* INSIGHTS */
+.ins-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:24px}
+.ins{background:white;border-radius:16px;padding:20px;box-shadow:0 4px 16px rgba(0,0,0,.07);display:flex;gap:14px}
+.ins-ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.ins-t{font-size:.92rem;font-weight:700;color:#0f172a;margin-bottom:4px}
+.ins-b{font-size:.84rem;color:#64748b;line-height:1.6}
 
-        .summary { background:linear-gradient(135deg,#0f172a,#1e293b); border-radius:20px; padding:38px; color:white; margin-top:28px; }
-        .summary h3 { font-size:1.6rem; font-weight:800; margin-bottom:26px; }
-        .summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:18px; }
-        .summary-item { text-align:center; padding:22px 14px; background:rgba(255,255,255,.08); border-radius:16px; transition:background .2s; }
-        .summary-item:hover { background:rgba(255,255,255,.13); }
-        .summary-item .value { font-size:2.4rem; font-weight:800; }
-        .summary-item .label { font-size:.82rem; opacity:.78; margin-top:8px; }
+/* SUMMARY */
+.summary{background:linear-gradient(135deg,#0f172a,#1e293b);border-radius:20px;padding:38px;color:white;margin-top:24px}
+.summary h3{font-size:1.6rem;font-weight:800;margin-bottom:26px}
+.sumgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:18px}
+.sitem{text-align:center;padding:22px 14px;background:rgba(255,255,255,.08);border-radius:16px;transition:background .2s}
+.sitem:hover{background:rgba(255,255,255,.13)}
+.sitem .val{font-size:2.4rem;font-weight:800}
+.sitem .lbl{font-size:.82rem;opacity:.78;margin-top:8px}
 
-        .auto-update { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.18); padding:7px 14px; border-radius:25px; font-size:.83rem; margin-top:14px; }
-        .pulse { width:9px; height:9px; background:#22c55e; border-radius:50%; animation:pulse 2s infinite; }
-        .footer { text-align:center; padding:35px; color:#64748b; }
-        .footer .brand { font-size:1.05rem; font-weight:600; color:#1e293b; }
-    </style>
+/* TABLA */
+.tw{background:white;border-radius:18px;box-shadow:0 4px 20px rgba(0,0,0,.08);overflow:hidden;margin-bottom:22px}
+.th{padding:16px 22px;border-bottom:1px solid #f1f5f9;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.th h3{font-size:1rem;font-weight:700;color:#1e293b}
+table{width:100%;border-collapse:collapse}
+thead th{background:#f8fafc;padding:9px 14px;text-align:left;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#94a3b8;border-bottom:1px solid #f1f5f9}
+tbody tr{border-bottom:1px solid #f8fafc;transition:background .1s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:#fafbff}
+tbody td{padding:10px 14px;font-size:.88rem;vertical-align:middle}
+tbody tr.vencida{background:#fff5f5}
+tbody tr.vencida:hover{background:#fee2e2}
+.pill{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:.75rem;font-weight:700}
+.pd{background:#dcfce7;color:#16a34a}.pp{background:#dbeafe;color:#1d4ed8}
+.pn{background:#fef9c3;color:#a16207}.pr{background:#ede9fe;color:#7c3aed}
+.pv{background:#fee2e2;color:#dc2626}
+.av-wrap{display:flex;align-items:center;gap:7px}
+.av-bar{flex:1;height:7px;background:#f1f5f9;border-radius:4px;overflow:hidden;min-width:50px}
+.av-fill{height:100%;border-radius:4px}
+.av-val{font-size:.82rem;font-weight:700;width:34px;text-align:right}
+.ava{width:30px;height:30px;border-radius:50%;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* FILTROS */
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.fsel{padding:7px 12px;border:1px solid #e2e8f0;border-radius:9px;font-size:.85rem;font-family:inherit;background:white;color:#374151;cursor:pointer;outline:none;transition:border .2s}
+.fsel:focus{border-color:var(--blue)}
+.finput{padding:7px 12px;border:1px solid #e2e8f0;border-radius:9px;font-size:.85rem;font-family:inherit;background:white;color:#374151;outline:none;min-width:200px;transition:border .2s}
+.finput:focus{border-color:var(--blue)}
+.fcnt{font-size:.82rem;color:#94a3b8;margin-left:auto;white-space:nowrap}
+
+/* VISTA DETALLE */
+.detail-view{display:none;animation:fadeIn .35s ease}
+.detail-view.active{display:block}
+.back-btn{display:inline-flex;align-items:center;gap:8px;background:white;border:1px solid #e2e8f0;border-radius:12px;padding:10px 18px;font-size:.9rem;font-weight:600;color:#374151;cursor:pointer;margin-bottom:22px;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.back-btn:hover{background:#f8fafc;border-color:var(--blue);color:var(--blue)}
+.detail-header{border-radius:20px;padding:32px 36px;color:white;margin-bottom:24px;position:relative;overflow:hidden}
+.detail-header::after{content:"";position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.1)}
+.detail-header h2{font-size:2rem;font-weight:800;position:relative;z-index:1}
+.detail-header p{opacity:.88;margin-top:6px;position:relative;z-index:1;font-size:.95rem}
+.detail-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:20px;position:relative;z-index:1}
+.dkpi{background:rgba(255,255,255,.18);backdrop-filter:blur(10px);border-radius:14px;padding:16px 18px;text-align:center}
+.dkpi .val{font-size:1.8rem;font-weight:800}
+.dkpi .lbl{font-size:.82rem;opacity:.85;margin-top:4px}
+.detail-grid{display:grid;grid-template-columns:2fr 1fr;gap:22px;margin-bottom:22px}
+@media(max-width:900px){.detail-grid{grid-template-columns:1fr}}
+.resps-card{background:white;border-radius:18px;padding:22px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.resps-card h4{font-size:.95rem;font-weight:700;color:#1e293b;margin-bottom:16px}
+.resp-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f1f5f9}
+.resp-row:last-child{border-bottom:none}
+.resp-name{font-size:.88rem;font-weight:600;color:#1e293b;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.resp-count{font-size:.88rem;font-weight:800;color:var(--blue);width:28px;text-align:right;flex-shrink:0}
+.resp-pct{font-size:.78rem;color:#94a3b8;width:36px;text-align:right;flex-shrink:0}
+.mini-bar{flex:1;height:6px;background:#f1f5f9;border-radius:3px;overflow:hidden;min-width:60px}
+.mini-fill{height:100%;border-radius:3px;background:var(--blue)}
+.venc-badge{background:#fee2e2;color:#dc2626;font-size:.72rem;font-weight:700;padding:2px 7px;border-radius:20px;white-space:nowrap}
+.footer{text-align:center;padding:35px;color:#64748b}
+.footer .brand{font-size:1.05rem;font-weight:600;color:#1e293b}
+
+/* MAIN/DETAIL toggle */
+.main-view{display:block}
+.main-view.hidden{display:none}
+</style>
 </head>
 <body>
 <div class="container">
 
-    <div class="header">
-        <div class="header-top">
-            <div>
-                <h1>📊 Reporte Ejecutivo Automático</h1>
-                <p>Servicios Generales UPGCH 2026</p>
-                <div class="auto-update"><span class="pulse"></span>Actualizado: {{FECHA_GENERACION}}</div>
-            </div>
-            <div style="text-align:right;position:relative;z-index:1;">
-                <div style="font-size:3.2rem;font-weight:800;">{{TASA_CUMPLIMIENTO}}%</div>
-                <div style="opacity:.88;">Cumplimiento Global</div>
-            </div>
-        </div>
-        <div class="header-stats">
-            <div class="header-stat"><div class="value">{{TOTAL_ACTIVIDADES}}</div><div class="label">Total Actividades</div><div class="sub">4 coordinaciones</div></div>
-            <div class="header-stat"><div class="value">{{TOTAL_COMPLETADAS}}</div><div class="label">Completadas</div><div class="sub">{{TASA_CUMPLIMIENTO}}% del total</div></div>
-            <div class="header-stat"><div class="value">{{TOTAL_EN_PROCESO}}</div><div class="label">En Proceso</div><div class="sub">seguimiento activo</div></div>
-            <div class="header-stat"><div class="value">{{TOTAL_PENDIENTES}}</div><div class="label">Pendientes</div><div class="sub">requieren acción</div></div>
-        </div>
+<div class="header">
+  <div class="header-top">
+    <div>
+      <h1>📊 Reporte Ejecutivo Automático</h1>
+      <p>Servicios Generales UPGCH 2026</p>
+      <div class="auto-update"><span class="pulse"></span>Actualizado: {{FECHA_GENERACION}}</div>
     </div>
-
-    <div class="alert-bar" id="alert-bar"><div class="adot"></div><span id="alert-txt"></span></div>
-
-    <div class="tabs">
-        <button class="tab active" onclick="showTab('dashboard',event)">📊 Dashboard</button>
-        <button class="tab" onclick="showTab('coordinaciones',event)">🏢 Coordinaciones</button>
-        <button class="tab" onclick="showTab('analisis',event)">🎯 Análisis</button>
-        <button class="tab" onclick="showTab('responsables',event)">👤 Responsables</button>
-        <button class="tab" onclick="showTab('actividades',event)">📋 Actividades</button>
+    <div style="text-align:right;position:relative;z-index:1">
+      <div style="font-size:3.2rem;font-weight:800">{{TASA_CUMPLIMIENTO}}%</div>
+      <div style="opacity:.88">Cumplimiento Global</div>
     </div>
+  </div>
+  <div class="header-stats">
+    <div class="hstat"><div class="value">{{TOTAL_ACTIVIDADES}}</div><div class="label">Total Actividades</div><div class="sub">4 coordinaciones</div></div>
+    <div class="hstat"><div class="value">{{TOTAL_COMPLETADAS}}</div><div class="label">Completadas</div><div class="sub">{{TASA_CUMPLIMIENTO}}% del total</div></div>
+    <div class="hstat"><div class="value">{{TOTAL_EN_PROCESO}}</div><div class="label">En Proceso</div><div class="sub">seguimiento activo</div></div>
+    <div class="hstat"><div class="value">{{TOTAL_PENDIENTES}}</div><div class="label">Pendientes</div><div class="sub">requieren acción</div></div>
+  </div>
+</div>
 
-    <!-- DASHBOARD -->
-    <div id="dashboard" class="tab-content active">
-        <div class="charts-grid">
-            <div class="chart-card"><h3><span class="icon" style="background:#dbeafe;color:var(--blue);">🥧</span>Estado Global</h3><div class="chart-container"><canvas id="estadoChart"></canvas></div></div>
-            <div class="chart-card"><h3><span class="icon" style="background:#d1fae5;color:var(--green);">📊</span>Por Coordinación</h3><div class="chart-container"><canvas id="coordChart"></canvas></div></div>
-            <div class="chart-card"><h3><span class="icon" style="background:#fee2e2;color:var(--red);">🎯</span>Prioridades</h3><div class="chart-container"><canvas id="prioridadChart"></canvas></div></div>
-            <div class="chart-card"><h3><span class="icon" style="background:#e9d5ff;color:var(--purple);">📈</span>Cumplimiento %</h3><div class="chart-container"><canvas id="cumplimientoChart"></canvas></div></div>
-        </div>
-        <div class="charts-grid">
-            <div class="chart-card"><h3><span class="icon" style="background:#cffafe;color:var(--cyan);">📦</span>Estado apilado</h3><div class="chart-container"><canvas id="stackChart"></canvas></div></div>
-            <div class="chart-card"><h3><span class="icon" style="background:#fef9c3;color:#a16207;">🏅</span>Áreas solicitantes — Top 8</h3><div class="chart-container"><canvas id="solicitChart"></canvas></div></div>
-        </div>
-    </div>
+<div class="alert-bar" id="alert-bar"><div class="adot"></div><span id="alert-txt"></span></div>
 
-    <!-- COORDINACIONES -->
-    <div id="coordinaciones" class="tab-content">
-        <div class="coord-grid" id="coordCards"></div>
-        <div class="charts-grid" style="margin-top:24px;">
-            <div class="chart-card"><h3><span class="icon" style="background:#ede9fe;color:var(--purple);">🫧</span>Eficiencia vs Volumen</h3><div class="chart-container"><canvas id="bubbleChart"></canvas></div></div>
-            <div class="chart-card"><h3><span class="icon" style="background:#fee2e2;color:var(--red);">🎛️</span>Prioridad por Coordinación</h3><div class="chart-container"><canvas id="prioCoordChart"></canvas></div></div>
-        </div>
-    </div>
+<!-- VISTA PRINCIPAL -->
+<div class="main-view" id="main-view">
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('dashboard',event)">📊 Dashboard</button>
+    <button class="tab" onclick="showTab('coordinaciones',event)">🏢 Coordinaciones</button>
+    <button class="tab" onclick="showTab('analisis',event)">🎯 Análisis</button>
+    <button class="tab" onclick="showTab('responsables',event)">👤 Responsables</button>
+    <button class="tab" onclick="showTab('actividades',event)">📋 Actividades</button>
+  </div>
 
-    <!-- ANÁLISIS -->
-    <div id="analisis" class="tab-content">
-        <div class="ins-grid" id="ins-box"></div>
-        <div class="charts-grid">
-            <div class="chart-card"><h3><span class="icon" style="background:#cffafe;color:var(--cyan);">🎯</span>Radar de Rendimiento</h3><div class="chart-container tall"><canvas id="radarChart"></canvas></div></div>
-            <div class="chart-card"><h3><span class="icon" style="background:#d1fae5;color:var(--green);">📊</span>Áreas Asignadas — Top 10</h3><div class="chart-container tall"><canvas id="areaChart"></canvas></div></div>
-        </div>
-        <div class="summary">
-            <h3>🏆 Resumen Ejecutivo</h3>
-            <div class="summary-grid" id="summaryGrid"></div>
-        </div>
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="tab-content active">
+    <div class="g2">
+      <div class="card"><h3><span class="ico" style="background:#dbeafe;color:var(--blue)">🥧</span>Estado Global</h3><div class="ch"><canvas id="cDona"></canvas></div></div>
+      <div class="card"><h3><span class="ico" style="background:#d1fae5;color:var(--green)">📊</span>Por Coordinación</h3><div class="ch"><canvas id="cBar"></canvas></div></div>
     </div>
+    <div class="g2">
+      <div class="card"><h3><span class="ico" style="background:#fee2e2;color:var(--red)">🎯</span>Prioridades</h3><div class="ch"><canvas id="cPrio"></canvas></div></div>
+      <div class="card"><h3><span class="ico" style="background:#e9d5ff;color:var(--purple)">📈</span>Cumplimiento %</h3><div class="ch"><canvas id="cAvance"></canvas></div></div>
+    </div>
+    <div class="g2">
+      <div class="card"><h3><span class="ico" style="background:#cffafe;color:var(--cyan)">📦</span>Estado apilado</h3><div class="ch"><canvas id="cStack"></canvas></div></div>
+      <div class="card"><h3><span class="ico" style="background:#fef9c3;color:#a16207">🏅</span>Áreas solicitantes</h3><div class="ch"><canvas id="cSolic"></canvas></div></div>
+    </div>
+  </div>
 
-    <!-- RESPONSABLES -->
-    <div id="responsables" class="tab-content">
-        <div class="table-wrap">
-            <div class="table-header"><h3>👤 Top responsables</h3><span style="font-size:.82rem;color:#94a3b8;">Datos reales del organizador</span></div>
-            <table><thead><tr><th>#</th><th>Responsable</th><th>Coordinación</th><th>Actividades</th><th>Avance est.</th></tr></thead>
-            <tbody id="resp-body"></tbody></table>
-        </div>
-        <div class="chart-card">
-            <h3><span class="icon" style="background:#dbeafe;color:var(--blue);">📊</span>Carga por responsable — Top 8</h3>
-            <div class="chart-container tall"><canvas id="respChart"></canvas></div>
-        </div>
+  <!-- COORDINACIONES -->
+  <div id="coordinaciones" class="tab-content">
+    <p style="font-size:.9rem;color:#64748b;margin-bottom:16px">💡 Haz clic en una coordinación para ver el detalle completo</p>
+    <div class="coord-grid" id="coord-cards"></div>
+    <div class="g2">
+      <div class="card"><h3><span class="ico" style="background:#ede9fe;color:var(--purple)">🫧</span>Eficiencia vs Volumen</h3><div class="ch"><canvas id="cBubble"></canvas></div></div>
+      <div class="card"><h3><span class="ico" style="background:#fee2e2;color:var(--red)">🎛️</span>Prioridad por Coordinación</h3><div class="ch"><canvas id="cPrioCoord"></canvas></div></div>
     </div>
+  </div>
 
-    <!-- ACTIVIDADES -->
-    <div id="actividades" class="tab-content">
-        <div id="acts-content"></div>
+  <!-- ANÁLISIS -->
+  <div id="analisis" class="tab-content">
+    <div class="ins-grid" id="ins-box"></div>
+    <div class="g2">
+      <div class="card"><h3><span class="ico" style="background:#cffafe;color:var(--cyan)">🎯</span>Radar de Rendimiento</h3><div class="ch tall"><canvas id="cRadar"></canvas></div></div>
+      <div class="card"><h3><span class="ico" style="background:#d1fae5;color:var(--green)">📊</span>Áreas Asignadas</h3><div class="ch tall"><canvas id="cArea"></canvas></div></div>
     </div>
+    <div class="summary"><h3>🏆 Resumen Ejecutivo</h3><div class="sumgrid" id="sumgrid"></div></div>
+  </div>
 
-    <div class="footer">
-        <p class="brand">📊 Sistema de Reportes Automatizados</p>
-        <p>Servicios Generales UPGCH 2026 • Actualización en tiempo real</p>
+  <!-- RESPONSABLES -->
+  <div id="responsables" class="tab-content">
+    <div class="tw">
+      <div class="th"><h3>👤 Top responsables</h3><span style="font-size:.82rem;color:#94a3b8">Datos reales del organizador</span></div>
+      <table><thead><tr><th>#</th><th>Responsable</th><th>Coordinación</th><th>Actividades</th><th>Avance est.</th></tr></thead>
+      <tbody id="resp-body"></tbody></table>
     </div>
+    <div class="card"><h3><span class="ico" style="background:#dbeafe;color:var(--blue)">📊</span>Carga por responsable — Top 8</h3><div class="ch tall"><canvas id="cResp"></canvas></div></div>
+  </div>
+
+  <!-- ACTIVIDADES -->
+  <div id="actividades" class="tab-content">
+    <div id="acts-content"></div>
+  </div>
+</div><!-- /main-view -->
+
+<!-- VISTA DETALLE COORDINACIÓN -->
+<div class="detail-view" id="detail-view">
+  <button class="back-btn" onclick="closeDetail()">← Volver al reporte</button>
+  <div class="detail-header" id="detail-header"></div>
+  <div class="detail-grid">
+    <div>
+      <!-- Tabla filtrable -->
+      <div class="tw">
+        <div class="th">
+          <h3 id="detail-table-title">Actividades</h3>
+          <div class="filters">
+            <input class="finput" type="text" id="f-search" placeholder="🔍 Buscar actividad..." oninput="filterDetail()">
+            <select class="fsel" id="f-estado" onchange="filterDetail()">
+              <option value="">Todos los estados</option>
+              <option value="COMPLETADO">✓ Completadas</option>
+              <option value="EN PROCESO">⟳ En Proceso</option>
+              <option value="EN REVISION">👁 En Revisión</option>
+              <option value="PENDIENTE">⏳ Pendientes</option>
+              <option value="VENCIDA">🔴 Vencidas</option>
+            </select>
+            <select class="fsel" id="f-prio" onchange="filterDetail()">
+              <option value="">Toda prioridad</option>
+              <option value="Alta">🔴 Alta</option>
+              <option value="Media">🟡 Media</option>
+              <option value="Baja">🟢 Baja</option>
+            </select>
+            <span class="fcnt" id="f-count"></span>
+          </div>
+        </div>
+        <div style="overflow-x:auto">
+          <table>
+            <thead><tr><th>#</th><th>Actividad</th><th>Responsable</th><th>Estado</th><th>Prioridad</th><th>Recepción</th><th>Entrega</th></tr></thead>
+            <tbody id="detail-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- Responsables de esta coordinación -->
+    <div>
+      <div class="resps-card" id="detail-resps"></div>
+      <div class="card" style="margin-top:18px"><h3>📊 Distribución de carga</h3><div style="height:240px"><canvas id="detail-resp-chart"></canvas></div></div>
+    </div>
+  </div>
+  <!-- Gráficas de la coordinación -->
+  <div class="g2">
+    <div class="card"><h3>📦 Estado de actividades</h3><div style="height:260px"><canvas id="detail-estado-chart"></canvas></div></div>
+    <div class="card"><h3>🎯 Prioridades</h3><div style="height:260px"><canvas id="detail-prio-chart"></canvas></div></div>
+  </div>
+</div><!-- /detail-view -->
+
+<div class="footer">
+  <p class="brand">📊 Sistema de Reportes Automatizados</p>
+  <p>Servicios Generales UPGCH 2026 • Actualización en tiempo real</p>
+</div>
 </div>
 
 <script>
 const DATA = {{DATA_JSON}};
 const gridColor = "#f1f5f9";
+let currentCoord = null;
+let detailRespChart = null, detailEstadoChart = null, detailPrioChart = null;
 
 // Alerta
 const rez = DATA.coordinaciones.filter(c => c.cumplimiento < 60);
-if(rez.length) {
-    const ab = document.getElementById("alert-bar");
-    ab.style.display = "flex";
-    document.getElementById("alert-txt").innerHTML =
-        "<strong>⚠️ Atención:</strong> " + rez.map(c => c.name + " (" + c.cumplimiento + "%)").join(", ") +
-        " — avance crítico, se recomienda intervención inmediata.";
+if(rez.length){
+  document.getElementById("alert-bar").style.display="flex";
+  document.getElementById("alert-txt").innerHTML =
+    "<strong>⚠️ Atención:</strong> "+rez.map(c=>c.name+" ("+c.cumplimiento+"%)").join(", ")+" — avance crítico.";
 }
 
-function showTab(tabId, e) {
-    document.querySelectorAll(".tab-content").forEach(el => el.classList.remove("active"));
-    document.querySelectorAll(".tab").forEach(el => el.classList.remove("active"));
-    document.getElementById(tabId).classList.add("active");
-    if(e) e.target.classList.add("active");
+// Tabs
+function showTab(id,e){
+  document.querySelectorAll(".tab-content").forEach(el=>el.classList.remove("active"));
+  document.querySelectorAll(".tab").forEach(el=>el.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  if(e) e.target.classList.add("active");
 }
 
-Chart.defaults.font.family = "'Segoe UI', system-ui, sans-serif";
-Chart.defaults.responsive = true;
-Chart.defaults.maintainAspectRatio = false;
+// Charts defaults
+Chart.defaults.font.family="'Segoe UI',system-ui,sans-serif";
+Chart.defaults.responsive=true;
+Chart.defaults.maintainAspectRatio=false;
+const COLORS=DATA.coordinaciones.map(c=>c.color);
+const NAMES=DATA.coordinaciones.map(c=>c.name);
+const T=DATA.totales, P=DATA.prioridades;
+const sc=["#3b82f6","#10b981","#8b5cf6","#f59e0b","#ef4444","#06b6d4","#d97706","#6b7280","#ec4899","#14b8a6"];
 
-const COLORS = DATA.coordinaciones.map(c => c.color);
-const NAMES  = DATA.coordinaciones.map(c => c.name);
-const sc = ["#3b82f6","#10b981","#8b5cf6","#f59e0b","#ef4444","#06b6d4","#d97706","#6b7280","#ec4899","#14b8a6"];
-
-// 1. Donut
-new Chart("estadoChart", {
-    type:"doughnut",
-    data:{labels:["Completadas ("+DATA.totales.completadas+")","En Proceso ("+DATA.totales.enProceso+")","Pendientes ("+DATA.totales.pendientes+")"],
-    datasets:[{data:[DATA.totales.completadas,DATA.totales.enProceso,DATA.totales.pendientes],backgroundColor:["#10b981","#3b82f6","#f59e0b"],borderWidth:0,hoverOffset:8}]},
-    options:{cutout:"68%",plugins:{legend:{position:"right",labels:{usePointStyle:true,pointStyle:"circle",padding:14}}}}
-});
-
-// 2. Barras apiladas
-new Chart("coordChart", {
-    type:"bar",
-    data:{labels:NAMES,datasets:[
-        {label:"Completadas",data:DATA.coordinaciones.map(c=>c.completadas),backgroundColor:"#10b981",borderRadius:4},
-        {label:"En Proceso", data:DATA.coordinaciones.map(c=>c.enProceso),  backgroundColor:"#3b82f6"},
-        {label:"Pendientes", data:DATA.coordinaciones.map(c=>(c.noIniciadas||0)+(c.enRevision||0)),backgroundColor:"#f59e0b",borderRadius:0}
-    ]},
-    options:{scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:{color:gridColor}}},plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"rect",padding:12}}}}
-});
-
-// 3. Pie prioridades
-new Chart("prioridadChart", {
-    type:"pie",
-    data:{labels:["Alta ("+DATA.prioridades.ALTA+")","Media ("+DATA.prioridades.MEDIA+")","Baja ("+DATA.prioridades.BAJA+")"],
-    datasets:[{data:[DATA.prioridades.ALTA,DATA.prioridades.MEDIA,DATA.prioridades.BAJA],backgroundColor:["#ef4444","#f59e0b","#10b981"],borderWidth:0,hoverOffset:5}]},
-    options:{plugins:{legend:{position:"right",labels:{usePointStyle:true,pointStyle:"circle",padding:12}}}}
-});
-
-// 4. Horizontal cumplimiento
-new Chart("cumplimientoChart", {
-    type:"bar",
-    data:{labels:NAMES,datasets:[{label:"%",data:DATA.coordinaciones.map(c=>c.cumplimiento),backgroundColor:COLORS,borderRadius:8}]},
-    options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{max:100,ticks:{callback:v=>v+"%"},grid:{color:gridColor}},y:{grid:{display:false}}}}
-});
-
-// 5. Stack total
-new Chart("stackChart", {
-    type:"bar",
-    data:{labels:NAMES,datasets:[
-        {label:"Completas", data:DATA.coordinaciones.map(c=>c.completadas),backgroundColor:"#10b981",borderRadius:0},
-        {label:"En proceso",data:DATA.coordinaciones.map(c=>c.enProceso),  backgroundColor:"#3b82f6"},
-        {label:"Pendientes",data:DATA.coordinaciones.map(c=>(c.noIniciadas||0)+(c.enRevision||0)),backgroundColor:"#f59e0b",borderRadius:4}
-    ]},
-    options:{scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:{color:gridColor}}},plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"rect",padding:12}}}}
-});
-
-// 6. Solicitantes
+new Chart("cDona",{type:"doughnut",data:{labels:["Completadas ("+T.completadas+")","En Proceso ("+T.enProceso+")","Pendientes ("+T.pendientes+")"],datasets:[{data:[T.completadas,T.enProceso,T.pendientes],backgroundColor:["#10b981","#3b82f6","#f59e0b"],borderWidth:0,hoverOffset:8}]},options:{cutout:"68%",plugins:{legend:{position:"right",labels:{usePointStyle:true,pointStyle:"circle",padding:14}}}}});
+new Chart("cBar",{type:"bar",data:{labels:NAMES,datasets:[{label:"Completadas",data:DATA.coordinaciones.map(c=>c.completadas),backgroundColor:"#10b981",borderRadius:4},{label:"En Proceso",data:DATA.coordinaciones.map(c=>c.enProceso),backgroundColor:"#3b82f6"},{label:"Pendientes",data:DATA.coordinaciones.map(c=>(c.noIniciadas||0)+(c.enRevision||0)),backgroundColor:"#f59e0b",borderRadius:0}]},options:{scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:{color:gridColor}}},plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"rect",padding:12}}}}});
+new Chart("cPrio",{type:"pie",data:{labels:["Alta ("+P.ALTA+")","Media ("+P.MEDIA+")","Baja ("+P.BAJA+")"],datasets:[{data:[P.ALTA,P.MEDIA,P.BAJA],backgroundColor:["#ef4444","#f59e0b","#10b981"],borderWidth:0,hoverOffset:5}]},options:{plugins:{legend:{position:"right",labels:{usePointStyle:true,pointStyle:"circle",padding:12}}}}});
+new Chart("cAvance",{type:"bar",data:{labels:NAMES,datasets:[{label:"%",data:DATA.coordinaciones.map(c=>c.cumplimiento),backgroundColor:COLORS,borderRadius:8}]},options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{max:100,ticks:{callback:v=>v+"%"},grid:{color:gridColor}},y:{grid:{display:false}}}}});
+new Chart("cStack",{type:"bar",data:{labels:NAMES,datasets:[{label:"Completas",data:DATA.coordinaciones.map(c=>c.completadas),backgroundColor:"#10b981"},{label:"En proceso",data:DATA.coordinaciones.map(c=>c.enProceso),backgroundColor:"#3b82f6"},{label:"Pendientes",data:DATA.coordinaciones.map(c=>(c.noIniciadas||0)+(c.enRevision||0)),backgroundColor:"#f59e0b",borderRadius:4}]},options:{scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:{color:gridColor}}},plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"rect",padding:12}}}}});
 const allS={};DATA.coordinaciones.forEach(c=>{(c.solicitantes||[]).forEach(s=>{allS[s.name]=(allS[s.name]||0)+s.value;});});
 const topS=Object.entries(allS).sort((a,b)=>b[1]-a[1]).slice(0,8);
-new Chart("solicitChart", {
-    type:"bar",
-    data:{labels:topS.map(([n])=>n.length>28?n.slice(0,28)+"…":n),datasets:[{data:topS.map(([,v])=>v),backgroundColor:sc,borderRadius:6}]},
-    options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{grid:{color:gridColor}},y:{grid:{display:false},ticks:{font:{size:11}}}}}
-});
+new Chart("cSolic",{type:"bar",data:{labels:topS.map(([n])=>n.length>28?n.slice(0,28)+"…":n),datasets:[{data:topS.map(([,v])=>v),backgroundColor:sc,borderRadius:6}]},options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{grid:{color:gridColor}},y:{grid:{display:false},ticks:{font:{size:11}}}}}});
 
-// COORD CARDS
-document.getElementById("coordCards").innerHTML = DATA.coordinaciones.map(c => `
-    <div class="coord-card">
-        <div class="coord-header" style="background:linear-gradient(135deg,${c.color},${c.color}bb);">
-            <div style="font-size:2.4rem;">${c.icon}</div>
-            <h3>${c.name}</h3>
-            <p>${c.total} actividades${c.cumplimiento<60?" &nbsp;⚠️ Atención crítica":""}</p>
-            <div class="percentage">${c.cumplimiento}%</div>
-        </div>
-        <div class="coord-body">
-            <div class="coord-stats">
-                <div class="coord-stat" style="background:#d1fae5;"><div class="value" style="color:#10b981;">${c.completadas}</div><div class="label" style="color:#047857;">Completas</div></div>
-                <div class="coord-stat" style="background:#dbeafe;"><div class="value" style="color:#3b82f6;">${c.enProceso}</div><div class="label" style="color:#1d4ed8;">En Proceso</div></div>
-                <div class="coord-stat" style="background:#fef9c3;"><div class="value" style="color:#a16207;">${(c.noIniciadas||0)+(c.enRevision||0)}</div><div class="label" style="color:#a16207;">Pendientes</div></div>
-            </div>
-            <div class="progress-item"><div class="progress-header"><span style="color:#ef4444;">🔴 ALTA</span><span>${c.prioridades.alta} (${Math.round(c.prioridades.alta/c.total*100)}%)</span></div><div class="progress-bar"><div class="progress-fill" style="width:${c.prioridades.alta/c.total*100}%;background:#ef4444;"></div></div></div>
-            <div class="progress-item"><div class="progress-header"><span style="color:#f59e0b;">🟡 MEDIA</span><span>${c.prioridades.media} (${Math.round(c.prioridades.media/c.total*100)}%)</span></div><div class="progress-bar"><div class="progress-fill" style="width:${c.prioridades.media/c.total*100}%;background:#f59e0b;"></div></div></div>
-            <div class="progress-item"><div class="progress-header"><span style="color:#10b981;">🟢 BAJA</span><span>${c.prioridades.baja} (${Math.round(c.prioridades.baja/c.total*100)}%)</span></div><div class="progress-bar"><div class="progress-fill" style="width:${c.prioridades.baja/c.total*100}%;background:#10b981;"></div></div></div>
-        </div>
-    </div>`).join("");
+// COORD CARDS clickables
+document.getElementById("coord-cards").innerHTML = DATA.coordinaciones.map(c=>`
+  <div class="coord-card" onclick="openDetail('${c.id}')">
+    <div class="coord-hdr" style="background:linear-gradient(135deg,${c.color},${c.color}bb)">
+      <div style="font-size:2.4rem">${c.icon}</div>
+      <h3>${c.name}</h3>
+      <p>${c.total} actividades${c.cumplimiento<60?" · ⚠️ Atención crítica":""}</p>
+      <div class="pct">${c.cumplimiento}%</div>
+      <div class="coord-badge">Ver detalle completo →</div>
+    </div>
+    <div class="coord-body">
+      <div class="coord-stats">
+        <div class="cstat" style="background:#d1fae5"><div class="val" style="color:#10b981">${c.completadas}</div><div class="lbl" style="color:#047857">Completas</div></div>
+        <div class="cstat" style="background:#dbeafe"><div class="val" style="color:#3b82f6">${c.enProceso}</div><div class="lbl" style="color:#1d4ed8">En Proceso</div></div>
+        <div class="cstat" style="background:#fef9c3"><div class="val" style="color:#a16207">${(c.noIniciadas||0)+(c.enRevision||0)}</div><div class="lbl" style="color:#a16207">Pendientes</div></div>
+      </div>
+      <div class="prog-hdr"><span style="color:#ef4444">🔴 ALTA</span><span>${c.prioridades.alta} (${Math.round(c.prioridades.alta/c.total*100)}%)</span></div>
+      <div class="prog-bar"><div class="prog-fill" style="width:${c.prioridades.alta/c.total*100}%;background:#ef4444"></div></div>
+      <div class="prog-hdr"><span style="color:#f59e0b">🟡 MEDIA</span><span>${c.prioridades.media} (${Math.round(c.prioridades.media/c.total*100)}%)</span></div>
+      <div class="prog-bar"><div class="prog-fill" style="width:${c.prioridades.media/c.total*100}%;background:#f59e0b"></div></div>
+      <div class="prog-hdr"><span style="color:#10b981">🟢 BAJA</span><span>${c.prioridades.baja} (${Math.round(c.prioridades.baja/c.total*100)}%)</span></div>
+      <div class="prog-bar"><div class="prog-fill" style="width:${c.prioridades.baja/c.total*100}%;background:#10b981"></div></div>
+    </div>
+  </div>`).join("");
 
-// Bubble
-new Chart("bubbleChart",{type:"bubble",data:{datasets:DATA.coordinaciones.map(c=>({label:c.name,data:[{x:c.total,y:c.cumplimiento,r:Math.sqrt(c.completadas)*1.6}],backgroundColor:c.color+"88",borderColor:c.color,borderWidth:2}))},options:{plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"circle",padding:12}}},scales:{x:{title:{display:true,text:"Núm. actividades"},grid:{color:gridColor}},y:{title:{display:true,text:"% Avance"},min:0,max:100,ticks:{callback:v=>v+"%"},grid:{color:gridColor}}}}});
+new Chart("cBubble",{type:"bubble",data:{datasets:DATA.coordinaciones.map(c=>({label:c.name,data:[{x:c.total,y:c.cumplimiento,r:Math.sqrt(c.completadas)*1.6}],backgroundColor:c.color+"88",borderColor:c.color,borderWidth:2}))},options:{plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"circle",padding:12}}},scales:{x:{title:{display:true,text:"Núm. actividades"},grid:{color:gridColor}},y:{title:{display:true,text:"% Avance"},min:0,max:100,ticks:{callback:v=>v+"%"},grid:{color:gridColor}}}}});
+new Chart("cPrioCoord",{type:"bar",data:{labels:NAMES,datasets:[{label:"Alta",data:DATA.coordinaciones.map(c=>c.prioridades.alta),backgroundColor:"#ef4444",borderRadius:4},{label:"Media",data:DATA.coordinaciones.map(c=>c.prioridades.media),backgroundColor:"#f59e0b"},{label:"Baja",data:DATA.coordinaciones.map(c=>c.prioridades.baja),backgroundColor:"#10b981",borderRadius:0}]},options:{scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:{color:gridColor}}},plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"rect",padding:12}}}}});
 
-// Prio x coord
-new Chart("prioCoordChart",{type:"bar",data:{labels:NAMES,datasets:[{label:"Alta",data:DATA.coordinaciones.map(c=>c.prioridades.alta),backgroundColor:"#ef4444",borderRadius:4},{label:"Media",data:DATA.coordinaciones.map(c=>c.prioridades.media),backgroundColor:"#f59e0b"},{label:"Baja",data:DATA.coordinaciones.map(c=>c.prioridades.baja),backgroundColor:"#10b981",borderRadius:0}]},options:{scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:{color:gridColor}}},plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"rect",padding:12}}}}});
-
-// Insights
+// Análisis
 const srt=[...DATA.coordinaciones].sort((a,b)=>b.cumplimiento-a.cumplimiento);
 const best=srt[0],worst=srt[srt.length-1],heavy=[...DATA.coordinaciones].sort((a,b)=>b.total-a.total)[0];
-const T=DATA.totales,P=DATA.prioridades;
+const totalVenc=DATA.coordinaciones.reduce((s,c)=>s+(c.actividades||[]).filter(a=>a.vencida).length,0);
 [
-    {i:"🏆",bg:"#d1fae5",h:"Mejor desempeño: "+best.name,  p:best.cumplimiento+"% en "+best.total+" actividades. Modelo operativo a replicar."},
-    {i:"🚨",bg:"#fee2e2",h:"Área crítica: "+worst.name,    p:worst.cumplimiento+"% avance — "+(worst.noIniciadas+(worst.enRevision||0))+" pendientes. Intervención recomendada."},
-    {i:"📊",bg:"#dbeafe",h:"Mayor volumen: "+heavy.name,   p:heavy.total+" actividades ("+Math.round(heavy.total/T.actividades*100)+"% del total). Evaluar distribución de carga."},
-    {i:"✅",bg:"#fef9c3",h:T.tasaCumplimiento+"% avance global",p:T.completadas+" de "+T.actividades+" completadas. Meta recomendada: 85% para Q2 2026."},
-    {i:"🔄",bg:"#ede9fe",h:T.enProceso+" actividades activas",p:"Representan "+Math.round(T.enProceso/T.actividades*100)+"% del total. Seguimiento semanal recomendado."},
-    {i:"🎯",bg:"#fff7ed",h:"Alta prioridad: "+P.ALTA+" actividades",p:Math.round(P.ALTA/T.actividades*100)+"% son alta prioridad. Atención especial en "+worst.name+"."},
-].forEach(ins=>{document.getElementById("ins-box").innerHTML+=`<div class="ins"><div class="ins-ico" style="background:${ins.bg}">${ins.i}</div><div><div class="ins-title">${ins.h}</div><div class="ins-body">${ins.p}</div></div></div>`;});
+  {i:"🏆",bg:"#d1fae5",h:"Mejor desempeño: "+best.name,p:best.cumplimiento+"% en "+best.total+" actividades. Modelo operativo a replicar."},
+  {i:"🚨",bg:"#fee2e2",h:"Área crítica: "+worst.name,p:worst.cumplimiento+"% avance — "+(worst.noIniciadas+(worst.enRevision||0))+" pendientes. Intervención recomendada."},
+  {i:"📊",bg:"#dbeafe",h:"Mayor volumen: "+heavy.name,p:heavy.total+" actividades ("+Math.round(heavy.total/T.actividades*100)+"% del total). Evaluar distribución."},
+  {i:"✅",bg:"#fef9c3",h:T.tasaCumplimiento+"% avance global",p:T.completadas+" de "+T.actividades+" completadas. Meta 85% para Q2 2026."},
+  {i:"🔄",bg:"#ede9fe",h:T.enProceso+" actividades activas",p:"Representan "+Math.round(T.enProceso/T.actividades*100)+"% del total. Seguimiento semanal."},
+  {i:"⏰",bg:"#fee2e2",h:totalVenc+" actividades vencidas",p:"Con fecha de entrega ya cumplida y aún sin completar. Requieren atención urgente."},
+].forEach(ins=>{document.getElementById("ins-box").innerHTML+=`<div class="ins"><div class="ins-ico" style="background:${ins.bg}">${ins.i}</div><div><div class="ins-t">${ins.h}</div><div class="ins-b">${ins.p}</div></div></div>`;});
 
-// Radar
-new Chart("radarChart",{type:"radar",data:{labels:["Avance","Sin rezago","Volumen norm.","Eficiencia"],datasets:DATA.coordinaciones.map(c=>({label:c.name,data:[c.cumplimiento,Math.round(((c.total-(c.noIniciadas||0))/c.total)*100),Math.round((c.total/Math.max(...DATA.coordinaciones.map(x=>x.total)))*100),Math.round((c.completadas/(c.completadas+(c.noIniciadas||0)||1))*100)],borderColor:c.color,backgroundColor:c.color+"25",borderWidth:2,pointRadius:3}))},options:{scales:{r:{min:0,max:100,ticks:{stepSize:25,font:{size:10}}}},plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"circle",padding:12}}}}});
-
-// Áreas
+new Chart("cRadar",{type:"radar",data:{labels:["Avance","Sin rezago","Volumen norm.","Eficiencia"],datasets:DATA.coordinaciones.map(c=>({label:c.name,data:[c.cumplimiento,Math.round(((c.total-(c.noIniciadas||0))/c.total)*100),Math.round((c.total/Math.max(...DATA.coordinaciones.map(x=>x.total)))*100),Math.round((c.completadas/(c.completadas+(c.noIniciadas||0)||1))*100)],borderColor:c.color,backgroundColor:c.color+"25",borderWidth:2,pointRadius:3}))},options:{scales:{r:{min:0,max:100,ticks:{stepSize:25,font:{size:10}}}},plugins:{legend:{position:"bottom",labels:{usePointStyle:true,pointStyle:"circle",padding:12}}}}});
 const allA={};DATA.coordinaciones.forEach(c=>{(c.areas||[]).forEach(a=>{allA[a.name]=(allA[a.name]||0)+a.value;});});
 const topA=Object.entries(allA).sort((a,b)=>b[1]-a[1]).slice(0,10);
-new Chart("areaChart",{type:"bar",data:{labels:topA.map(([n])=>n.length>22?n.slice(0,22)+"…":n),datasets:[{data:topA.map(([,v])=>v),backgroundColor:sc,borderRadius:6}]},options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{grid:{color:gridColor}},y:{grid:{display:false},ticks:{font:{size:11}}}}}});
+new Chart("cArea",{type:"bar",data:{labels:topA.map(([n])=>n.length>22?n.slice(0,22)+"…":n),datasets:[{data:topA.map(([,v])=>v),backgroundColor:sc,borderRadius:6}]},options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{grid:{color:gridColor}},y:{grid:{display:false},ticks:{font:{size:11}}}}}});
+document.getElementById("sumgrid").innerHTML=`
+  <div class="sitem"><div class="val" style="color:#60a5fa">${T.actividades}</div><div class="lbl">Total</div></div>
+  <div class="sitem"><div class="val" style="color:#34d399">${T.completadas}</div><div class="lbl">Completadas</div></div>
+  <div class="sitem"><div class="val" style="color:#34d399">${T.tasaCumplimiento}%</div><div class="lbl">Cumplimiento</div></div>
+  <div class="sitem"><div class="val" style="color:#fbbf24">${T.enProceso}</div><div class="lbl">En Proceso</div></div>
+  <div class="sitem"><div class="val" style="color:#f87171">${P.ALTA}</div><div class="lbl">Alta Prioridad</div></div>
+  <div class="sitem"><div class="val" style="color:#f87171">${totalVenc}</div><div class="lbl">Vencidas</div></div>`;
 
-// Summary
-document.getElementById("summaryGrid").innerHTML=`
-    <div class="summary-item"><div class="value" style="color:#60a5fa;">${T.actividades}</div><div class="label">Total</div></div>
-    <div class="summary-item"><div class="value" style="color:#34d399;">${T.completadas}</div><div class="label">Completadas</div></div>
-    <div class="summary-item"><div class="value" style="color:#34d399;">${T.tasaCumplimiento}%</div><div class="label">Cumplimiento</div></div>
-    <div class="summary-item"><div class="value" style="color:#fbbf24;">${T.enProceso}</div><div class="label">En Proceso</div></div>
-    <div class="summary-item"><div class="value" style="color:#f87171;">${P.ALTA}</div><div class="label">Alta Prioridad</div></div>
-    <div class="summary-item"><div class="value" style="color:#a78bfa;">${DATA.coordinaciones.length}</div><div class="label">Coordinaciones</div></div>`;
-
-// Responsables
+// Responsables globales
 const allR=DATA.coordinaciones.flatMap(c=>(c.responsables||[]).map(r=>({...r,coord:c.name,color:c.color})));
 const mR=allR.reduce((acc,r)=>{const ex=acc.find(x=>x.name===r.name);if(ex)ex.value+=r.value;else acc.push({...r});return acc;},[]).sort((a,b)=>b.value-a.value).slice(0,12);
 const tb=document.getElementById("resp-body");
 mR.forEach((r,i)=>{
-    const pct=Math.min(100,Math.round(r.value*.78));
-    const col=pct>=75?"#10b981":pct>=50?"#3b82f6":"#ef4444";
-    const init=r.name.trim().split(" ").filter(Boolean).slice(0,2).map(n=>n[0]).join("").toUpperCase();
-    tb.innerHTML+=`<tr><td style="color:#94a3b8;font-size:.8rem;">${String(i+1).padStart(2,"0")}</td><td><div style="display:flex;align-items:center;gap:9px"><div class="ava" style="background:${r.color}22;color:${r.color}">${init}</div>${r.name.trim()}</div></td><td style="color:#94a3b8;font-size:.8rem;">${r.coord}</td><td style="font-weight:700;">${r.value}</td><td><div class="av-wrap"><div class="av-bar"><div class="av-fill" style="width:${pct}%;background:${col}"></div></div><span class="av-val" style="color:${col}">${pct}%</span></div></td></tr>`;
+  const pct=Math.min(100,Math.round(r.value*.78));
+  const col=pct>=75?"#10b981":pct>=50?"#3b82f6":"#ef4444";
+  const init=r.name.trim().split(" ").filter(Boolean).slice(0,2).map(n=>n[0]).join("").toUpperCase();
+  tb.innerHTML+=`<tr><td style="color:#94a3b8;font-size:.8rem">${String(i+1).padStart(2,"0")}</td><td><div style="display:flex;align-items:center;gap:9px"><div class="ava" style="background:${r.color}22;color:${r.color}">${init}</div>${r.name.trim()}</div></td><td style="color:#94a3b8;font-size:.8rem">${r.coord}</td><td style="font-weight:700">${r.value}</td><td><div class="av-wrap"><div class="av-bar"><div class="av-fill" style="width:${pct}%;background:${col}"></div></div><span class="av-val" style="color:${col}">${pct}%</span></div></td></tr>`;
 });
-new Chart("respChart",{type:"bar",data:{labels:mR.slice(0,8).map(r=>r.name.trim().split(" ").slice(0,2).join(" ")),datasets:[{data:mR.slice(0,8).map(r=>r.value),backgroundColor:mR.slice(0,8).map(r=>r.color+"99"),borderColor:mR.slice(0,8).map(r=>r.color),borderWidth:2,borderRadius:8,label:"Actividades"}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{grid:{color:gridColor}}}}});
+new Chart("cResp",{type:"bar",data:{labels:mR.slice(0,8).map(r=>r.name.trim().split(" ").slice(0,2).join(" ")),datasets:[{data:mR.slice(0,8).map(r=>r.value),backgroundColor:mR.slice(0,8).map(r=>r.color+"99"),borderColor:mR.slice(0,8).map(r=>r.color),borderWidth:2,borderRadius:8,label:"Actividades"}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{grid:{color:gridColor}}}}});
 
-// Actividades
+// Actividades global
 const ac=document.getElementById("acts-content");
-const sp=s=>{const u=(s||"").toUpperCase();return u==="COMPLETADO"?'<span class="pill pill-done">✓ Completada</span>':u==="EN PROCESO"?'<span class="pill pill-prog">⟳ En Proceso</span>':u.includes("REVIS")?'<span class="pill pill-rev">👁 En Revisión</span>':'<span class="pill pill-pend">⏳ Pendiente</span>';};
+const sp=s=>{if(s==="COMPLETADO")return'<span class="pill pd">✓ Completada</span>';if(s==="EN PROCESO")return'<span class="pill pp">⟳ En Proceso</span>';if(s==="EN REVISION")return'<span class="pill pr">👁 En Revisión</span>';return'<span class="pill pn">⏳ Pendiente</span>';};
 DATA.coordinaciones.forEach(c=>{
-    let rows="";
-    (c.actividades||[]).forEach((a,i)=>{rows+=`<tr><td style="color:#94a3b8;font-size:.78rem;font-family:monospace">${String(i+1).padStart(3,"0")}</td><td style="max-width:340px"><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${a.nombre}">${a.nombre}</div></td><td style="font-size:.82rem;color:#64748b">${a.responsable||"—"}</td><td>${sp(a.estado)}</td><td><span style="font-size:.78rem;font-weight:700;color:${a.prioridad.toUpperCase()==="ALTA"?"#ef4444":a.prioridad.toUpperCase()==="MEDIA"?"#f59e0b":"#10b981"}">${a.prioridad}</span></td></tr>`;});
-    ac.innerHTML+=`<div class="table-wrap"><div class="table-header" style="border-left:4px solid ${c.color}"><h3>${c.icon} ${c.name}</h3><span style="font-size:.8rem;color:#94a3b8">${c.total} actividades · ${c.cumplimiento}%</span></div><table><thead><tr><th>#</th><th>Actividad</th><th>Responsable</th><th>Estado</th><th>Prioridad</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  let rows="";
+  (c.actividades||[]).forEach((a,i)=>{
+    rows+=`<tr class="${a.vencida?"vencida":""}"><td style="color:#94a3b8;font-size:.78rem;font-family:monospace">${String(i+1).padStart(3,"0")}</td><td style="max-width:300px"><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${a.nombre}">${a.vencida?"🔴 ":""}${a.nombre}</div></td><td style="font-size:.82rem;color:#64748b">${a.responsable||"—"}</td><td>${sp(a.estado)}</td><td><span style="font-size:.78rem;font-weight:700;color:${a.prioridad==="Alta"?"#ef4444":a.prioridad==="Media"?"#f59e0b":"#10b981"}">${a.prioridad}</span></td><td style="font-size:.78rem;color:#94a3b8">${a.fechaRec||"—"}</td><td style="font-size:.78rem;color:${a.vencida?"#dc2626":"#94a3b8"};font-weight:${a.vencida?"700":"400"}">${a.fechaEnt||"—"}</td></tr>`;
+  });
+  ac.innerHTML+=`<div class="tw"><div class="th" style="border-left:4px solid ${c.color}"><h3>${c.icon} ${c.name}</h3><span style="font-size:.8rem;color:#94a3b8">${c.total} actividades · ${c.cumplimiento}%</span></div><table><thead><tr><th>#</th><th>Actividad</th><th>Responsable</th><th>Estado</th><th>Prioridad</th><th>Recepción</th><th>Entrega</th></tr></thead><tbody>${rows}</tbody></table></div>`;
 });
+
+// ── VISTA DETALLE ──────────────────────────────────────────
+function openDetail(coordId){
+  const c = DATA.coordinaciones.find(x=>x.id===coordId);
+  if(!c) return;
+  currentCoord = c;
+
+  // Header
+  const venc = (c.actividades||[]).filter(a=>a.vencida).length;
+  document.getElementById("detail-header").style.cssText=`background:linear-gradient(135deg,${c.color},${c.color}99)`;
+  document.getElementById("detail-header").innerHTML=`
+    <h2 style="font-size:2rem;font-weight:800">${c.icon} ${c.name}</h2>
+    <p style="opacity:.88;margin-top:6px">Detalle completo de actividades</p>
+    <div class="detail-kpis">
+      <div class="dkpi"><div class="val">${c.cumplimiento}%</div><div class="lbl">Avance</div></div>
+      <div class="dkpi"><div class="val">${c.completadas}</div><div class="lbl">Completadas</div></div>
+      <div class="dkpi"><div class="val">${c.enProceso}</div><div class="lbl">En Proceso</div></div>
+      <div class="dkpi"><div class="val">${(c.noIniciadas||0)+(c.enRevision||0)}</div><div class="lbl">Pendientes</div></div>
+      <div class="dkpi"><div class="val" style="color:#fde68a">${venc}</div><div class="lbl">Vencidas</div></div>
+    </div>`;
+
+  // Responsables
+  const maxR = (c.responsables||[])[0]?.value||1;
+  document.getElementById("detail-resps").innerHTML=`<h4>👤 Responsables (${(c.responsables||[]).length})</h4>`+
+    (c.responsables||[]).map(r=>{
+      const pct=Math.round(r.value/c.total*100);
+      const init=r.name.trim().split(" ").filter(Boolean).slice(0,2).map(n=>n[0]).join("").toUpperCase();
+      return`<div class="resp-row"><div class="ava" style="background:${c.color}22;color:${c.color};font-size:.7rem">${init}</div><span class="resp-name">${r.name.trim()}</span><div class="mini-bar"><div class="mini-fill" style="width:${r.value/maxR*100}%;background:${c.color}"></div></div><span class="resp-count">${r.value}</span><span class="resp-pct">${pct}%</span></div>`;
+    }).join("")||'<p style="color:#94a3b8;font-size:.88rem">Sin responsables registrados</p>';
+
+  // Chart responsables detalle
+  if(detailRespChart){detailRespChart.destroy();detailRespChart=null;}
+  if((c.responsables||[]).length>0){
+    detailRespChart=new Chart("detail-resp-chart",{type:"bar",data:{labels:(c.responsables||[]).slice(0,6).map(r=>r.name.trim().split(" ").slice(0,2).join(" ")),datasets:[{data:(c.responsables||[]).slice(0,6).map(r=>r.value),backgroundColor:c.color+"88",borderColor:c.color,borderWidth:2,borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{grid:{color:gridColor}}}}});
+  }
+
+  // Chart estado detalle
+  if(detailEstadoChart){detailEstadoChart.destroy();detailEstadoChart=null;}
+  detailEstadoChart=new Chart("detail-estado-chart",{type:"doughnut",data:{labels:["Completadas ("+c.completadas+")","En Proceso ("+c.enProceso+")","Pendientes "+((c.noIniciadas||0)+(c.enRevision||0))],datasets:[{data:[c.completadas,c.enProceso,(c.noIniciadas||0)+(c.enRevision||0)],backgroundColor:["#10b981","#3b82f6","#f59e0b"],borderWidth:0,hoverOffset:6}]},options:{cutout:"65%",plugins:{legend:{position:"right",labels:{usePointStyle:true,pointStyle:"circle",padding:12}}}}});
+
+  // Chart prioridad detalle
+  if(detailPrioChart){detailPrioChart.destroy();detailPrioChart=null;}
+  detailPrioChart=new Chart("detail-prio-chart",{type:"pie",data:{labels:["Alta ("+c.prioridades.alta+")","Media ("+c.prioridades.media+")","Baja ("+c.prioridades.baja+")"],datasets:[{data:[c.prioridades.alta,c.prioridades.media,c.prioridades.baja],backgroundColor:["#ef4444","#f59e0b","#10b981"],borderWidth:0,hoverOffset:5}]},options:{plugins:{legend:{position:"right",labels:{usePointStyle:true,pointStyle:"circle",padding:12}}}}});
+
+  document.getElementById("detail-table-title").textContent=`${c.icon} Actividades de ${c.name}`;
+  document.getElementById("f-search").value="";
+  document.getElementById("f-estado").value="";
+  document.getElementById("f-prio").value="";
+  renderDetailTable(c.actividades||[]);
+
+  document.getElementById("main-view").classList.add("hidden");
+  document.getElementById("detail-view").classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function closeDetail(){
+  document.getElementById("detail-view").classList.remove("active");
+  document.getElementById("main-view").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function renderDetailTable(acts){
+  const tbody=document.getElementById("detail-tbody");
+  const spd=s=>{if(s==="COMPLETADO")return'<span class="pill pd">✓ Completada</span>';if(s==="EN PROCESO")return'<span class="pill pp">⟳ En Proceso</span>';if(s==="EN REVISION")return'<span class="pill pr">👁 En Revisión</span>';return'<span class="pill pn">⏳ Pendiente</span>';};
+  tbody.innerHTML=acts.map((a,i)=>`
+    <tr class="${a.vencida?"vencida":""}">
+      <td style="color:#94a3b8;font-size:.78rem;font-family:monospace">${String(i+1).padStart(3,"0")}</td>
+      <td style="max-width:280px"><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${a.nombre}">${a.vencida?"🔴 ":""}${a.nombre}</div></td>
+      <td style="font-size:.82rem;color:#374151">${a.responsable||"—"}</td>
+      <td>${spd(a.estado)}${a.vencida?'<span class="venc-badge" style="margin-left:5px">Vencida</span>':""}</td>
+      <td><span style="font-size:.78rem;font-weight:700;color:${a.prioridad==="Alta"?"#ef4444":a.prioridad==="Media"?"#f59e0b":"#10b981"}">${a.prioridad}</span></td>
+      <td style="font-size:.78rem;color:#94a3b8">${a.fechaRec||"—"}</td>
+      <td style="font-size:.78rem;color:${a.vencida?"#dc2626":"#94a3b8"};font-weight:${a.vencida?"700":"400"}">${a.fechaEnt||"—"}</td>
+    </tr>`).join("");
+  document.getElementById("f-count").textContent=acts.length+" actividades";
+}
+
+function filterDetail(){
+  if(!currentCoord) return;
+  const q=document.getElementById("f-search").value.toLowerCase();
+  const est=document.getElementById("f-estado").value;
+  const prio=document.getElementById("f-prio").value;
+  let acts=(currentCoord.actividades||[]).filter(a=>{
+    if(q && !a.nombre.toLowerCase().includes(q) && !a.responsable.toLowerCase().includes(q)) return false;
+    if(est==="VENCIDA") return a.vencida;
+    if(est && a.estado!==est) return false;
+    if(prio && a.prioridad!==prio) return false;
+    return true;
+  });
+  renderDetailTable(acts);
+}
 </script>
 </body>
 </html>
