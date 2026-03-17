@@ -5,15 +5,15 @@
       "name": "Mantenimiento",
       "icon": "🔧",
       "color": "#3b82f6",
-      "total": 81,
-      "completadas": 66,
-      "enProceso": 3,
+      "total": 99,
+      "completadas": 79,
+      "enProceso": 5,
       "enRevision": 0,
-      "noIniciadas": 12,
-      "cumplimiento": 81.5,
+      "noIniciadas": 15,
+      "cumplimiento": 79.8,
       "prioridades": {
-        "alta": 60,
-        "media": 18,
+        "alta": 69,
+        "media": 25,
         "baja": 2
       },
       "areas": [
@@ -26,38 +26,42 @@
           "value": 13
         },
         {
-          "name": "UNIDADES AUTOMOTORAS",
-          "value": 10
+          "name": "AIRE ACONDICIONADO",
+          "value": 11
         },
         {
-          "name": "AIRE ACONDICIONADO",
-          "value": 8
+          "name": "UNIDADES AUTOMOTORAS",
+          "value": 10
         },
         {
           "name": "JARDINERIA",
           "value": 4
         },
         {
-          "name": "PINTURA",
-          "value": 2
-        },
-        {
-          "name": "AREA ACUATICA",
-          "value": 2
+          "name": "CARPINTERIA",
+          "value": 3
         },
         {
           "name": "ELECTRICIDAD",
+          "value": 3
+        },
+        {
+          "name": "PINTURA",
           "value": 2
         }
       ],
       "responsables": [
         {
           "name": "JORGE FEDERICO AGUILAR CASTRO",
-          "value": 62
+          "value": 66
         },
         {
           "name": "EDUARDO CABRERA COUTIÑO",
-          "value": 18
+          "value": 27
+        },
+        {
+          "name": "JOSE FRANCISCO AGUILAR AVENDAÑO",
+          "value": 3
         }
       ],
       "solicitantes": [
@@ -86,11 +90,11 @@
           "value": 2
         },
         {
-          "name": "Compras",
-          "value": 1
+          "name": "DIRECCION DE SECUNDARIA",
+          "value": 2
         },
         {
-          "name": "Preparatoria (media superior)",
+          "name": "Compras",
           "value": 1
         }
       ],
@@ -565,9 +569,9 @@
         },
         {
           "nombre": "SERVICIO DE MANTENIMIENTO AIRE ACONDICIONADO  DE AULA EDUCATIVA DE SECUNDARIA B200",
-          "estado": "INICIADOS",
+          "estado": "EN PROCESO",
           "prioridad": "ALTA",
-          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+          "responsable": "JOSE FRANCISCO AGUILAR AVENDAÑO"
         },
         {
           "nombre": "Llevar servicios escolares a secretaria",
@@ -576,10 +580,118 @@
           "responsable": "EDUARDO CABRERA COUTIÑO"
         },
         {
-          "nombre": "NaT",
-          "estado": "NaT",
-          "prioridad": "NaT",
-          "responsable": "NaT"
+          "nombre": "Elaboracion de plantilla, para rampa",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "Reparacion de manija, salon 300 basica",
+          "estado": "nan",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "SERVICIO DE MANTENIMIENTO AIRE ACONDICIONADO  DE AULA EDUCATIVA DE SECUNDARIA B203 CAMBIO DE CLIMA V",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "JOSE FRANCISCO AGUILAR AVENDAÑO"
+        },
+        {
+          "nombre": "SERVICIO DE MANTENIMIENTO AIRE ACONDICIONADO  DE ALMACEN DE CAFETERIA OLIVA CLIMAS NUEVOS NO EXISTIA",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "JOSE FRANCISCO AGUILAR AVENDAÑO"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE CLIMAS (SALON/OFICNA, TIPO DE MANTENIMIENTO) ING. FEDERICO DE TODA LA SEMANA EXCEPT",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE JARDINERIA (TIPO DE MANTENIMIENTO GENERAL RECURRENTE) ING. FEDERICO DE TODA LA SEMA",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE  HIGIENE (TIPO DE MANTENIMIENTO GENERAL RECURRENTE) ING. FEDERICO DE TODA LA SEMANA",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE HIDROSANITARIO (BAÑO, EDIFICIO, M o H TIPO DE MANTENIMIENTO) ING. FEDERICO DE TODA ",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE GENERAL (CHAPAS Y PUERTAS TIPO DE MANTENIMIENTO) ING. FEDERICO DE TODA LA SEMANA",
+          "estado": "nan",
+          "prioridad": "nan",
+          "responsable": "nan"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE PINTURA ( EDIFICIO TIPO DE MANTENIMIENTO) ING. FEDERICO DE TODA LA SEMANA",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE ELECTRICO (SALON/OFICNA, TIPO DE MANTENIMIENTO) ING. EDUARDO DE TODA LA SEMANA",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE UNIDADES AUTOMOTORAS CANTIDADES DE ( VIAJES DE RUTA) DEL PERIODO ING. EDUARDO DE TO",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE UNIDADES AUTOMOTORAS CANTIDADES DE (VIAJES LOCALES POR CADA COORDINACION) DEL PERIO",
+          "estado": "nan",
+          "prioridad": "nan",
+          "responsable": "nan"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE UNIDADES AUTOMOTORAS CANTIDADES DE (VIAJES FORANEOS POR CADA COORDINACION) DEL PERI",
+          "estado": "nan",
+          "prioridad": "nan",
+          "responsable": "nan"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE CARPINTERIA (LISTA DE ACTIVIDADES TIPO DE MANTENIMIENTO) ING. EDUARDO DE TODA LA SE",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE ESTRUCTURAS (LISTA DE ACTIVIDADES TIPO DE MANTENIMIENTO) ING. EDUARDO DE TODA LA SE",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE  EXTERIOR Y ACUATICA (TIPO DE MANTENIMIENTO GENERAL RECURRENTE) ING. EDUARDO  DE TO",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE  HIGIENE BASICA (TIPO DE MANTENIMIENTO GENERAL RECURRENTE) ING.EDUARDO DE TODA LA S",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE ELECTRICO Y EQUIPO HIDROSANITARIO REINSTALACION DE BOMBA SUMERGIBLE 2 HP MARCA  ING",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
         }
       ]
     },
@@ -588,32 +700,28 @@
       "name": "Infraestructura",
       "icon": "🏗️",
       "color": "#f59e0b",
-      "total": 23,
-      "completadas": 11,
-      "enProceso": 12,
+      "total": 9,
+      "completadas": 6,
+      "enProceso": 2,
       "enRevision": 0,
-      "noIniciadas": 0,
-      "cumplimiento": 47.8,
+      "noIniciadas": 1,
+      "cumplimiento": 66.7,
       "prioridades": {
-        "alta": 15,
-        "media": 8,
+        "alta": 5,
+        "media": 4,
         "baja": 0
       },
       "areas": [
         {
-          "name": "CONSTRUCCION",
-          "value": 23
+          "name": "INFRAESTRUCTURA",
+          "value": 9
         }
       ],
       "responsables": [],
       "solicitantes": [
         {
-          "name": "EDIFICIO E",
-          "value": 16
-        },
-        {
           "name": "MANTENIMIENTO GENERAL",
-          "value": 5
+          "value": 7
         },
         {
           "name": "ODONTOLOGIA",
@@ -645,13 +753,13 @@
         },
         {
           "nombre": "DESMANTELAMINTO Y ACARREO DE PISO DE ADOQUIN PARTE TRASERA DEL CAMPO DE FUTBOL NO. 3",
-          "estado": "EN PROCESO",
+          "estado": "COMPLETADO",
           "prioridad": "ALTA",
           "responsable": ""
         },
         {
           "nombre": "AMPLIACION DE BOULEVARD NIÑOS HEROES",
-          "estado": "EN PROCESO",
+          "estado": "COMPLETADO",
           "prioridad": "MEDIA",
           "responsable": ""
         },
@@ -663,103 +771,19 @@
         },
         {
           "nombre": "MODIFICACION DE TAPA DE REGISTRO ELECTRICO MEDIA TENSION Y LIMPIEZA GENERAL, DESMANTELAMIENTO DE BAÑ",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": ""
+        },
+        {
+          "nombre": "ACARREO DE ADOQUIN ESTACIONAMIENTO BASICA-CAMPO DE FUTBOL CON CAMIONETA Y GENTE",
           "estado": "EN PROCESO",
           "prioridad": "MEDIA",
           "responsable": ""
         },
         {
-          "nombre": "PRUEBA",
-          "estado": "COMPLETADO",
-          "prioridad": "ALTA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "COMPLETADO",
-          "prioridad": "ALTA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "COMPLETADO",
-          "prioridad": "ALTA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "COMPLETADO",
-          "prioridad": "ALTA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "EN PROCESO",
-          "prioridad": "ALTA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "EN PROCESO",
-          "prioridad": "MEDIA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "EN PROCESO",
-          "prioridad": "MEDIA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "EN PROCESO",
-          "prioridad": "MEDIA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "COMPLETADO",
-          "prioridad": "ALTA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "COMPLETADO",
-          "prioridad": "ALTA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "COMPLETADO",
-          "prioridad": "ALTA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "COMPLETADO",
-          "prioridad": "ALTA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "EN PROCESO",
-          "prioridad": "ALTA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "EN PROCESO",
-          "prioridad": "MEDIA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "EN PROCESO",
-          "prioridad": "MEDIA",
-          "responsable": ""
-        },
-        {
-          "nombre": "PRUEBA",
-          "estado": "EN PROCESO",
+          "nombre": "REHABILITACION DE PISOS  DE LOSETA PASILLO J PLANTA BAJA Y H PLANTA BAJA",
+          "estado": "NO INICIADO",
           "prioridad": "MEDIA",
           "responsable": ""
         }
@@ -770,15 +794,15 @@
       "name": "Seguridad y PC",
       "icon": "🛡️",
       "color": "#ef4444",
-      "total": 147,
+      "total": 148,
       "completadas": 101,
-      "enProceso": 31,
+      "enProceso": 29,
       "enRevision": 4,
-      "noIniciadas": 11,
-      "cumplimiento": 68.7,
+      "noIniciadas": 14,
+      "cumplimiento": 68.2,
       "prioridades": {
-        "alta": 74,
-        "media": 61,
+        "alta": 73,
+        "media": 60,
         "baja": 1
       },
       "areas": [
@@ -818,7 +842,7 @@
       "responsables": [
         {
           "name": "ISIDRO ZAVALA DE LA CRUZ",
-          "value": 45
+          "value": 43
         },
         {
           "name": "MOYSES MORALES SANTIZO",
@@ -1670,7 +1694,7 @@
           "nombre": "apoyo a eventos mujeres en accion",
           "estado": "EN PROCESO",
           "prioridad": "ALTA",
-          "responsable": "aldonso y moyses"
+          "responsable": "alFonso y moyses"
         },
         {
           "nombre": "recorridos generales",
@@ -1734,42 +1758,48 @@
         },
         {
           "nombre": "planeacion de simulacros",
-          "estado": "nan",
-          "prioridad": "nan",
-          "responsable": "nan"
-        },
-        {
-          "nombre": "seguimiento a reporte del area de psicologia/nombres/reportes",
-          "estado": "EN PROCESO",
-          "prioridad": "ALTA",
-          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
-        },
-        {
-          "nombre": "revsion de camaras para reporte de psicologia",
           "estado": "COMPLETADO",
           "prioridad": "ALTA",
           "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
-          "nombre": "seguimientgo a oficios institucionels",
-          "estado": "EN PROCESO",
-          "prioridad": "MEDIA",
-          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
-        },
-        {
-          "nombre": "señaleticas en cafetria, lechucitas, campo y oliva",
+          "nombre": "REPORTE AL AREA DE POPSGRADOS",
           "estado": "nan",
           "prioridad": "nan",
           "responsable": "nan"
         },
         {
-          "nombre": "reporte de carga de gas en las cafetrias oliva. basica y campo",
+          "nombre": "SEGUIMIENTO A OFIVIOS INSTITUCIONALES",
           "estado": "nan",
           "prioridad": "nan",
           "responsable": "nan"
         },
         {
-          "nombre": "planeacion de simulacros",
+          "nombre": "COMCENTRACION DE REPORTES DE SIMULACROS Y CAPACITACION",
+          "estado": "nan",
+          "prioridad": "nan",
+          "responsable": "nan"
+        },
+        {
+          "nombre": "ATENCION A FILTROS DE SEGURIDAD",
+          "estado": "nan",
+          "prioridad": "nan",
+          "responsable": "nan"
+        },
+        {
+          "nombre": "RECEPCION DE PINTURAS BLANCA Y AZUL PARA RAMPAS",
+          "estado": "nan",
+          "prioridad": "nan",
+          "responsable": "nan"
+        },
+        {
+          "nombre": "MONITOREO DE CAMARAS",
+          "estado": "nan",
+          "prioridad": "nan",
+          "responsable": "nan"
+        },
+        {
+          "nombre": "REVISION DE ALARMA SISMICA",
           "estado": "nan",
           "prioridad": "nan",
           "responsable": "nan"
@@ -1781,49 +1811,49 @@
       "name": "Gestión Espacios",
       "icon": "🏛️",
       "color": "#10b981",
-      "total": 158,
-      "completadas": 128,
+      "total": 126,
+      "completadas": 96,
       "enProceso": 30,
       "enRevision": 0,
       "noIniciadas": 0,
-      "cumplimiento": 81.0,
+      "cumplimiento": 76.2,
       "prioridades": {
         "alta": 8,
         "media": 36,
-        "baja": 114
+        "baja": 82
       },
       "areas": [
         {
           "name": "Auditorio General",
-          "value": 46
-        },
-        {
-          "name": "Auditorio Salud",
-          "value": 19
+          "value": 25
         },
         {
           "name": "Coordinación de gestión de espacios",
-          "value": 17
-        },
-        {
-          "name": "Departamento de compras",
-          "value": 14
+          "value": 19
         },
         {
           "name": "Servicios Generales",
           "value": 13
         },
         {
+          "name": "Auditorio Salud",
+          "value": 12
+        },
+        {
+          "name": "Departamento de compras",
+          "value": 10
+        },
+        {
           "name": "Responsable de Material Técnico Didáctico",
           "value": 6
         },
         {
-          "name": "Edificio D103",
-          "value": 5
-        },
-        {
           "name": "Centro Odontologico y Practicas Odontologicas",
           "value": 4
+        },
+        {
+          "name": "Protección Civil",
+          "value": 3
         }
       ],
       "responsables": [],
@@ -1833,31 +1863,31 @@
           "value": 72
         },
         {
-          "name": "Dirección de capital humano",
-          "value": 20
-        },
-        {
-          "name": "Dirección de Ingenierias",
-          "value": 9
-        },
-        {
-          "name": "Dirección de la licenciatura en médico c",
-          "value": 8
-        },
-        {
           "name": "Departamento de compras",
           "value": 5
         },
         {
-          "name": "Rectoria y Dirección de operaciones",
+          "name": "Dirección de la licenciatura en médico c",
           "value": 5
         },
         {
-          "name": "Dirección del área de idiomas",
-          "value": 5
+          "name": "Dirección de capital humano",
+          "value": 4
         },
         {
           "name": "Recursos Humanos",
+          "value": 3
+        },
+        {
+          "name": "Dirección de VInculación",
+          "value": 3
+        },
+        {
+          "name": "Dirección de Derecho",
+          "value": 3
+        },
+        {
+          "name": "Dirección de Negocios",
           "value": 3
         }
       ],
@@ -2571,25 +2601,31 @@
           "responsable": ""
         },
         {
+          "nombre": "Recepción de una parte de material de pedido semestral del laboratorio de microbiología",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Organización documental de archivos ( Resguardos)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio de salud: (Presentación de proyectos)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
           "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
           "estado": "COMPLETADO",
           "prioridad": "BAJA",
           "responsable": ""
         },
         {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio de Salud 11 de Marzo)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 26 de Junio)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Mesa de trabajo para mejora de procesos académicos y operativos",
+          "nombre": "Trámite y seguimiento de oficios y correos Institucionales",
           "estado": "COMPLETADO",
           "prioridad": "BAJA",
           "responsable": ""
@@ -2601,211 +2637,13 @@
           "responsable": ""
         },
         {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 06 al 10 de abril)",
+          "nombre": "Solicitud de apoyo para adquisición de insumos (Labororatorio de Quimica)",
           "estado": "COMPLETADO",
           "prioridad": "BAJA",
           "responsable": ""
         },
         {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio de salud 24de abril y  12 de junio)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio de salud: (Proyecto integrador Dirección de ingeniera)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio de Salud 11 de Marzo)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 26 de Junio)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Mesa de trabajo para mejora de procesos académicos y operativos",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 27 de marzo)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 06 al 10 de abril)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio de salud 24de abril y  12 de junio)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio de salud: (Proyecto integrador Dirección de ingeniera)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 26 de Junio)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Mesa de trabajo para mejora de procesos académicos y operativos",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 27 de marzo)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 06 al 10 de abril)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio de salud 24de abril y  12 de junio)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio de salud: (Proyecto integrador Dirección de ingeniera)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio de Salud 11 de Marzo)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 26 de Junio)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Mesa de trabajo para mejora de procesos académicos y operativos",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 27 de marzo)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 06 al 10 de abril)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio de salud 24de abril y  12 de junio)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio de salud: (Proyecto integrador Dirección de ingeniera)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
-          "estado": "COMPLETADO",
-          "prioridad": "BAJA",
-          "responsable": ""
-        },
-        {
-          "nombre": "Supervisión y soporte de auditorio general: (Poliza de seguro de gastos médicos mayores)",
+          "nombre": "Solicitud de apoyo para adquisición de insumos (Clínica de Odontología 1y 2)",
           "estado": "COMPLETADO",
           "prioridad": "BAJA",
           "responsable": ""
@@ -2814,16 +2652,16 @@
     }
   ],
   "totales": {
-    "actividades": 409,
-    "completadas": 306,
-    "enProceso": 80,
-    "pendientes": 23,
-    "tasaCumplimiento": 74.8
+    "actividades": 382,
+    "completadas": 282,
+    "enProceso": 70,
+    "pendientes": 30,
+    "tasaCumplimiento": 73.8
   },
   "prioridades": {
-    "ALTA": 157,
-    "MEDIA": 123,
-    "BAJA": 117
+    "ALTA": 155,
+    "MEDIA": 125,
+    "BAJA": 85
   },
-  "generado": "2026-03-17 08:06:35"
+  "generado": "2026-03-17 15:24:21"
 }
