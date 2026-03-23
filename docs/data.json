@@ -5,73 +5,85 @@
       "name": "Mantenimiento",
       "icon": "🔧",
       "color": "#3b82f6",
-      "total": 99,
-      "completadas": 79,
-      "enProceso": 5,
+      "total": 141,
+      "completadas": 109,
+      "enProceso": 15,
       "enRevision": 0,
-      "noIniciadas": 15,
-      "cumplimiento": 79.8,
+      "noIniciadas": 17,
+      "cumplimiento": 77.3,
       "prioridades": {
-        "alta": 69,
-        "media": 25,
+        "alta": 101,
+        "media": 35,
         "baja": 2
       },
       "areas": [
         {
           "name": "LIMPIEZA E HIGIENE",
-          "value": 36
+          "value": 44
         },
         {
           "name": "FONTANERIA Y SER. GRAL",
-          "value": 13
-        },
-        {
-          "name": "AIRE ACONDICIONADO",
-          "value": 11
+          "value": 22
         },
         {
           "name": "UNIDADES AUTOMOTORAS",
-          "value": 10
+          "value": 19
         },
         {
-          "name": "JARDINERIA",
-          "value": 4
+          "name": "AIRE ACONDICIONADO",
+          "value": 16
         },
         {
           "name": "CARPINTERIA",
-          "value": 3
+          "value": 9
+        },
+        {
+          "name": "ESTRUCTURAS METALICAS",
+          "value": 7
+        },
+        {
+          "name": "JARDINERIA",
+          "value": 5
         },
         {
           "name": "ELECTRICIDAD",
-          "value": 3
-        },
-        {
-          "name": "PINTURA",
-          "value": 2
+          "value": 4
         }
       ],
       "responsables": [
         {
           "name": "JORGE FEDERICO AGUILAR CASTRO",
-          "value": 66
+          "value": 82
         },
         {
           "name": "EDUARDO CABRERA COUTIÑO",
-          "value": 27
+          "value": 49
         },
         {
           "name": "JOSE FRANCISCO AGUILAR AVENDAÑO",
-          "value": 3
+          "value": 7
         }
       ],
       "solicitantes": [
         {
           "name": "Servicios Generales",
-          "value": 52
+          "value": 65
+        },
+        {
+          "name": "SERVICIOS GENERALES",
+          "value": 12
+        },
+        {
+          "name": "Servicios generales",
+          "value": 9
         },
         {
           "name": "Odontología",
           "value": 7
+        },
+        {
+          "name": "Compras",
+          "value": 3
         },
         {
           "name": "Supervisor de Servicios Social LMC",
@@ -84,18 +96,6 @@
         {
           "name": "Director LMC",
           "value": 2
-        },
-        {
-          "name": "Servicios Escolares",
-          "value": 2
-        },
-        {
-          "name": "DIRECCION DE SECUNDARIA",
-          "value": 2
-        },
-        {
-          "name": "Compras",
-          "value": 1
         }
       ],
       "actividades": [
@@ -604,39 +604,129 @@
           "responsable": "JOSE FRANCISCO AGUILAR AVENDAÑO"
         },
         {
-          "nombre": "MANTENIMIENTO DE CLIMAS (SALON/OFICNA, TIPO DE MANTENIMIENTO) ING. FEDERICO DE TODA LA SEMANA EXCEPT",
+          "nombre": "Revisión del clima portatil del cubículo de ingles en el edificio de medicina, Revisión de climas en",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Mantenimiento del clima del salon 304 de primaria. Regulación de temperatura del aire acondicionado ",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Revisión, mantenimiento y arreglo del clima del salon 204 del edificio J. Revisión del clima del sal",
           "estado": "COMPLETADO",
           "prioridad": "ALTA",
           "responsable": "JORGE FEDERICO AGUILAR CASTRO"
         },
         {
-          "nombre": "MANTENIMIENTO DE JARDINERIA (TIPO DE MANTENIMIENTO GENERAL RECURRENTE) ING. FEDERICO DE TODA LA SEMA",
-          "estado": "COMPLETADO",
-          "prioridad": "MEDIA",
+          "nombre": "Mantenimiento del clima general de la cafetería del campo. Revisión del clima del laboratorio de com",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
           "responsable": "JORGE FEDERICO AGUILAR CASTRO"
         },
         {
-          "nombre": "MANTENIMIENTO DE  HIGIENE (TIPO DE MANTENIMIENTO GENERAL RECURRENTE) ING. FEDERICO DE TODA LA SEMANA",
-          "estado": "COMPLETADO",
-          "prioridad": "MEDIA",
-          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
-        },
-        {
-          "nombre": "MANTENIMIENTO DE HIDROSANITARIO (BAÑO, EDIFICIO, M o H TIPO DE MANTENIMIENTO) ING. FEDERICO DE TODA ",
+          "nombre": "Mantenimiento del clima en el cubículo de tesorería en el tercer nivel del edificio A. Revisión de u",
           "estado": "COMPLETADO",
           "prioridad": "ALTA",
           "responsable": "JORGE FEDERICO AGUILAR CASTRO"
         },
         {
-          "nombre": "MANTENIMIENTO DE GENERAL (CHAPAS Y PUERTAS TIPO DE MANTENIMIENTO) ING. FEDERICO DE TODA LA SEMANA",
-          "estado": "nan",
-          "prioridad": "nan",
-          "responsable": "nan"
+          "nombre": "Revisión y regulación de temperatura en los climas del auditorio de salud por los eventos.",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
         },
         {
-          "nombre": "MANTENIMIENTO DE PINTURA ( EDIFICIO TIPO DE MANTENIMIENTO) ING. FEDERICO DE TODA LA SEMANA",
+          "nombre": "Limpieza de la totalidad de pasillos y áreas comunes de Universidad y Básica. Riego de la totalidad ",
           "estado": "COMPLETADO",
           "prioridad": "MEDIA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Mantenimiento y reparación de 1 chapa de bola en puerta principal del salon 100 del edificio G. Habi",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Revisión de un chupon universal en tarja de materno infantil.",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Sustitución de llantas para riel de aluminio en puerta corrediza principal de la Clinica 1.",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Mantenimiento de dos émbolos en tubería helvex de los WC No. 1 y No. 7 del baño de mujeres del edifi",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Mantenimiento y cambio de empaques (llantita) del émbolo del WC No. 9 del baño de mujeres del edific",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Sustitución del émbolo del WC No. 3 del baño de hombres del edificio G.",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Mantenimiento a mingitorio No. 4 tapado en el baño de hombres adultos de las instalaciones de básica",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Limpieza y lavado de la pintura de los muros del edificio F. Limpieza y lavado de la pintura de los ",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Limpieza de salones, pasillos, baños y oficinas de Universidad (turno matutino, inicio de turno vesp",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Limpieza de salones, pasillos, baños y oficinas de Universidad (turno matutino, inicio de turno vesp",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Limpieza de salones, pasillos, baños y oficinas de Universidad (turno matutino, inicio de turno vesp",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Limpieza de salones, pasillos, baños y oficinas de Universidad (turno matutino, inicio de turno vesp",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Limpieza de salones, pasillos, baños y oficinas de Universidad (turno matutino, inicio de turno vesp",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JORGE FEDERICO AGUILAR CASTRO"
+        },
+        {
+          "nombre": "Limpieza de salones, pasillos, baños y oficinas de Universidad (turno matutino y apoyo en cierre de ",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
           "responsable": "JORGE FEDERICO AGUILAR CASTRO"
         },
         {
@@ -691,6 +781,162 @@
           "nombre": "MANTENIMIENTO DE ELECTRICO Y EQUIPO HIDROSANITARIO REINSTALACION DE BOMBA SUMERGIBLE 2 HP MARCA  ING",
           "estado": "COMPLETADO",
           "prioridad": "ALTA",
+          "responsable": "JOSE FRANCISCO AGUILAR AVENDAÑO"
+        },
+        {
+          "nombre": "SOLICITUD DE CAMBIO DE LUMINARIA TRAYECTORIA ESCOLAR EDIFICIO I, PLANTA BAJA.",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JOSE FRANCISCO AGUILAR AVENDAÑO"
+        },
+        {
+          "nombre": "MANTENIMIENTO DE BAÑOS EDIFICIO C PREESCOLAR SEGUNDA PLANTA WC2, 4, 6 NIÑAS, DESAZOLVE DE BAÑOS EDIF",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JOSE FRANCISCO AGUILAR AVENDAÑO"
+        },
+        {
+          "nombre": "Limpieza de exteriores semanales (Limpieza de canchas deportivas, barda perimetral del lado del libr",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "Mantenimiento general de limpieza en el area de basica",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "Mantenimiento general de limpieza y colocacion de quimicos del area acuatica (Alberca, monumento y e",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "INSTALACION DE BOMBA SUMERGIBLE Y TUBERIA DEL POZO PROFUNDO",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "JOSE FRANCISCO AGUILAR AVENDAÑO"
+        },
+        {
+          "nombre": "REHABILITACION DE MARCOS DE PUERTAS DE CAJAS EDIFICIO A PLANTA BAJA 3 PUERTAS",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "COLOCACACION DE TRIPLAY 7 PIEZAS PARA REPISAS DE ESTANTE UNIFORMES 2 PZAS",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "REPISAS FLOTANTES DE PALMA YUCA",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "FABRICACION DE LETRAS 35 AÑOS LECHUZAS",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "INSTALACION DE PUERTAS 1 PZA CASA PARTICULAR DE CASA DEL ING. RAMON",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "REHABILITACION DE CASA DE JUEGO DE MADERA ING. RAMON",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "REABILITACION DE SILLAS ESCOLARES 150 PIEZAS",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "FABRICACION DE ESTRUCTURAS DE REPISAS FLOTANTES",
+          "estado": "nan",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "REJILLA DE PLUVIAL DE TRANSPORTE Y REJILLA ALBERCA",
+          "estado": "nan",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "TAPAS DE CISTERNA POZO Y CASA MODERNA COLOR VERDE",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "INSTALACION DE PUERTA DE REJA DE POZO PROFUNDO",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "Carga de combustible a la unidades de transporte de alumnos y personal administrativo",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "Carga de combustible a la unidades de transporte de alumnos y personal administrativo",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "Elaboración y entrega de reporte para comprobación semanal del gasto de combustibles",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "Elaboración de bitacora semanal de rutas de transporte escolar y salidas locales y foraneas.",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "De la semana que corresponde del 6 al 12 de marzo, se realizaron 8 viajes foraneos divididos en las ",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "Carga de combustible del parque vehicular",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "Carga de combustible del parque vehicular",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "Entrega de reporte para comprobación del gasto de combustible, semana  del 9 al 13 de marzo de 2026",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "EDUARDO CABRERA COUTIÑO"
+        },
+        {
+          "nombre": "Elaboracion de bitacoras de recorridos, traslados locales, foraneos y rutas de transporte escolar",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
           "responsable": "EDUARDO CABRERA COUTIÑO"
         }
       ]
@@ -700,28 +946,28 @@
       "name": "Infraestructura",
       "icon": "🏗️",
       "color": "#f59e0b",
-      "total": 9,
-      "completadas": 6,
-      "enProceso": 2,
+      "total": 11,
+      "completadas": 7,
+      "enProceso": 3,
       "enRevision": 0,
       "noIniciadas": 1,
-      "cumplimiento": 66.7,
+      "cumplimiento": 63.6,
       "prioridades": {
         "alta": 5,
-        "media": 4,
+        "media": 6,
         "baja": 0
       },
       "areas": [
         {
           "name": "INFRAESTRUCTURA",
-          "value": 9
+          "value": 11
         }
       ],
       "responsables": [],
       "solicitantes": [
         {
           "name": "MANTENIMIENTO GENERAL",
-          "value": 7
+          "value": 9
         },
         {
           "name": "ODONTOLOGIA",
@@ -786,6 +1032,18 @@
           "estado": "NO INICIADO",
           "prioridad": "MEDIA",
           "responsable": ""
+        },
+        {
+          "nombre": "LIMPIEZA EN TERRENO DE AMOROSOS",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": ""
+        },
+        {
+          "nombre": "LIMPIEZA Y DESASOLVE DE TRANPA DE GRASA Y DRENAJE CAFETERIA OLIVA",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": ""
         }
       ]
     },
@@ -794,105 +1052,117 @@
       "name": "Seguridad y PC",
       "icon": "🛡️",
       "color": "#ef4444",
-      "total": 148,
-      "completadas": 101,
-      "enProceso": 29,
-      "enRevision": 4,
-      "noIniciadas": 14,
-      "cumplimiento": 68.2,
+      "total": 273,
+      "completadas": 167,
+      "enProceso": 88,
+      "enRevision": 6,
+      "noIniciadas": 12,
+      "cumplimiento": 61.2,
       "prioridades": {
-        "alta": 73,
-        "media": 60,
-        "baja": 1
+        "alta": 129,
+        "media": 132,
+        "baja": 3
       },
       "areas": [
         {
           "name": "proteccion civil ",
-          "value": 80
+          "value": 90
+        },
+        {
+          "name": "PROTECCION CIVIL",
+          "value": 23
+        },
+        {
+          "name": "PROTECCION CIVIL/BASICA",
+          "value": 22
+        },
+        {
+          "name": "PROTECCION CIVIL ",
+          "value": 16
+        },
+        {
+          "name": "PROTECCION CIVIL/UNIVERSIDAD",
+          "value": 16
         },
         {
           "name": "camaras de vigilancia ",
-          "value": 13
+          "value": 14
+        },
+        {
+          "name": "SEGURIDAD",
+          "value": 9
         },
         {
           "name": "proteccion ciivl ",
-          "value": 7
-        },
-        {
-          "name": "consultrio medico/basica ",
-          "value": 4
-        },
-        {
-          "name": "proteccion civl ",
-          "value": 4
-        },
-        {
-          "name": "consultorio medico/universidad",
-          "value": 3
-        },
-        {
-          "name": "seguridad ",
-          "value": 3
-        },
-        {
-          "name": "consultorio medico/basica",
-          "value": 2
+          "value": 8
         }
       ],
       "responsables": [
         {
           "name": "ISIDRO ZAVALA DE LA CRUZ",
-          "value": 43
+          "value": 99
         },
         {
           "name": "MOYSES MORALES SANTIZO",
-          "value": 16
+          "value": 40
         },
         {
           "name": "GIBRAN JALIL CORZO OVANDO",
-          "value": 15
+          "value": 28
         },
         {
           "name": "ALFONSO CASTRO PEREZ",
-          "value": 10
+          "value": 27
         },
         {
           "name": "FATIMA JOCELYN DIAZ RAMOS",
-          "value": 10
+          "value": 19
+        },
+        {
+          "name": "ANA PATRICIA BORRAS ZAMBRANO",
+          "value": 19
+        },
+        {
+          "name": "INGRID GUADALUPE AVENDAÑO GARCIA",
+          "value": 11
+        },
+        {
+          "name": "Klendy Alondra Martínez Velasco",
+          "value": 5
         },
         {
           "name": "STEPHANIE MICHELLE RODRIGUEZ VAZQUEZ",
           "value": 4
         },
         {
-          "name": "ana sambrano",
+          "name": "JESSICA ALVAREZ VELAZQUE",
           "value": 3
-        },
-        {
-          "name": "Ana patricia borras sambrano",
-          "value": 3
-        },
-        {
-          "name": "dra klendi",
-          "value": 2
-        },
-        {
-          "name": "Dra. Klendy Alondra Martínez Velasco",
-          "value": 2
         }
       ],
       "solicitantes": [
         {
+          "name": "PROTECCION CIVIL",
+          "value": 51
+        },
+        {
           "name": "proteccion civil ",
-          "value": 26
+          "value": 29
         },
         {
           "name": "direccion de basica ",
-          "value": 19
+          "value": 20
+        },
+        {
+          "name": "DIRECCION GENERAL BASICA",
+          "value": 20
         },
         {
           "name": "generales upgch",
-          "value": 13
+          "value": 18
+        },
+        {
+          "name": "PROTECCION CIVIL ",
+          "value": 8
         },
         {
           "name": "fernando arreola ",
@@ -901,18 +1171,6 @@
         {
           "name": "servicios generales ",
           "value": 7
-        },
-        {
-          "name": "generales ",
-          "value": 6
-        },
-        {
-          "name": "direccion operativa ",
-          "value": 4
-        },
-        {
-          "name": "proteccion civil",
-          "value": 3
         }
       ],
       "actividades": [
@@ -998,13 +1256,13 @@
           "nombre": "circuito salida basica",
           "estado": "COMPLETADO",
           "prioridad": "MEDIA",
-          "responsable": "ana sambrano"
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
         },
         {
           "nombre": "apoyo e talleres",
           "estado": "COMPLETADO",
           "prioridad": "MEDIA",
-          "responsable": "fatyma y ana"
+          "responsable": "FATIMA JOCELYN DIAZ RAMOS"
         },
         {
           "nombre": "seguimiento alumnos",
@@ -1040,7 +1298,7 @@
           "nombre": "verificacion de circuito externo basica/transito",
           "estado": "COMPLETADO",
           "prioridad": "ALTA",
-          "responsable": "ana sambrano"
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
         },
         {
           "nombre": "filtro de maternal",
@@ -1052,7 +1310,7 @@
           "nombre": "consultas frecuentes",
           "estado": "EN PROCESO",
           "prioridad": "MEDIA",
-          "responsable": "klendy/jessica"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "monitoreo en accesos y circuitos",
@@ -1064,7 +1322,7 @@
           "nombre": "seguimiento vapeador",
           "estado": "COMPLETADO",
           "prioridad": "MEDIA",
-          "responsable": "ana sambrano"
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
         },
         {
           "nombre": "filtro de seguridad/futbolito bimbo",
@@ -1082,7 +1340,7 @@
           "nombre": "protocolo OC evento CIES",
           "estado": "COMPLETADO",
           "prioridad": "ALTA",
-          "responsable": "isidro/gibran/fatyma"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "recorrido general estacionamientos",
@@ -1124,19 +1382,19 @@
           "nombre": "recorrido/temperatura maternal",
           "estado": "EN PROCESO",
           "prioridad": "MEDIA",
-          "responsable": "lic. jessi"
+          "responsable": "JESSICA ALVAREZ VELAZQUE"
         },
         {
           "nombre": "compresas congeladas/embolsado",
           "estado": "COMPLETADO",
           "prioridad": "MEDIA",
-          "responsable": "lic jessi"
+          "responsable": "JESSICA ALVAREZ VELAZQUE"
         },
         {
           "nombre": "recepcion de medicamentos/autorizados",
           "estado": "COMPLETADO",
           "prioridad": "MEDIA",
-          "responsable": "dra klendi"
+          "responsable": "Klendy Alondra Martínez Velasco"
         },
         {
           "nombre": "clasificacion de pases de salida/universidad",
@@ -1154,7 +1412,7 @@
           "nombre": "apoyo secundaria esguince",
           "estado": "EN PROCESO",
           "prioridad": "MEDIA",
-          "responsable": "dra klendi"
+          "responsable": "Klendy Alondra Martínez Velasco"
         },
         {
           "nombre": "archivo de bitacoras/revison seguridad",
@@ -1184,7 +1442,7 @@
           "nombre": "apoyo en la entrada de camiones",
           "estado": "EN PROCESO",
           "prioridad": "ALTA",
-          "responsable": "Moyses/alfonso"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "validacion de de oficios institucionales",
@@ -1232,7 +1490,7 @@
           "nombre": "reporte de actividades/mensual",
           "estado": "COMPLETADO",
           "prioridad": "MEDIA",
-          "responsable": "Ana patricia borras sambrano"
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
         },
         {
           "nombre": "reporte de actividades/mensual",
@@ -1274,13 +1532,13 @@
           "nombre": "reporte de actividades/mensual",
           "estado": "COMPLETADO",
           "prioridad": "MEDIA",
-          "responsable": "Dra. Klendy Alondra Martínez Velasco"
+          "responsable": "Klendy Alondra Martínez Velasco"
         },
         {
           "nombre": "reporte de actividades/mensual",
           "estado": "COMPLETADO",
           "prioridad": "MEDIA",
-          "responsable": "LIC. JESSICA ALVAREZ VELAZQUE"
+          "responsable": "JESSICA ALVAREZ VELAZQUE"
         },
         {
           "nombre": "solicitud de chalecos",
@@ -1364,7 +1622,7 @@
           "nombre": "armado de radios c10 para seguridad",
           "estado": "COMPLETADO",
           "prioridad": "ALTA",
-          "responsable": "isidro/moyses/fatyma"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "entrega de grabacion salon 300",
@@ -1388,7 +1646,7 @@
           "nombre": "entrega de radios a seguridad",
           "estado": "COMPLETADO",
           "prioridad": "ALTA",
-          "responsable": "moyses/alfonso"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "recorrido general",
@@ -1412,7 +1670,7 @@
           "nombre": "apoyo en circuito de basica ENTRADA",
           "estado": "COMPLETADO",
           "prioridad": "ALTA",
-          "responsable": "Ana patricia borras sambrano"
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
         },
         {
           "nombre": "apoyo en circuito de basica ENTRADA",
@@ -1424,7 +1682,7 @@
           "nombre": "notificacion de llegadas tardes y seguimientos",
           "estado": "COMPLETADO",
           "prioridad": "MEDIA",
-          "responsable": "fatima y ana"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "verificacion de radios de comunicacion/frecuencia PRUEBAS",
@@ -1460,7 +1718,7 @@
           "nombre": "seguimiento a reórte incedinete vehicular",
           "estado": "COMPLETADO",
           "prioridad": "ALTA",
-          "responsable": "gibran y alfonso"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "reporte de incidentes en estacionamiento",
@@ -1496,13 +1754,13 @@
           "nombre": "cierre de clausura de los CIEES",
           "estado": "COMPLETADO",
           "prioridad": "ALTA",
-          "responsable": "isidro/alfonso/moyses/fatyma"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "seguimiento a procedimiento ANTIMOTIN",
           "estado": "COMPLETADO",
           "prioridad": "ALTA",
-          "responsable": "todos"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "compra de overoles desechable para sanitizacion",
@@ -1520,7 +1778,7 @@
           "nombre": "solicitud de medicamentos",
           "estado": "COMPLETADO",
           "prioridad": "MEDIA",
-          "responsable": "isidro/klendy"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "planeacion de simulacros",
@@ -1562,7 +1820,7 @@
           "nombre": "CONTROL Y APOYO DE CIRCUITO BASICA entrada",
           "estado": "COMPLETADO",
           "prioridad": "MEDIA",
-          "responsable": "Ana patricia borras sambrano"
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
         },
         {
           "nombre": "recoleccion y orden de pases de salida",
@@ -1580,7 +1838,7 @@
           "nombre": "recorrido general colegio",
           "estado": "COMPLETADO",
           "prioridad": "MEDIA",
-          "responsable": "fatima y ana"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "delimitaciones",
@@ -1646,7 +1904,7 @@
           "nombre": "sanitizacion edifio j y d",
           "estado": "COMPLETADO",
           "prioridad": "ALTA",
-          "responsable": "isidro/moyses/alfonso"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "recorrido final general",
@@ -1664,11 +1922,11 @@
           "nombre": "sanitizacion en colegio",
           "estado": "EN PROCESO",
           "prioridad": "ALTA",
-          "responsable": "isidro/alfonso/moyses"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "elaboracion de reporte de sanitizacion 2",
-          "estado": "EN PROCESO",
+          "estado": "COMPLETADO",
           "prioridad": "MEDIA",
           "responsable": "MOYSES MORALES SANTIZO"
         },
@@ -1694,7 +1952,7 @@
           "nombre": "apoyo a eventos mujeres en accion",
           "estado": "EN PROCESO",
           "prioridad": "ALTA",
-          "responsable": "alFonso y moyses"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "recorridos generales",
@@ -1764,45 +2022,789 @@
         },
         {
           "nombre": "REPORTE AL AREA DE POPSGRADOS",
-          "estado": "nan",
-          "prioridad": "nan",
-          "responsable": "nan"
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "SEGUIMIENTO A OFIVIOS INSTITUCIONALES",
-          "estado": "nan",
-          "prioridad": "nan",
-          "responsable": "nan"
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "INGRID GUADALUPE AVENDAÑO GARCIA"
         },
         {
           "nombre": "COMCENTRACION DE REPORTES DE SIMULACROS Y CAPACITACION",
-          "estado": "nan",
-          "prioridad": "nan",
-          "responsable": "nan"
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "ATENCION A FILTROS DE SEGURIDAD",
-          "estado": "nan",
-          "prioridad": "nan",
-          "responsable": "nan"
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ALFONSO CASTRO PEREZ"
         },
         {
           "nombre": "RECEPCION DE PINTURAS BLANCA Y AZUL PARA RAMPAS",
-          "estado": "nan",
-          "prioridad": "nan",
-          "responsable": "nan"
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
         },
         {
           "nombre": "MONITOREO DE CAMARAS",
-          "estado": "nan",
-          "prioridad": "nan",
-          "responsable": "nan"
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "GIBRAN JALIL CORZO OVANDO"
         },
         {
           "nombre": "REVISION DE ALARMA SISMICA",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "PINTADO DE RAMPAS/DISCAPACITADOS",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "RECORRIDOS GENERALES EN UNIVERSIDAD",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "SEGUIMIENTO A BAJA DE COLABORADOR/GUARDIAS",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "SEGUIMIENTO A VENDEDORES AMBULANTES Y COMPRADORES ALUMNOS",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "SEGUIMEINTO EN CAMARAS BOMBA/CHOFERES",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "GIBRAN JALIL CORZO OVANDO"
+        },
+        {
+          "nombre": "ACOMPAÑAMINETO Y RESGUARDO ALUMNOS ZOOLOGICO",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "FATIMA JOCELYN DIAZ RAMOS"
+        },
+        {
+          "nombre": "SEGUIMIENTO A OFICIOS INSTITUCIONALES",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "ACOMPAÑAMIENTO A PRESCOLAR ENTREGA DE TREBOL",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
+        },
+        {
+          "nombre": "MONITOREO GENERAL DE ACCESOS",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "GIBRAN JALIL CORZO OVANDO"
+        },
+        {
+          "nombre": "DICTAMENES DE PROTECCION CIVIL SOLICITUD DE PAGO",
+          "estado": "EN REVISION/ESPERANDO VALIDACION",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "RESGUARDOS DE RADIOS C10",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "OPERATIVO REVISION MOCHILA CON K9",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "SEGUIMIENTO A ALUMNA DE PSICOLOGIA",
+          "estado": "EN REVISION/ESPERANDO VALIDACION",
+          "prioridad": "ALTA",
+          "responsable": "GIBRAN JALIL CORZO OVANDO"
+        },
+        {
+          "nombre": "seguimiento a solicitud de educacion continua/ponencia",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "acompañamiento al zoomat a alimnos de basica",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
+        },
+        {
+          "nombre": "MONITOREO GENERAL DE ACCESOS",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "GIBRAN JALIL CORZO OVANDO"
+        },
+        {
+          "nombre": "SEGUIMIENTO A CAMARAS DE CHOFER",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "GIBRAN JALIL CORZO OVANDO"
+        },
+        {
+          "nombre": "ELABORACION Y REVISION DE OFICIOS",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "INGRID GUADALUPE AVENDAÑO GARCIA"
+        },
+        {
+          "nombre": "ACOMPAÑAMINETO Y RESGUARDO ALUMNOS ZOOLOGICO",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
+        },
+        {
+          "nombre": "FILTRO DE ENTRADA A MATERNAL",
+          "estado": "NO INICIADO",
+          "prioridad": "ALTA",
+          "responsable": "Klendy Alondra Martínez Velasco"
+        },
+        {
+          "nombre": "SEGUMIENTO A DETALLE CON ALUMNO QFB",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "ELABORACION DE VALE DE ASIGNACION DE RADIOS",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "MANTENIMIENTO A RAMPAS DE DISCAPACITADO",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "PROGRAMACION DE ROL DE VACACIONES",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "SEGUIMIENTO A GUARDIAS CAMBIO DE CONSIGNA/CASAS",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "elaboracion del POA",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "NOTIFICACION Y CORROBORACION DE SALIDAS",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "auditorio general a la conmemoración al día internacional de la mujer audito",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "INGRID GUADALUPE AVENDAÑO GARCIA"
+        },
+        {
+          "nombre": "ACOMPAÑAMINETO Y RESGUARDO ALUMNOS ZOOLOGICO",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
+        },
+        {
+          "nombre": "monitoreo de camaras",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "GIBRAN JALIL CORZO OVANDO"
+        },
+        {
+          "nombre": "FILTROS DE SEGURIDAD EN LOS PUNTOS DE ACCESO",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "ENTREGA DE FORMATOS PARA REGISTROS Y BITACORAS",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "ENTREVISTA A PROSPECTO PARA GUARDIA DE SEGURIDAD",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "RECORRIDOS EN ESTACIONAMIENTO",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "REVISION DE PH Y CLORO EN CISTERNAS Y TINACOS DEL A INSTITUCION",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "SEGUIMIENTO A OFICIOS INSTITUCIONALES",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "CONDYUBAR CON CAPACITACION PARA PLANEACION DE LECHUZAS GODINEZ",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "DESIGNACION DE ACTIVIDADES AL EQUIPO",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "REVISION DE MOCHILA CON CANINOS K9",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "MANTENIMIENTO A RAMPAS DE DISCAPACITADO EDIFICIO I Y A",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "REPORTE DE SALIDAS E INGRESOS DE VISITANTES",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "MONITOREO GENERAL DE ACCESOS",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "solicitud de pago dictamenes de pc",
+          "estado": "nan",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "seguimiento a solicitud de uniformes seguridad",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "apoyo con RPBI",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "SE INICIA PROTOCOLO CON ALUMNA DE 4TO GRADO DE PRIMARIA PROBABLE VIRUS COXSACKIE",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "Klendy Alondra Martínez Velasco"
+        },
+        {
+          "nombre": "monitoreo general de accesos",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "GIBRAN JALIL CORZO OVANDO"
+        },
+        {
+          "nombre": "se entregan pases administrativos",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "fumigacion de el area de consultorio medico basica",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "FILTROS DE SEGURIDAD EN LOS PUNTOS DE ACCESO",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "REPORTE DE SALIDAS E INGRESOS DE VISITANTES",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "ENTREGA DE FORMATOS PARA REGISTROS Y BITACORAS",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "SELECCION DE NUEVO EJEMPLAR DE CHALECO DISTINTIVO",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "ENTREGA DE LISTA DE COMIDA PARA PERSONAL DE SEGURIDAD",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "SEGUIMIENTO A REQUESICION DE MATERIAL OPERATIVO",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "ALFONSO CASTRO PEREZ"
+        },
+        {
+          "nombre": "seguimiento a oficios institucionales",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "INGRID GUADALUPE AVENDAÑO GARCIA"
+        },
+        {
+          "nombre": "relacion de rol de vacaciones para semana santa",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "INGRID GUADALUPE AVENDAÑO GARCIA"
+        },
+        {
+          "nombre": "CIRCUITO DE ENTRADA NIVEL BASICO",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
+        },
+        {
+          "nombre": "recpecion de pases de alumnos",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "RECEPCION PASES DE SALIDA/BASICA",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "FATIMA JOCELYN DIAZ RAMOS"
+        },
+        {
+          "nombre": "ELABORACION DE REPORTES SALIDA EXTERNA/BASICA",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "CONTROL DE FAUNA SILVESTRE",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
+        },
+        {
+          "nombre": "Entrega de pases administrativos/SG",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "NOTIFICACION Y CORROBORACION DE ENTRADAS Y SALIDAS/BASICA",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "SANITIZACION",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "RECORRIDO GENERALES /BASICA",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "REVISION DE PH Y CLORO EN CISTERNAS Y TINACOS DEL LA INSTITUCION",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "FATIMA JOCELYN DIAZ RAMOS"
+        },
+        {
+          "nombre": "ATENCIÓN Y TRANSLADO DE CODIGO BLANCO BASICA",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "CIRCUITO DE SALIDA NIVEL BASICO",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "APOYO EN REVISION MOCHILA CON UNIDAD CANINA",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "RECORRIDO GENERAL.",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "RECEPCION DE PASES DE SALIDA DE ALUMNOS",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "RECEPCION DE PASES DE SALIDA DE ADMINISTRAYIVOS Y S.G",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "NOTIFICACION DE SALIDAS DE ALUMNOS",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "NOTIFICACION DE ENTRADA DE VISITANTES",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "IDENTIFICACIÓN DE RIESGOS.",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "APOYO EN ENTRADA Y SALIDAS EN HORAS PICO",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "CANALIZACIÓN DE PROVEEDORES",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "seguimiento de oficios institucionales",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "INGRID GUADALUPE AVENDAÑO GARCIA"
+        },
+        {
+          "nombre": "contestacion de correos y autorizaciones",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "INGRID GUADALUPE AVENDAÑO GARCIA"
+        },
+        {
+          "nombre": "solicitud de circuito de gas lp para capacitacion",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "RECORRIDO GENERAL.",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "FATIMA JOCELYN DIAZ RAMOS"
+        },
+        {
+          "nombre": "RECEPCION PASES DE SALIDA/BASICA",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "FATIMA JOCELYN DIAZ RAMOS"
+        },
+        {
+          "nombre": "APOYO EN ENTRADA Y SALIDA DE ALUMNOS DE INGLES",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "FATIMA JOCELYN DIAZ RAMOS"
+        },
+        {
+          "nombre": "RECORRIDO GENERAL",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
+        },
+        {
+          "nombre": "ANALISIS DE RIESGOS POR TRABAJOS DE TBA",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
+        },
+        {
+          "nombre": "NOTIFICACION DE ENTRADAS Y SALIDAS",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
+        },
+        {
+          "nombre": "RECORRIDO GENERAL.",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "RECEPCION DE PASES DE SALIDA DE ALUMNOS",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "RECEPCION DE PASES DE SALIDA DE ADMINISTRAYIVOS Y S.G",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "NOTIFICACION DE SALIDAS DE ALUMNOS",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "NOTIFICACION DE ENTRADA DE VISITANTES",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "IDENTIFICACIÓN DE RIESGOS.",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "APOYO EN ENTRADA Y SALIDAS EN HORAS PICO",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "CANALIZACIÓN DE PROVEEDORES",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "MOYSES MORALES SANTIZO"
+        },
+        {
+          "nombre": "organizacion de actividades diarias",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "INGRID GUADALUPE AVENDAÑO GARCIA"
+        },
+        {
+          "nombre": "MONITOREO DE CAMARAS ENTRAS Y SALIDAS DE LA INSITUCION",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "GIBRAN JALIL CORZO OVANDO"
+        },
+        {
+          "nombre": "SEGUIMIENTO A VEHICULO MAL ESTACIONADO EN EST. MEDICINA",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "GIBRAN JALIL CORZO OVANDO"
+        },
+        {
+          "nombre": "CIRCUITO DE ENTRADA NIVEL BASICO",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
+        },
+        {
+          "nombre": "FUTBOLITO BIMBO",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "HOMENAJE DE SECUNDARIA Y PREPARATORIA BASICA",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
+        },
+        {
+          "nombre": "RECEPCION DE PASES DE SALIDA NIVEL BASICO",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "FATIMA JOCELYN DIAZ RAMOS"
+        },
+        {
+          "nombre": "FILTRO DE SEGURIDAD PARA PERSONAS CITADAS A R. H.",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "GIBRAN JALIL CORZO OVANDO"
+        },
+        {
+          "nombre": "HOMENAJE DE PREESCOLAR Y PRIMARIA",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
+        },
+        {
+          "nombre": "REPORTE DE OLOR A GASOLINA EN CONSULTORIO DE BASICA",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "ANA PATRICIA BORRAS ZAMBRANO"
+        },
+        {
+          "nombre": "RECORRIDO GENERAL BASICA",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "NOTIFICACION DE ENTRADAS Y SALIDAS DE ALUMNOS",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "NOTIFICACION DE ENTRADAS DE VISITANTES",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "REVISION DE CORREOS ELECTRONICOS",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "INGRID GUADALUPE AVENDAÑO GARCIA"
+        },
+        {
+          "nombre": "CLASIFICACION DE PASES DE SALIDA NIVEL BASICO",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "FATIMA JOCELYN DIAZ RAMOS"
+        },
+        {
+          "nombre": "APOYO EN CAMPAÑA DE VACUNACION NIVEL BASICO",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "seguimiento a solicitud de pagos dictamen de PC",
+          "estado": "NO INICIADO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "soliciutu de pago POLICIA estatal",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "seguimiento a oficios institucionales",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "NOTIFICACION DE SALIDA DE ALUMNOS AUTORIZADA POR CORDINACIONES",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "GIBRAN JALIL CORZO OVANDO"
+        },
+        {
+          "nombre": "ELABORACION DE CARPETAS DE ACTIVIDADES ELABORADAS",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "INGRID GUADALUPE AVENDAÑO GARCIA"
+        },
+        {
+          "nombre": "Elaboracion de DC-3 para alumnos de la licencitura LEFD",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "REVISION DE EQUIPO SWITCH EN SITE DE ODONTOLOGIA",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": "GIBRAN JALIL CORZO OVANDO"
+        },
+        {
+          "nombre": "VACUNACIÓN EN BASICA",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "CODIGO BLANCO EN BASICA",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "entrevistas para doctora",
           "estado": "nan",
           "prioridad": "nan",
-          "responsable": "nan"
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "CIRCUITO DE SALIDA NIVEL BASICO",
+          "estado": "EN PROCESO",
+          "prioridad": "ALTA",
+          "responsable": "ISIDRO ZAVALA DE LA CRUZ"
+        },
+        {
+          "nombre": "elaboracion de oficio para requisicion de material",
+          "estado": "COMPLETADO",
+          "prioridad": "MEDIA",
+          "responsable": "INGRID GUADALUPE AVENDAÑO GARCIA"
+        },
+        {
+          "nombre": "NaT",
+          "estado": "NaT",
+          "prioridad": "NaT",
+          "responsable": "NaT"
         }
       ]
     },
@@ -1811,25 +2813,25 @@
       "name": "Gestión Espacios",
       "icon": "🏛️",
       "color": "#10b981",
-      "total": 126,
-      "completadas": 96,
-      "enProceso": 30,
+      "total": 143,
+      "completadas": 117,
+      "enProceso": 26,
       "enRevision": 0,
       "noIniciadas": 0,
-      "cumplimiento": 76.2,
+      "cumplimiento": 81.8,
       "prioridades": {
-        "alta": 8,
-        "media": 36,
-        "baja": 82
+        "alta": 11,
+        "media": 38,
+        "baja": 94
       },
       "areas": [
         {
           "name": "Auditorio General",
-          "value": 25
+          "value": 29
         },
         {
           "name": "Coordinación de gestión de espacios",
-          "value": 19
+          "value": 23
         },
         {
           "name": "Servicios Generales",
@@ -1852,15 +2854,15 @@
           "value": 4
         },
         {
-          "name": "Protección Civil",
-          "value": 3
+          "name": "Auditorio de Salud",
+          "value": 4
         }
       ],
       "responsables": [],
       "solicitantes": [
         {
           "name": "Coordinación de gestión de espacios",
-          "value": 72
+          "value": 78
         },
         {
           "name": "Departamento de compras",
@@ -1871,23 +2873,23 @@
           "value": 5
         },
         {
+          "name": "Dirección de Negocios",
+          "value": 5
+        },
+        {
+          "name": "Educación Continua",
+          "value": 4
+        },
+        {
+          "name": "Dirección de Derecho",
+          "value": 4
+        },
+        {
           "name": "Dirección de capital humano",
           "value": 4
         },
         {
           "name": "Recursos Humanos",
-          "value": 3
-        },
-        {
-          "name": "Dirección de VInculación",
-          "value": 3
-        },
-        {
-          "name": "Dirección de Derecho",
-          "value": 3
-        },
-        {
-          "name": "Dirección de Negocios",
           "value": 3
         }
       ],
@@ -2110,7 +3112,7 @@
         },
         {
           "nombre": "Seguimiento y solicitud de suministro de insumos de papelería (Laboratorios de simulación de las áre",
-          "estado": "EN PROCESO",
+          "estado": "COMPLETADO",
           "prioridad": "MEDIA",
           "responsable": ""
         },
@@ -2260,7 +3262,7 @@
         },
         {
           "nombre": "Solicitud de gafetes para alumnos en prácticas profesionales",
-          "estado": "EN PROCESO",
+          "estado": "COMPLETADO",
           "prioridad": "BAJA",
           "responsable": ""
         },
@@ -2374,13 +3376,13 @@
         },
         {
           "nombre": "Trámite y seguimiento de oficios y correos Institucionales",
-          "estado": "EN PROCESO",
+          "estado": "COMPLETADO",
           "prioridad": "BAJA",
           "responsable": ""
         },
         {
           "nombre": "Aviso a Protección Civil para acceso de proveedor (PRANATEC)",
-          "estado": "EN PROCESO",
+          "estado": "COMPLETADO",
           "prioridad": "BAJA",
           "responsable": ""
         },
@@ -2410,7 +3412,7 @@
         },
         {
           "nombre": "M03- Solicitud de reparación de aire acondicionado – Laboratorio de Simulación",
-          "estado": "EN PROCESO",
+          "estado": "COMPLETADO",
           "prioridad": "MEDIA",
           "responsable": ""
         },
@@ -2464,7 +3466,7 @@
         },
         {
           "nombre": "COMP02- Seguimiento al oficio No. UPGCH/CPE/0051/26 - Solicitud de refacciones (Odontología)",
-          "estado": "EN PROCESO",
+          "estado": "COMPLETADO",
           "prioridad": "MEDIA",
           "responsable": ""
         },
@@ -2476,7 +3478,7 @@
         },
         {
           "nombre": "Reunión de trabajo con Dirección de Operaciones",
-          "estado": "EN PROCESO",
+          "estado": "COMPLETADO",
           "prioridad": "BAJA",
           "responsable": ""
         },
@@ -2639,11 +3641,113 @@
         {
           "nombre": "Solicitud de apoyo para adquisición de insumos (Labororatorio de Quimica)",
           "estado": "COMPLETADO",
-          "prioridad": "BAJA",
+          "prioridad": "ALTA",
           "responsable": ""
         },
         {
           "nombre": "Solicitud de apoyo para adquisición de insumos (Clínica de Odontología 1y 2)",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Solicitud de apoyo para adquisición de insumos (Labororatorio de Biología)",
+          "estado": "COMPLETADO",
+          "prioridad": "ALTA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Requerimiento de equipo de cómputo/impresión",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Trámite y seguimiento de oficios y correos Institucionales",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Creación de Manual de Procesos Coordinación de Gestión de Espacios",
+          "estado": "EN PROCESO",
+          "prioridad": "MEDIA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio general: (Ciclo de conferencias: Día de la mujer)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Supervisión y soporte de auditorio general: (Ciclo de conferencias: Día de la mujer)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 26 de marzo)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Reunión con dirección general y dirección de operaciones",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio Salud 24 de marzo)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio Salud 18 de Abril)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio General 17 de Abril)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Asignación de salon junta dirección de calidad de vida 23 de marzo",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Autorización para reubicación temporal de salones Centro de idiomas sabatino",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Reunión de revisión y actualización de propuesta de espacios y manual de RPBI",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Trámite y seguimiento de oficios y correos Institucionales",
+          "estado": "EN PROCESO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Autorización espacios para diversas actividades academicas  (23mar/24mar26)",
+          "estado": "COMPLETADO",
+          "prioridad": "BAJA",
+          "responsable": ""
+        },
+        {
+          "nombre": "Gestión de reservas de auditorios (Autorización Auditorio Salud 23 de marzo)",
           "estado": "COMPLETADO",
           "prioridad": "BAJA",
           "responsable": ""
@@ -2652,16 +3756,16 @@
     }
   ],
   "totales": {
-    "actividades": 382,
-    "completadas": 282,
-    "enProceso": 70,
+    "actividades": 568,
+    "completadas": 400,
+    "enProceso": 138,
     "pendientes": 30,
-    "tasaCumplimiento": 73.8
+    "tasaCumplimiento": 70.4
   },
   "prioridades": {
-    "ALTA": 155,
-    "MEDIA": 125,
-    "BAJA": 85
+    "ALTA": 246,
+    "MEDIA": 211,
+    "BAJA": 99
   },
-  "generado": "2026-03-23 08:38:36"
+  "generado": "2026-03-23 20:02:15"
 }
